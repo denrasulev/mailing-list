@@ -1,0 +1,3610 @@
+From jenkins-dontreply at opendaylight.org  Thu Feb  1 04:16:39 2018
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Thu, 01 Feb 2018 04:16:39 +0000
+Subject: [controller-dev] [release] Autorelease oxygen failed to build
+ opendaylight-startup-archetype from controller
+Message-ID: <5a7294a7.6AgRlbreHRW9ej0x%jenkins-dontreply@opendaylight.org>
+
+Attention controller-devs,
+
+Autorelease oxygen failed to build opendaylight-startup-archetype from controller in build
+133. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-oxygen/133
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-oxygen/133/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/octet-stream
+Size: 3728 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180201/f5d4f14e/attachment.obj>
+
+From abelur at linuxfoundation.org  Thu Feb  1 05:37:15 2018
+From: abelur at linuxfoundation.org (Anil Belur)
+Date: Thu, 1 Feb 2018 15:37:15 +1000
+Subject: [controller-dev] [release] Autorelease oxygen failed to build
+ opendaylight-startup-archetype from controller
+In-Reply-To: <5a7294a7.6AgRlbreHRW9ej0x%jenkins-dontreply@opendaylight.org>
+References: <5a7294a7.6AgRlbreHRW9ej0x%jenkins-dontreply@opendaylight.org>
+Message-ID: <CAHv78iaVDx2epRUhqiV1nPgH4a=TBL6LCLwhKFbQcpHHvSVyig@mail.gmail.com>
+
+Hello Controller-dev:
+
+The below errors suggests the pom file dependencies might be breaking
+the build.
+Can anyone take a look at this and provide a fix?
+
+[INFO] [ERROR] Non-resolvable import POM: Could not find artifact
+org.opendaylight.mdsal:mdsal-artifacts:pom:2.4.0 in opendaylight-mirror (
+https://nexus.opendaylight.org/content/repositories/public/) @
+org.opendaylight.mdsal:binding-parent:0.12.0,
+/tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+line 56, column 25
+[INFO] [ERROR] Non-resolvable import POM: Could not find artifact
+org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+opendaylight-mirror (
+https://nexus.opendaylight.org/content/repositories/public/) @
+org.opendaylight.mdsal:binding-parent:0.12.0,
+/tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+line 63, column 25
+[INFO] [ERROR] 'dependencies.dependency.version' for
+org.opendaylight.mdsal:yang-binding:jar is missing. @
+org.opendaylight.mdsal:binding-parent:0.12.0,
+/tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+line 81, column 29
+[INFO] [ERROR] Non-resolvable import POM: Failure to find
+org.opendaylight.mdsal:mdsal-artifacts:pom:2.4.0 in
+https://nexus.opendaylight.org/content/repositories/public/ was cached in
+the local repository, resolution will not be reattempted until the update
+interval of opendaylight-mirror has elapsed or updates are forced @
+org.opendaylight.mdsal:binding-parent:0.12.0,
+/tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+line 56, column 25
+[INFO] [ERROR] Non-resolvable import POM: Failure to find
+org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+https://nexus.opendaylight.org/content/repositories/public/ was cached in
+the local repository, resolution will not be reattempted until the update
+interval of opendaylight-mirror has elapsed or updates are forced @
+org.opendaylight.mdsal:binding-parent:0.12.0,
+/tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+line 63, column 25
+[INFO] [ERROR] Non-resolvable import POM: Failure to find
+org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+https://nexus.opendaylight.org/content/repositories/public/ was cached in
+the local repository, resolution will not be reattempted until the update
+interval of opendaylight-mirror has elapsed or updates are forced @ line
+23, column 25
+[INFO] [ERROR] 'dependencies.dependency.version' for
+org.opendaylight.mdsal.model:odl-mdsal-models:xml:features is missing. @
+line 41, column 21
+[INFO] [ERROR] Non-resolvable import POM: Failure to find
+org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+https://nexus.opendaylight.org/content/repositories/public/ was cached in
+the local repository, resolution will not be reattempted until the update
+interval of opendaylight-mirror has elapsed or updates are forced @ line
+23, column 25
+[INFO] [ERROR] Non-resolvable import POM: Could not find artifact
+org.opendaylight.netconf:restconf-artifacts:pom:1.7.0 in
+opendaylight-mirror (
+https://nexus.opendaylight.org/content/repositories/public/) @ line 23,
+column 25
+[INFO] [ERROR] 'dependencies.dependency.version' for
+org.opendaylight.netconf:odl-restconf:xml:features is missing. @ line 34,
+column 21
+[INFO] [ERROR] Non-resolvable import POM: Failure to find
+org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+https://nexus.opendaylight.org/content/repositories/public/ was cached in
+the local repository, resolution will not be reattempted until the update
+interval of opendaylight-mirror has elapsed or updates are forced @ line
+23, column 25
+[INFO] [ERROR] Non-resolvable import POM: Failure to find
+org.opendaylight.mdsal:mdsal-artifacts:pom:2.4.0 in
+https://nexus.opendaylight.org/content/repositories/public/ was cached in
+the local repository, resolution will not be reattempted until the update
+interval of opendaylight-mirror has elapsed or updates are forced @
+org.opendaylight.mdsal:binding-parent:0.12.0,
+/tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+line 56, column 25
+
+Thanks,
+Anil
+
+On Thu, Feb 1, 2018 at 2:16 PM, Jenkins <jenkins-dontreply at opendaylight.org>
+wrote:
+
+> Attention controller-devs,
+>
+> Autorelease oxygen failed to build opendaylight-startup-archetype from
+> controller in build
+> 133. Attached is a snippet of the error message related to the
+> failure that we were able to automatically parse as well as console logs.
+>
+>
+> Console Logs:
+> https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/
+> autorelease-release-oxygen/133
+>
+> Jenkins Build:
+> https://jenkins.opendaylight.org/releng/job/autorelease-
+> release-oxygen/133/
+>
+> Please review and provide an ETA on when a fix will be available.
+>
+> Thanks,
+> ODL releng/autorelease team
+>
+>
+> _______________________________________________
+> release mailing list
+> release at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/release
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180201/712315af/attachment.html>
+
+From vorburger at redhat.com  Thu Feb  1 11:27:57 2018
+From: vorburger at redhat.com (Michael Vorburger)
+Date: Thu, 1 Feb 2018 12:27:57 +0100
+Subject: [controller-dev] [release] Autorelease oxygen failed to build
+ opendaylight-startup-archetype from controller
+In-Reply-To: <CAHv78iaVDx2epRUhqiV1nPgH4a=TBL6LCLwhKFbQcpHHvSVyig@mail.gmail.com>
+References: <5a7294a7.6AgRlbreHRW9ej0x%jenkins-dontreply@opendaylight.org>
+	<CAHv78iaVDx2epRUhqiV1nPgH4a=TBL6LCLwhKFbQcpHHvSVyig@mail.gmail.com>
+Message-ID: <CACeyj_Gnx2v0_ae3PHtmNPZdS-xXW2Jox+AnYP4Pm4erQRXa7w@mail.gmail.com>
+
+On Thu, Feb 1, 2018 at 6:37 AM, Anil Belur <abelur at linuxfoundation.org>
+wrote:
+
+> Hello Controller-dev:
+>
+> The below errors suggests the pom file dependencies might be breaking
+> the build.
+> Can anyone take a look at this and provide a fix?
+>
+
+I'm puzzled, because this worked (and autorelease passed) until very very
+recently... am trying to understand the context here - version bumps? New
+releases?
+
+
+> [INFO] [ERROR] Non-resolvable import POM: Could not find artifact
+> org.opendaylight.mdsal:mdsal-artifacts:pom:2.4.0 in opendaylight-mirror (
+> https://nexus.opendaylight.org/content/repositories/public/) @
+> org.opendaylight.mdsal:binding-parent:0.12.0,
+> /tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+> line 56, column 25
+> [INFO] [ERROR] Non-resolvable import POM: Could not find artifact
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+> opendaylight-mirror (https://nexus.opendaylight.org/content/repositories/
+> public/) @ org.opendaylight.mdsal:binding-parent:0.12.0,
+> /tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+> line 63, column 25
+> [INFO] [ERROR] 'dependencies.dependency.version' for
+> org.opendaylight.mdsal:yang-binding:jar is missing. @
+> org.opendaylight.mdsal:binding-parent:0.12.0,
+> /tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+> line 81, column 29
+> [INFO] [ERROR] Non-resolvable import POM: Failure to find
+> org.opendaylight.mdsal:mdsal-artifacts:pom:2.4.0 in
+> https://nexus.opendaylight.org/content/repositories/public/ was cached in
+> the local repository, resolution will not be reattempted until the update
+> interval of opendaylight-mirror has elapsed or updates are forced @
+> org.opendaylight.mdsal:binding-parent:0.12.0,
+> /tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+> line 56, column 25
+> [INFO] [ERROR] Non-resolvable import POM: Failure to find
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+> https://nexus.opendaylight.org/content/repositories/public/ was cached in
+> the local repository, resolution will not be reattempted until the update
+> interval of opendaylight-mirror has elapsed or updates are forced @
+> org.opendaylight.mdsal:binding-parent:0.12.0,
+> /tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+> line 63, column 25
+> [INFO] [ERROR] Non-resolvable import POM: Failure to find
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+> https://nexus.opendaylight.org/content/repositories/public/ was cached in
+> the local repository, resolution will not be reattempted until the update
+> interval of opendaylight-mirror has elapsed or updates are forced @ line
+> 23, column 25
+> [INFO] [ERROR] 'dependencies.dependency.version' for
+> org.opendaylight.mdsal.model:odl-mdsal-models:xml:features is missing. @
+> line 41, column 21
+> [INFO] [ERROR] Non-resolvable import POM: Failure to find
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+> https://nexus.opendaylight.org/content/repositories/public/ was cached in
+> the local repository, resolution will not be reattempted until the update
+> interval of opendaylight-mirror has elapsed or updates are forced @ line
+> 23, column 25
+> [INFO] [ERROR] Non-resolvable import POM: Could not find artifact
+> org.opendaylight.netconf:restconf-artifacts:pom:1.7.0 in
+> opendaylight-mirror (https://nexus.opendaylight.org/content/repositories/
+> public/) @ line 23, column 25
+> [INFO] [ERROR] 'dependencies.dependency.version' for
+> org.opendaylight.netconf:odl-restconf:xml:features is missing. @ line 34,
+> column 21
+> [INFO] [ERROR] Non-resolvable import POM: Failure to find
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0 in
+> https://nexus.opendaylight.org/content/repositories/public/ was cached in
+> the local repository, resolution will not be reattempted until the update
+> interval of opendaylight-mirror has elapsed or updates are forced @ line
+> 23, column 25
+> [INFO] [ERROR] Non-resolvable import POM: Failure to find
+> org.opendaylight.mdsal:mdsal-artifacts:pom:2.4.0 in
+> https://nexus.opendaylight.org/content/repositories/public/ was cached in
+> the local repository, resolution will not be reattempted until the update
+> interval of opendaylight-mirror has elapsed or updates are forced @
+> org.opendaylight.mdsal:binding-parent:0.12.0,
+> /tmp/r/org/opendaylight/mdsal/binding-parent/0.12.0/binding-parent-0.12.0.pom,
+> line 56, column 25
+>
+> Thanks,
+> Anil
+>
+> On Thu, Feb 1, 2018 at 2:16 PM, Jenkins <jenkins-dontreply@
+> opendaylight.org> wrote:
+>
+>> Attention controller-devs,
+>>
+>> Autorelease oxygen failed to build opendaylight-startup-archetype from
+>> controller in build
+>> 133. Attached is a snippet of the error message related to the
+>> failure that we were able to automatically parse as well as console logs.
+>>
+>>
+>> Console Logs:
+>> https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/a
+>> utorelease-release-oxygen/133
+>>
+>> Jenkins Build:
+>> https://jenkins.opendaylight.org/releng/job/autorelease-rele
+>> ase-oxygen/133/
+>>
+>> Please review and provide an ETA on when a fix will be available.
+>>
+>> Thanks,
+>> ODL releng/autorelease team
+>>
+>>
+>> _______________________________________________
+>> release mailing list
+>> release at lists.opendaylight.org
+>> https://lists.opendaylight.org/mailman/listinfo/release
+>>
+>>
+>
+> _______________________________________________
+> controller-dev mailing list
+> controller-dev at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/controller-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180201/beed0e3d/attachment-0001.html>
+
+From nite at hq.sk  Thu Feb  1 11:50:58 2018
+From: nite at hq.sk (Robert Varga)
+Date: Thu, 1 Feb 2018 12:50:58 +0100
+Subject: [controller-dev] [release] Autorelease oxygen failed to build
+ opendaylight-startup-archetype from controller
+In-Reply-To: <CACeyj_Gnx2v0_ae3PHtmNPZdS-xXW2Jox+AnYP4Pm4erQRXa7w@mail.gmail.com>
+References: <5a7294a7.6AgRlbreHRW9ej0x%jenkins-dontreply@opendaylight.org>
+	<CAHv78iaVDx2epRUhqiV1nPgH4a=TBL6LCLwhKFbQcpHHvSVyig@mail.gmail.com>
+	<CACeyj_Gnx2v0_ae3PHtmNPZdS-xXW2Jox+AnYP4Pm4erQRXa7w@mail.gmail.com>
+Message-ID: <a047b1ef-71d1-2c4a-3f8a-c7ec4552342f@hq.sk>
+
+On 01/02/18 12:27, Michael Vorburger wrote:
+> On Thu, Feb 1, 2018 at 6:37 AM, Anil Belur <abelur at linuxfoundation.org
+> <mailto:abelur at linuxfoundation.org>> wrote:
+> 
+>     Hello Controller-dev:
+> 
+>     The below errors suggests the pom file dependencies might be
+>     breaking the?build.?
+>     Can anyone take a look at this and provide a fix??
+> 
+> 
+> I'm puzzled, because this worked (and autorelease passed) until very
+> very recently... am trying to understand the context here - version
+> bumps? New releases?
+
+This is rather simple: it works on verify/merge because it is pulling
+things from nexus, where they have been populated by mdsal-merge jobs.
+
+The project does not list a dependency on mdsal-model-sources, hence
+that artifact is not built in autorelease until after the archetype:
+
+[INFO] archetypes-parent .................................. SUCCESS [
+1.964 s]
+[INFO] opendaylight-startup-archetype ..................... FAILURE [
+6.915 s]
+[INFO] controller ......................................... SKIPPED
+
+[...]
+
+[INFO] features-mdsal-model-aggregator .................... SKIPPED
+[INFO] mdsal-model-artifacts .............................. SKIPPED
+[INFO] iana-if-type ....................................... SKIPPED
+
+Bye,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180201/02404003/attachment.sig>
+
+From vorburger at redhat.com  Thu Feb  1 14:11:07 2018
+From: vorburger at redhat.com (Michael Vorburger)
+Date: Thu, 1 Feb 2018 15:11:07 +0100
+Subject: [controller-dev] [release] Autorelease oxygen failed to build
+ opendaylight-startup-archetype from controller
+In-Reply-To: <a047b1ef-71d1-2c4a-3f8a-c7ec4552342f@hq.sk>
+References: <5a7294a7.6AgRlbreHRW9ej0x%jenkins-dontreply@opendaylight.org>
+	<CAHv78iaVDx2epRUhqiV1nPgH4a=TBL6LCLwhKFbQcpHHvSVyig@mail.gmail.com>
+	<CACeyj_Gnx2v0_ae3PHtmNPZdS-xXW2Jox+AnYP4Pm4erQRXa7w@mail.gmail.com>
+	<a047b1ef-71d1-2c4a-3f8a-c7ec4552342f@hq.sk>
+Message-ID: <CACeyj_GBQBncSYXxphhb-WwG3TRrh2cyvWq+fAF1ZPdd1z-Qsg@mail.gmail.com>
+
+On Thu, Feb 1, 2018 at 12:50 PM, Robert Varga <nite at hq.sk> wrote:
+
+> On 01/02/18 12:27, Michael Vorburger wrote:
+> > On Thu, Feb 1, 2018 at 6:37 AM, Anil Belur <abelur at linuxfoundation.org
+> > <mailto:abelur at linuxfoundation.org>> wrote:
+> >
+> >     Hello Controller-dev:
+> >
+> >     The below errors suggests the pom file dependencies might be
+> >     breaking the build.
+> >     Can anyone take a look at this and provide a fix?
+> >
+> >
+> > I'm puzzled, because this worked (and autorelease passed) until very
+> > very recently... am trying to understand the context here - version
+> > bumps? New releases?
+>
+
+Why is the merge https://git.opendaylight.org/gerrit/#/c/65941/ (based on
+https://git.opendaylight.org/gerrit/#/c/39484/) that went in 10 days ago
+popping up as a problem only now? We've had successful autorelease builds
+since then.
+
+
+> This is rather simple: it works on verify/merge because it is pulling
+> things from nexus, where they have been populated by mdsal-merge jobs.
+>
+
+Thanks a lot for the hint, I think I see what you are getting at... as this
+probablem doesn't show up outside of autorelease, for a reliable fix we
+should reproduce locally. I've no idea if how run whatever script produces
+those version replacements that drop SNAPSHOT locally. But I'm guessing
+running autorelease with -P!opendaylight-snapshots (tx skitt!) and that mvn
+option to only build what the archetype depends on should lead to a similar
+effect and also fail locally? I will try to do that...
+
+BTW: Can anyone think of any smart way to make this fail fast outside of
+autorelease during regular validate jobs? More for future non-regression
+than for fixing this in the short term. Because I feel even after we fix
+this, it will hit us again, every time we change some dependency of the
+archetype. Validate will pass, we'll merge, and boum possibly break
+autorelease again.
+
+
+> The project does not list a dependency on mdsal-model-sources, hence
+> that artifact is not built in autorelease until after the archetype:
+>
+
+So where would we best add these dependencies we need to "help" Maven
+figure out the dependency tree correctly? Are we saying we need to (today
+and remember in the future...) put everything that the archetype needs into
+a <dependencies> in controller/opendaylight/archetypes/pom.xml ?
+
+
+> [INFO] archetypes-parent .................................. SUCCESS [
+> 1.964 s]
+> [INFO] opendaylight-startup-archetype ..................... FAILURE [
+> 6.915 s]
+> [INFO] controller ......................................... SKIPPED
+>
+> [...]
+>
+> [INFO] features-mdsal-model-aggregator .................... SKIPPED
+> [INFO] mdsal-model-artifacts .............................. SKIPPED
+> [INFO] iana-if-type ....................................... SKIPPED
+>
+> Bye,
+> Robert
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180201/350e3d72/attachment.html>
+
+From skitt at redhat.com  Thu Feb  1 14:26:20 2018
+From: skitt at redhat.com (Stephen Kitt)
+Date: Thu, 1 Feb 2018 15:26:20 +0100
+Subject: [controller-dev] [release] Autorelease oxygen failed to build
+ opendaylight-startup-archetype from controller
+In-Reply-To: <CACeyj_GBQBncSYXxphhb-WwG3TRrh2cyvWq+fAF1ZPdd1z-Qsg@mail.gmail.com>
+References: <5a7294a7.6AgRlbreHRW9ej0x%jenkins-dontreply@opendaylight.org>
+	<CAHv78iaVDx2epRUhqiV1nPgH4a=TBL6LCLwhKFbQcpHHvSVyig@mail.gmail.com>
+	<CACeyj_Gnx2v0_ae3PHtmNPZdS-xXW2Jox+AnYP4Pm4erQRXa7w@mail.gmail.com>
+	<a047b1ef-71d1-2c4a-3f8a-c7ec4552342f@hq.sk>
+	<CACeyj_GBQBncSYXxphhb-WwG3TRrh2cyvWq+fAF1ZPdd1z-Qsg@mail.gmail.com>
+Message-ID: <20180201152620.1d5dc63e@skrht450s.lan>
+
+On Thu, 1 Feb 2018 15:11:07 +0100
+Michael Vorburger <vorburger at redhat.com> wrote:
+> On Thu, Feb 1, 2018 at 12:50 PM, Robert Varga <nite at hq.sk> wrote:
+> > The project does not list a dependency on mdsal-model-sources, hence
+> > that artifact is not built in autorelease until after the archetype:
+> 
+> So where would we best add these dependencies we need to "help" Maven
+> figure out the dependency tree correctly? Are we saying we need to
+> (today and remember in the future...) put everything that the
+> archetype needs into a <dependencies> in
+> controller/opendaylight/archetypes/pom.xml ?
+
+Heh, this is what we discussed in the kernel call a couple of weeks
+ago: we ultimately need to move the archetype out of controller... (Or
+is this already the simplified archetype?)
+
+However in this case, yes, we probably need additional mdsal
+dependencies in the archetype (which is OK since controller depends on
+mdsal anyway).
+
+Regards,
+
+Stephen
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 833 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180201/40db3aee/attachment.sig>
+
+From nite at hq.sk  Thu Feb  1 14:57:12 2018
+From: nite at hq.sk (Robert Varga)
+Date: Thu, 1 Feb 2018 15:57:12 +0100
+Subject: [controller-dev] [release] Autorelease oxygen failed to build
+ opendaylight-startup-archetype from controller
+In-Reply-To: <20180201152620.1d5dc63e@skrht450s.lan>
+References: <5a7294a7.6AgRlbreHRW9ej0x%jenkins-dontreply@opendaylight.org>
+	<CAHv78iaVDx2epRUhqiV1nPgH4a=TBL6LCLwhKFbQcpHHvSVyig@mail.gmail.com>
+	<CACeyj_Gnx2v0_ae3PHtmNPZdS-xXW2Jox+AnYP4Pm4erQRXa7w@mail.gmail.com>
+	<a047b1ef-71d1-2c4a-3f8a-c7ec4552342f@hq.sk>
+	<CACeyj_GBQBncSYXxphhb-WwG3TRrh2cyvWq+fAF1ZPdd1z-Qsg@mail.gmail.com>
+	<20180201152620.1d5dc63e@skrht450s.lan>
+Message-ID: <e50afbb2-9982-311d-35ff-1ffc585d52c0@hq.sk>
+
+On 01/02/18 15:26, Stephen Kitt wrote:
+> On Thu, 1 Feb 2018 15:11:07 +0100
+> Michael Vorburger <vorburger at redhat.com> wrote:
+>> On Thu, Feb 1, 2018 at 12:50 PM, Robert Varga <nite at hq.sk> wrote:
+>>> The project does not list a dependency on mdsal-model-sources, hence
+>>> that artifact is not built in autorelease until after the archetype:
+>> So where would we best add these dependencies we need to "help" Maven
+>> figure out the dependency tree correctly? Are we saying we need to
+>> (today and remember in the future...) put everything that the
+>> archetype needs into a <dependencies> in
+>> controller/opendaylight/archetypes/pom.xml ?
+> Heh, this is what we discussed in the kernel call a couple of weeks
+> ago: we ultimately need to move the archetype out of controller... (Or
+> is this already the simplified archetype?)
+> 
+> However in this case, yes, we probably need additional mdsal
+> dependencies in the archetype (which is OK since controller depends on
+> mdsal anyway).
+
+... so essentially you need to scope=test dependencies which are used by
+the test, which includes all base ODL artifacts referenced by whatever
+the artifact generates. I suspect this will end up being a short list
+due to transitive dependencies.
+
+Bye,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180201/ff2b5aa9/attachment.sig>
+
+From vorburger at redhat.com  Thu Feb  1 20:13:13 2018
+From: vorburger at redhat.com (Michael Vorburger)
+Date: Thu, 1 Feb 2018 21:13:13 +0100
+Subject: [controller-dev] [release] Autorelease oxygen failed to build
+ opendaylight-startup-archetype from controller
+In-Reply-To: <e50afbb2-9982-311d-35ff-1ffc585d52c0@hq.sk>
+References: <5a7294a7.6AgRlbreHRW9ej0x%jenkins-dontreply@opendaylight.org>
+	<CAHv78iaVDx2epRUhqiV1nPgH4a=TBL6LCLwhKFbQcpHHvSVyig@mail.gmail.com>
+	<CACeyj_Gnx2v0_ae3PHtmNPZdS-xXW2Jox+AnYP4Pm4erQRXa7w@mail.gmail.com>
+	<a047b1ef-71d1-2c4a-3f8a-c7ec4552342f@hq.sk>
+	<CACeyj_GBQBncSYXxphhb-WwG3TRrh2cyvWq+fAF1ZPdd1z-Qsg@mail.gmail.com>
+	<20180201152620.1d5dc63e@skrht450s.lan>
+	<e50afbb2-9982-311d-35ff-1ffc585d52c0@hq.sk>
+Message-ID: <CACeyj_HM_iDd8HupynuwKczZGO+1BpHTZ7bpV=+woLe_P_NDvQ@mail.gmail.com>
+
+> Why is the merge https://git.opendaylight.org/gerrit/#/c/65941/ that went
+in 10 days ago popping up as a problem only now?
+
+I now understand the
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/controller-validate-autorelease-oxygen/243
+job on https://git.opendaylight.org/gerrit/#/c/65941/ could not have
+detected this; this is one problem we would only hit after merge. (And
+that's bad and we should think about how to improve that.)
+
+What I still do not understand is how autorelease was ignored in the last
+10 days. Heck, if I understand
+https://jenkins.opendaylight.org/releng/job/autorelease-release-oxygen/buildTimeTrend
+correctly, did we not have a working autorelease in Oxygen in 30 days??
+
+The short term fix https://git.opendaylight.org/gerrit/#/c/67821/ is
+already merged (thanks Stephen); read on for the real fix:
+
+On Thu, Feb 1, 2018 at 3:57 PM, Robert Varga <nite at hq.sk> wrote:
+
+> On 01/02/18 15:26, Stephen Kitt wrote:
+> > On Thu, 1 Feb 2018 15:11:07 +0100
+> > Michael Vorburger <vorburger at redhat.com> wrote:
+> >> On Thu, Feb 1, 2018 at 12:50 PM, Robert Varga <nite at hq.sk> wrote:
+> >>> The project does not list a dependency on mdsal-model-sources, hence
+> >>> that artifact is not built in autorelease until after the archetype:
+> >> So where would we best add these dependencies we need to "help" Maven
+> >> figure out the dependency tree correctly? Are we saying we need to
+> >> (today and remember in the future...) put everything that the
+> >> archetype needs into a <dependencies> in
+> >> controller/opendaylight/archetypes/pom.xml ?
+> > Heh, this is what we discussed in the kernel call a couple of weeks
+> > ago: we ultimately need to move the archetype out of controller... (Or
+> > is this already the simplified archetype?)
+> >
+> > However in this case, yes, we probably need additional mdsal
+> > dependencies in the archetype (which is OK since controller depends on
+> > mdsal anyway).
+>
+> ... so essentially you need to scope=test dependencies which are used by
+> the test, which includes all base ODL artifacts referenced by whatever
+> the artifact generates. I suspect this will end up being a short list
+> due to transitive dependencies.
+>
+
+FYI I've finally managed to reproduce this locally; documented how to on
+https://github.com/vorburger/opendaylight-repo#how-to-build-odl-autorelease.
+
+https://git.opendaylight.org/gerrit/#/c/67833/ fixes it for good (and
+un-does the disable quick fix c/67821). That POM could possibly do with a
+bit of clean up, but I've had (more than) enough of this; let's get this in
+as-is, please; if it can be cleaned up, others are welcome to raise follow
+up changes. But remember, your follow-up change will pass but autorelease
+could then still break after merge... ;-)
+
+> Heh, this is what we discussed in the kernel call a couple of weeks
+> ago: we ultimately need to move the archetype out of controller... (Or
+> is this already the simplified archetype?)
+
+I actually don't think this would help for the specific problem here; even
+if it was a separate project, that was part of autorelease, it would need
+this (c/67833).
+
+What would help, I think, is not having the archetype as
+controller/opendaylight/archetypes/opendaylight-startup/src/main/resources/archetype-resources/,
+but as a "real project" ... That would also make it much easier to
+maintain, and then using
+http://maven.apache.org/archetype/maven-archetype-plugin/create-from-project-mojo.html
+(during the build) to create the archetype from that live real project.
+Anyone wants to explore that? ;-)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180201/d67848be/attachment-0001.html>
+
+From jenkins-dontreply at opendaylight.org  Mon Feb  5 00:34:06 2018
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Mon, 05 Feb 2018 00:34:06 +0000
+Subject: [controller-dev] [release] Autorelease nitrogen failed to build
+ blueprint from controller
+Message-ID: <5a77a67e.ndp89odfpsFuqw8R%jenkins-dontreply@opendaylight.org>
+
+Attention controller-devs,
+
+Autorelease nitrogen failed to build blueprint from controller in build
+384. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-nitrogen/384
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-nitrogen/384/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/octet-stream
+Size: 1306 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180205/c6ebaa1f/attachment.obj>
+
+From nite at hq.sk  Mon Feb  5 01:58:54 2018
+From: nite at hq.sk (Robert Varga)
+Date: Mon, 5 Feb 2018 02:58:54 +0100
+Subject: [controller-dev] [release] Autorelease nitrogen failed to build
+ blueprint from controller
+In-Reply-To: <5a77a67e.ndp89odfpsFuqw8R%jenkins-dontreply@opendaylight.org>
+References: <5a77a67e.ndp89odfpsFuqw8R%jenkins-dontreply@opendaylight.org>
+Message-ID: <98df1cfe-cd8c-f546-d976-2103812ab887@hq.sk>
+
+On 05/02/18 01:34, Jenkins wrote:
+> Attention controller-devs,
+> 
+> Autorelease nitrogen failed to build blueprint from controller in build
+> 384. Attached is a snippet of the error message related to the
+> failure that we were able to automatically parse as well as console logs.
+
+releng-dev: this build includes correct BFA, which could be improved
+with some regex work, like extracting below snippet, which would make
+this email a lot more useful. Can we put it on a backlog somewhere?
+
+> Console Logs:
+> https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-nitrogen/384
+
+404
+
+> 
+> Jenkins Build:
+> https://jenkins.opendaylight.org/releng/job/autorelease-release-nitrogen/384/
+
+Console here shows:
+
+> [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:compile (default-compile) on project blueprint: Compilation failure: Compilation failure:
+> 01:34:01 [ERROR] /w/workspace/autorelease-release-nitrogen/controller/opendaylight/blueprint/src/main/java/org/opendaylight/controller/blueprint/BlueprintBundleTracker.java:[21,44] package org.apache.aries.quiesce.participant does not exist
+> 01:34:01 [ERROR] /w/workspace/autorelease-release-nitrogen/controller/opendaylight/blueprint/src/main/java/org/opendaylight/controller/blueprint/BlueprintBundleTracker.java:[22,29] package org.apache.aries.util does not exist
+> 01:34:01 [ERROR] /w/workspace/autorelease-release-nitrogen/controller/opendaylight/blueprint/src/main/java/org/opendaylight/controller/blueprint/BlueprintBundleTracker.java:[59,28] cannot find symbol
+> 01:34:01 [ERROR] symbol:   class QuiesceParticipant
+> 01:34:01 [ERROR] location: class org.opendaylight.controller.blueprint.BlueprintBundleTracker
+[...]
+
+Tom, can you take a look?
+
+Regards,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180205/725e9523/attachment.sig>
+
+From thanh.ha at linuxfoundation.org  Mon Feb  5 18:37:19 2018
+From: thanh.ha at linuxfoundation.org (Thanh Ha)
+Date: Mon, 5 Feb 2018 13:37:19 -0500
+Subject: [controller-dev] [release] Autorelease nitrogen failed to build
+	blueprint from controller
+In-Reply-To: <98df1cfe-cd8c-f546-d976-2103812ab887@hq.sk>
+References: <5a77a67e.ndp89odfpsFuqw8R%jenkins-dontreply@opendaylight.org>
+	<98df1cfe-cd8c-f546-d976-2103812ab887@hq.sk>
+Message-ID: <CAEXadNp3T-Uq9xSvu6z0G+dC0FZuOy4hzqg6qQhi+HRv6MvwRQ@mail.gmail.com>
+
+On Sun, Feb 4, 2018 at 8:58 PM, Robert Varga <nite at hq.sk> wrote:
+
+> On 05/02/18 01:34, Jenkins wrote:
+> > Attention controller-devs,
+> >
+> > Autorelease nitrogen failed to build blueprint from controller in build
+> > 384. Attached is a snippet of the error message related to the
+> > failure that we were able to automatically parse as well as console logs.
+>
+> releng-dev: this build includes correct BFA, which could be improved
+> with some regex work, like extracting below snippet, which would make
+> this email a lot more useful. Can we put it on a backlog somewhere?
+>
+> > Console Logs:
+> > https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/
+> autorelease-release-nitrogen/384
+>
+> 404
+>
+
+This was caused by the infra inodes issue described here:
+
+https://lists.opendaylight.org/pipermail/infrastructure/2018-February/000917.html
+
+
+Thanh
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180205/845375d3/attachment.html>
+
+From Xingjun.Chu at huawei.com  Mon Feb  5 20:08:20 2018
+From: Xingjun.Chu at huawei.com (Xingjun Chu)
+Date: Mon, 5 Feb 2018 20:08:20 +0000
+Subject: [controller-dev] compiling error about mdsal-eos-binding-adapter
+ snapshot dependency when switch to odlparent 3.0.2
+Message-ID: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+
+Hi controller project,
+
+I try to switch to YANGTOOL 2.0.0 by using odlparent 3.0.2 according to release requirements, but I got an compilation error as below . And I found the following snapshot not exists at all. Any ideas?
+
+Thanks
+Xingjun
+
+
+Failed to execute goal on project odl-faas-fabric: Could not resolve dependencies for project org.opendaylight.faas:odl-faas-fabric:feature:1.4.0-SNAPSHOT: Failure to find org.opendaylight.mdsal:mdsal-eos-binding-adapter:jar:2.4.0-20180205.135154-105 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced -> [Help 1]
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180205/c53a2686/attachment.html>
+
+From nite at hq.sk  Tue Feb  6 00:38:45 2018
+From: nite at hq.sk (Robert Varga)
+Date: Tue, 6 Feb 2018 01:38:45 +0100
+Subject: [controller-dev] FW: IncorrectNestingException while trying to
+ write augmented instructions
+In-Reply-To: <AM4PR07MB1668C48C30B85AAF7D41E64A95870@AM4PR07MB1668.eurprd07.prod.outlook.com>
+References: <AM4PR07MB16683DC1168E69D1DDBD7E7D95870@AM4PR07MB1668.eurprd07.prod.outlook.com>
+	<1481281889560.6373@Brocade.com>
+	<AM4PR07MB1668C48C30B85AAF7D41E64A95870@AM4PR07MB1668.eurprd07.prod.outlook.com>
+Message-ID: <84de4559-9058-8bef-be8a-d82f685f8571@hq.sk>
+
+On 09/12/16 12:13, Faseela K wrote:
+> ?Hi ,
+
+Hello Faseela,
+
+I have just found this email in my backlog...
+
+> 
+> ? We have been stuck with an exception for so long, not knowing how to fix.?
+> 
+> ?We have a container which uses opendaylight-flow-types:instruction-list[0]
+> 
+> Whenever we try to populate this list with an instruction which is
+> augmented from the base[1], it is throwing the below error, any pointers?
+> 
+> ?
+> 
+> ?
+> org.opendaylight.yangtools.binding.data.codec.impl.IncorrectNestingException:
+> Supplied class interface
+> org.opendaylight.yang.gen.v1.urn.opendaylight.openflowplugin.extension.nicira.action.rev140714.nodes.node.table.flow.instructions.instruction.instruction.apply.actions._case.apply.actions.action.action.NxActionRegLoadNodesNodeTableFlowApplyActionsCase
+> is not valid case^M
+
+[...]
+
+> [1] augment
+> "/inv:nodes/inv:node/fni:table/fni:flow/fni:instructions/fni:instruction/fni:instruction/fni:apply-actions-case/fni:apply-actions/fni:action/fni:action"
+> {
+> 
+> ??????? case "nx-action-reg-load-nodes-node-table-flow-apply-actions-case" {
+> 
+> ??????????? uses nx-action-reg-load-grouping;
+> 
+> ??????? }
+> 
+> ??? }
+
+augment-choice-case-uses, this one is probably a troubled one (although
+it is missing union to the party).
+
+Does this happen with Nitrogen/Oxygen? If so, can you file a bug for
+MDSAL, component 'Binding V1 runtime' with steps to reproduce and a
+current stack trace, please?
+
+Thanks,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/d57437b0/attachment.sig>
+
+From faseela.k at ericsson.com  Tue Feb  6 01:41:46 2018
+From: faseela.k at ericsson.com (Faseela K)
+Date: Tue, 6 Feb 2018 01:41:46 +0000
+Subject: [controller-dev] FW: IncorrectNestingException while trying to
+ write augmented instructions
+In-Reply-To: <84de4559-9058-8bef-be8a-d82f685f8571@hq.sk>
+References: <AM4PR07MB16683DC1168E69D1DDBD7E7D95870@AM4PR07MB1668.eurprd07.prod.outlook.com>
+	<1481281889560.6373@Brocade.com>
+	<AM4PR07MB1668C48C30B85AAF7D41E64A95870@AM4PR07MB1668.eurprd07.prod.outlook.com>
+	<84de4559-9058-8bef-be8a-d82f685f8571@hq.sk>
+Message-ID: <AM4PR07MB309137EB8644979D5CA92E7D95FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+
+Robert,
+   As far as I remember, the issue was with the code whatever we had, and we corrected it.
+   Deepthi will be able to give more inputs, if I am missing anything.
+Thanks,
+Faseela
+
+-----Original Message-----
+From: Robert Varga [mailto:nite at hq.sk] 
+Sent: Tuesday, February 06, 2018 6:09 AM
+To: Faseela K <faseela.k at ericsson.com>; controller-dev at lists.opendaylight.org
+Cc: Deepthi V V <deepthi.v.v at ericsson.com>; Yugandhar Sarraju <yugandhar.s at altencalsoftlabs.com>; D Arunprakash <d.arunprakash at ericsson.com>
+Subject: Re: [controller-dev] FW: IncorrectNestingException while trying to write augmented instructions
+
+On 09/12/16 12:13, Faseela K wrote:
+> ?Hi ,
+
+Hello Faseela,
+
+I have just found this email in my backlog...
+
+> 
+> ? We have been stuck with an exception for so long, not knowing how to 
+> fix.
+> 
+> ?We have a container which uses 
+> opendaylight-flow-types:instruction-list[0]
+> 
+> Whenever we try to populate this list with an instruction which is 
+> augmented from the base[1], it is throwing the below error, any pointers?
+> 
+> ?
+> 
+> ?
+> org.opendaylight.yangtools.binding.data.codec.impl.IncorrectNestingException:
+> Supplied class interface
+> org.opendaylight.yang.gen.v1.urn.opendaylight.openflowplugin.extension
+> .nicira.action.rev140714.nodes.node.table.flow.instructions.instructio
+> n.instruction.apply.actions._case.apply.actions.action.action.NxAction
+> RegLoadNodesNodeTableFlowApplyActionsCase
+> is not valid case^M
+
+[...]
+
+> [1] augment
+> "/inv:nodes/inv:node/fni:table/fni:flow/fni:instructions/fni:instruction/fni:instruction/fni:apply-actions-case/fni:apply-actions/fni:action/fni:action"
+> {
+> 
+> ??????? case 
+> "nx-action-reg-load-nodes-node-table-flow-apply-actions-case" {
+> 
+> ??????????? uses nx-action-reg-load-grouping;
+> 
+> ??????? }
+> 
+> ??? }
+
+augment-choice-case-uses, this one is probably a troubled one (although it is missing union to the party).
+
+Does this happen with Nitrogen/Oxygen? If so, can you file a bug for MDSAL, component 'Binding V1 runtime' with steps to reproduce and a current stack trace, please?
+
+Thanks,
+Robert
+
+
+From faseela.k at ericsson.com  Tue Feb  6 01:44:13 2018
+From: faseela.k at ericsson.com (Faseela K)
+Date: Tue, 6 Feb 2018 01:44:13 +0000
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+Message-ID: <AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+
+Hi Xingjun,
+  We had some issues with nexus yesterday, and Thanh has indicated that things should be stable now.
+  Could you please check if you are hitting the issue now?
+Thanks,
+Faseela
+
+From: controller-dev-bounces at lists.opendaylight.org [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Xingjun Chu
+Sent: Tuesday, February 06, 2018 1:38 AM
+To: controller-dev <controller-dev at lists.opendaylight.org>; mdsal-dev at lists.opendaylight.org
+Cc: faas-dev at lists.opendaylight.org
+Subject: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi controller project,
+
+I try to switch to YANGTOOL 2.0.0 by using odlparent 3.0.2 according to release requirements, but I got an compilation error as below . And I found the following snapshot not exists at all. Any ideas?
+
+Thanks
+Xingjun
+
+
+Failed to execute goal on project odl-faas-fabric: Could not resolve dependencies for project org.opendaylight.faas:odl-faas-fabric:feature:1.4.0-SNAPSHOT: Failure to find org.opendaylight.mdsal:mdsal-eos-binding-adapter:jar:2.4.0-20180205.135154-105 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced -> [Help 1]
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/576b9eb9/attachment.html>
+
+From deepthi.v.v at ericsson.com  Tue Feb  6 05:07:36 2018
+From: deepthi.v.v at ericsson.com (Deepthi V V)
+Date: Tue, 6 Feb 2018 05:07:36 +0000
+Subject: [controller-dev] FW: IncorrectNestingException while trying to
+ write augmented instructions
+In-Reply-To: <AM4PR07MB309137EB8644979D5CA92E7D95FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+References: <AM4PR07MB16683DC1168E69D1DDBD7E7D95870@AM4PR07MB1668.eurprd07.prod.outlook.com>
+	<1481281889560.6373@Brocade.com>
+	<AM4PR07MB1668C48C30B85AAF7D41E64A95870@AM4PR07MB1668.eurprd07.prod.outlook.com>
+	<84de4559-9058-8bef-be8a-d82f685f8571@hq.sk>
+	<AM4PR07MB309137EB8644979D5CA92E7D95FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+Message-ID: <VI1PR0702MB374304AAC5C1D467CE3966ECC8FD0@VI1PR0702MB3743.eurprd07.prod.outlook.com>
+
+Hi Robert,
+
+The issue was due to missing code piece in interface manager's service binding yang where augmentations for Nicira extension action were required to be added.
+Review: https://git.opendaylight.org/gerrit/#/c/49966/ fixed the issue.
+
+Regards,
+Deepthi
+
+-----Original Message-----
+From: Faseela K 
+Sent: Tuesday, February 06, 2018 7:12 AM
+To: Robert Varga <nite at hq.sk>; controller-dev at lists.opendaylight.org
+Cc: Deepthi V V <deepthi.v.v at ericsson.com>; Yugandhar Sarraju <yugandhar.s at altencalsoftlabs.com>; D Arunprakash <d.arunprakash at ericsson.com>
+Subject: RE: [controller-dev] FW: IncorrectNestingException while trying to write augmented instructions
+
+Robert,
+   As far as I remember, the issue was with the code whatever we had, and we corrected it.
+   Deepthi will be able to give more inputs, if I am missing anything.
+Thanks,
+Faseela
+
+-----Original Message-----
+From: Robert Varga [mailto:nite at hq.sk]
+Sent: Tuesday, February 06, 2018 6:09 AM
+To: Faseela K <faseela.k at ericsson.com>; controller-dev at lists.opendaylight.org
+Cc: Deepthi V V <deepthi.v.v at ericsson.com>; Yugandhar Sarraju <yugandhar.s at altencalsoftlabs.com>; D Arunprakash <d.arunprakash at ericsson.com>
+Subject: Re: [controller-dev] FW: IncorrectNestingException while trying to write augmented instructions
+
+On 09/12/16 12:13, Faseela K wrote:
+> ?Hi ,
+
+Hello Faseela,
+
+I have just found this email in my backlog...
+
+> 
+> ? We have been stuck with an exception for so long, not knowing how to 
+> fix.
+> 
+> ?We have a container which uses
+> opendaylight-flow-types:instruction-list[0]
+> 
+> Whenever we try to populate this list with an instruction which is 
+> augmented from the base[1], it is throwing the below error, any pointers?
+> 
+> ?
+> 
+> ?
+> org.opendaylight.yangtools.binding.data.codec.impl.IncorrectNestingException:
+> Supplied class interface
+> org.opendaylight.yang.gen.v1.urn.opendaylight.openflowplugin.extension
+> .nicira.action.rev140714.nodes.node.table.flow.instructions.instructio
+> n.instruction.apply.actions._case.apply.actions.action.action.NxAction
+> RegLoadNodesNodeTableFlowApplyActionsCase
+> is not valid case^M
+
+[...]
+
+> [1] augment
+> "/inv:nodes/inv:node/fni:table/fni:flow/fni:instructions/fni:instruction/fni:instruction/fni:apply-actions-case/fni:apply-actions/fni:action/fni:action"
+> {
+> 
+> ??????? case
+> "nx-action-reg-load-nodes-node-table-flow-apply-actions-case" {
+> 
+> ??????????? uses nx-action-reg-load-grouping;
+> 
+> ??????? }
+> 
+> ??? }
+
+augment-choice-case-uses, this one is probably a troubled one (although it is missing union to the party).
+
+Does this happen with Nitrogen/Oxygen? If so, can you file a bug for MDSAL, component 'Binding V1 runtime' with steps to reproduce and a current stack trace, please?
+
+Thanks,
+Robert
+
+
+From dimple.jain at ericsson.com  Tue Feb  6 05:27:54 2018
+From: dimple.jain at ericsson.com (Dimple Jain)
+Date: Tue, 6 Feb 2018 05:27:54 +0000
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+Message-ID: <AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+
+Hi Faseela,
+
+Looks like the issue is not yet resolved. While trying to compile genius, got the following errors.
+
+[ERROR]   The project org.opendaylight.genius:lockmanager-impl:0.4.0-SNAPSHOT (C:\Users\edimjai\ericsson\opendaylight\419\genius\lockmanager\lockmanager-impl\pom.xml) has 1 error
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT, C:\Users\edimjai\ericsson\opendaylight\419\genius\.m2\repository\org\opendaylight\mdsal\binding-parent\0.12.0-SNAPSHOT\binding-parent-0.12.0-SNAPSHOT.pom, line 63, column 25 -> [Help 2]
+[ERROR]
+[ERROR]   The project org.opendaylight.genius:mdsalutil-api:0.4.0-SNAPSHOT (C:\Users\edimjai\ericsson\opendaylight\419\genius\mdsalutil\mdsalutil-api\pom.xml) has 1 error
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT, C:\Users\edimjai\ericsson\opendaylight\419\genius\.m2\repository\org\opendaylight\mdsal\binding-parent\0.12.0-SNAPSHOT\binding-parent-0.12.0-SNAPSHOT.pom, line 63, column 25 -> [Help 2]
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT,
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT,
+
+
+Thanks & Regards,
+Dimple.
+
+From: controller-dev-bounces at lists.opendaylight.org [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Faseela K
+Sent: Tuesday, February 06, 2018 7:14 AM
+To: Xingjun Chu; controller-dev; mdsal-dev at lists.opendaylight.org
+Cc: faas-dev at lists.opendaylight.org; Thanh Ha
+Subject: Re: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi Xingjun,
+  We had some issues with nexus yesterday, and Thanh has indicated that things should be stable now.
+  Could you please check if you are hitting the issue now?
+Thanks,
+Faseela
+
+From: controller-dev-bounces at lists.opendaylight.org<mailto:controller-dev-bounces at lists.opendaylight.org> [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Xingjun Chu
+Sent: Tuesday, February 06, 2018 1:38 AM
+To: controller-dev <controller-dev at lists.opendaylight.org<mailto:controller-dev at lists.opendaylight.org>>; mdsal-dev at lists.opendaylight.org<mailto:mdsal-dev at lists.opendaylight.org>
+Cc: faas-dev at lists.opendaylight.org<mailto:faas-dev at lists.opendaylight.org>
+Subject: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi controller project,
+
+I try to switch to YANGTOOL 2.0.0 by using odlparent 3.0.2 according to release requirements, but I got an compilation error as below . And I found the following snapshot not exists at all. Any ideas?
+
+Thanks
+Xingjun
+
+
+Failed to execute goal on project odl-faas-fabric: Could not resolve dependencies for project org.opendaylight.faas:odl-faas-fabric:feature:1.4.0-SNAPSHOT: Failure to find org.opendaylight.mdsal:mdsal-eos-binding-adapter:jar:2.4.0-20180205.135154-105 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced -> [Help 1]
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/fe5567b2/attachment-0001.html>
+
+From vishal.thapar at ericsson.com  Tue Feb  6 05:48:02 2018
+From: vishal.thapar at ericsson.com (Vishal Thapar)
+Date: Tue, 6 Feb 2018 05:48:02 +0000
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+Message-ID: <VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+
+Yep, there was a 2hour or so window where it was working [lucky me] but failing again. Thanh sent a mail earlier and fix(es) are in progress. Will take a bit of time though. In meantime, you have the option to compile the repo locally yourself.
+
+Regards,
+Vishal.
+
+From: controller-dev-bounces at lists.opendaylight.org [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Dimple Jain
+Sent: 06 February 2018 10:58
+To: Faseela K <faseela.k at ericsson.com>; Xingjun Chu <Xingjun.Chu at huawei.com>; controller-dev <controller-dev at lists.opendaylight.org>; mdsal-dev at lists.opendaylight.org
+Cc: faas-dev at lists.opendaylight.org; Thanh Ha <thanh.ha at linuxfoundation.org>
+Subject: Re: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi Faseela,
+
+Looks like the issue is not yet resolved. While trying to compile genius, got the following errors.
+
+[ERROR]   The project org.opendaylight.genius:lockmanager-impl:0.4.0-SNAPSHOT (C:\Users\edimjai\ericsson\opendaylight\419\genius\lockmanager\lockmanager-impl\pom.xml) has 1 error
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT, C:\Users\edimjai\ericsson\opendaylight\419\genius\.m2\repository\org\opendaylight\mdsal\binding-parent\0.12.0-SNAPSHOT\binding-parent-0.12.0-SNAPSHOT.pom, line 63, column 25 -> [Help 2]
+[ERROR]
+[ERROR]   The project org.opendaylight.genius:mdsalutil-api:0.4.0-SNAPSHOT (C:\Users\edimjai\ericsson\opendaylight\419\genius\mdsalutil\mdsalutil-api\pom.xml) has 1 error
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT, C:\Users\edimjai\ericsson\opendaylight\419\genius\.m2\repository\org\opendaylight\mdsal\binding-parent\0.12.0-SNAPSHOT\binding-parent-0.12.0-SNAPSHOT.pom, line 63, column 25 -> [Help 2]
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT,
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT,
+
+
+Thanks & Regards,
+Dimple.
+
+From: controller-dev-bounces at lists.opendaylight.org<mailto:controller-dev-bounces at lists.opendaylight.org> [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Faseela K
+Sent: Tuesday, February 06, 2018 7:14 AM
+To: Xingjun Chu; controller-dev; mdsal-dev at lists.opendaylight.org<mailto:mdsal-dev at lists.opendaylight.org>
+Cc: faas-dev at lists.opendaylight.org<mailto:faas-dev at lists.opendaylight.org>; Thanh Ha
+Subject: Re: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi Xingjun,
+  We had some issues with nexus yesterday, and Thanh has indicated that things should be stable now.
+  Could you please check if you are hitting the issue now?
+Thanks,
+Faseela
+
+From: controller-dev-bounces at lists.opendaylight.org<mailto:controller-dev-bounces at lists.opendaylight.org> [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Xingjun Chu
+Sent: Tuesday, February 06, 2018 1:38 AM
+To: controller-dev <controller-dev at lists.opendaylight.org<mailto:controller-dev at lists.opendaylight.org>>; mdsal-dev at lists.opendaylight.org<mailto:mdsal-dev at lists.opendaylight.org>
+Cc: faas-dev at lists.opendaylight.org<mailto:faas-dev at lists.opendaylight.org>
+Subject: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi controller project,
+
+I try to switch to YANGTOOL 2.0.0 by using odlparent 3.0.2 according to release requirements, but I got an compilation error as below . And I found the following snapshot not exists at all. Any ideas?
+
+Thanks
+Xingjun
+
+
+Failed to execute goal on project odl-faas-fabric: Could not resolve dependencies for project org.opendaylight.faas:odl-faas-fabric:feature:1.4.0-SNAPSHOT: Failure to find org.opendaylight.mdsal:mdsal-eos-binding-adapter:jar:2.4.0-20180205.135154-105 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced -> [Help 1]
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/09a44d04/attachment-0001.html>
+
+From thanh.ha at linuxfoundation.org  Tue Feb  6 05:53:38 2018
+From: thanh.ha at linuxfoundation.org (Thanh Ha)
+Date: Tue, 6 Feb 2018 00:53:38 -0500
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+Message-ID: <CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+
+The old-style mdsal-merge job deployed and I kicked off a build:
+
+https://jenkins.opendaylight.org/releng/view/Merge-Jobs/job/mdsal-merge-oxygen/1/console
+
+It takes about 50 minutes for mdsal to build so we'll know in ~50 minutes
+if that fixed the issue.
+
+Regards,
+Thanh
+
+On Tue, Feb 6, 2018 at 12:48 AM, Vishal Thapar <vishal.thapar at ericsson.com>
+wrote:
+
+> Yep, there was a 2hour or so window where it was working [lucky me] but
+> failing again. Thanh sent a mail earlier and fix(es) are in progress. Will
+> take a bit of time though. In meantime, you have the option to compile the
+> repo locally yourself.
+>
+>
+>
+> Regards,
+>
+> Vishal.
+>
+>
+>
+> *From:* controller-dev-bounces at lists.opendaylight.org [mailto:
+> controller-dev-bounces at lists.opendaylight.org] *On Behalf Of *Dimple Jain
+> *Sent:* 06 February 2018 10:58
+> *To:* Faseela K <faseela.k at ericsson.com>; Xingjun Chu <
+> Xingjun.Chu at huawei.com>; controller-dev <controller-dev at lists.
+> opendaylight.org>; mdsal-dev at lists.opendaylight.org
+> *Cc:* faas-dev at lists.opendaylight.org; Thanh Ha <
+> thanh.ha at linuxfoundation.org>
+>
+> *Subject:* Re: [controller-dev] compiling error about
+> mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+>
+>
+>
+> Hi Faseela,
+>
+>
+>
+> Looks like the issue is not yet resolved. While trying to compile genius,
+> got the following errors.
+>
+>
+>
+> [ERROR]   The project org.opendaylight.genius:lockmanager-impl:0.4.0-SNAPSHOT
+> (C:\Users\edimjai\ericsson\opendaylight\419\genius\
+> lockmanager\lockmanager-impl\pom.xml) has 1 error
+>
+> *[ERROR]     Non-resolvable import POM
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure
+> to find
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102
+> in
+> https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/
+> <https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/>
+> was cached in the local repository, resolution will not be reattempted
+> until the update interval of opendaylight-snapshot has elapsed or updates
+> are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT*,
+> C:\Users\edimjai\ericsson\opendaylight\419\genius\.m2\
+> repository\org\opendaylight\mdsal\binding-parent\0.12.0-
+> SNAPSHOT\binding-parent-0.12.0-SNAPSHOT.pom, line 63, column 25 -> [Help
+> 2]
+>
+> [ERROR]
+>
+> [ERROR]   The project org.opendaylight.genius:mdsalutil-api:0.4.0-SNAPSHOT
+> (C:\Users\edimjai\ericsson\opendaylight\419\genius\
+> mdsalutil\mdsalutil-api\pom.xml) has 1 error
+>
+> [ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:
+> mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102
+> in https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/ was cached in the local repository, resolution
+> will not be reattempted until the update interval of opendaylight-snapshot
+> has elapsed or updates are forced @ org.opendaylight.mdsal:
+> binding-parent:0.12.0-SNAPSHOT, C:\Users\edimjai\ericsson\
+> opendaylight\419\genius\.m2\repository\org\opendaylight\
+> mdsal\binding-parent\0.12.0-SNAPSHOT\binding-parent-0.12.0-SNAPSHOT.pom,
+> line 63, column 25 -> [Help 2]
+>
+> [ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:
+> mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102
+> in https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/ was cached in the local repository, resolution
+> will not be reattempted until the update interval of opendaylight-snapshot
+> has elapsed or updates are forced @ org.opendaylight.mdsal:
+> binding-parent:0.12.0-SNAPSHOT,
+>
+> [ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:
+> mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find
+> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102
+> in https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/ was cached in the local repository, resolution
+> will not be reattempted until the update interval of opendaylight-snapshot
+> has elapsed or updates are forced @ org.opendaylight.mdsal:
+> binding-parent:0.12.0-SNAPSHOT,
+>
+>
+>
+>
+>
+> Thanks & Regards,
+>
+> Dimple.
+>
+>
+>
+> *From:* controller-dev-bounces at lists.opendaylight.org [
+> mailto:controller-dev-bounces at lists.opendaylight.org
+> <controller-dev-bounces at lists.opendaylight.org>] *On Behalf Of *Faseela K
+> *Sent:* Tuesday, February 06, 2018 7:14 AM
+> *To:* Xingjun Chu; controller-dev; mdsal-dev at lists.opendaylight.org
+> *Cc:* faas-dev at lists.opendaylight.org; Thanh Ha
+> *Subject:* Re: [controller-dev] compiling error about
+> mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+>
+>
+>
+> Hi Xingjun,
+>
+>   We had some issues with nexus yesterday, and Thanh has indicated that
+> things should be stable now.
+>
+>   Could you please check if you are hitting the issue now?
+>
+> Thanks,
+>
+> Faseela
+>
+>
+>
+> *From:* controller-dev-bounces at lists.opendaylight.org [
+> mailto:controller-dev-bounces at lists.opendaylight.org
+> <controller-dev-bounces at lists.opendaylight.org>] *On Behalf Of *Xingjun
+> Chu
+> *Sent:* Tuesday, February 06, 2018 1:38 AM
+> *To:* controller-dev <controller-dev at lists.opendaylight.org>;
+> mdsal-dev at lists.opendaylight.org
+> *Cc:* faas-dev at lists.opendaylight.org
+> *Subject:* [controller-dev] compiling error about
+> mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+>
+>
+>
+> Hi controller project,
+>
+>
+>
+> I try to switch to YANGTOOL 2.0.0 by using odlparent 3.0.2 according to
+> release requirements, but I got an compilation error as below . And I found
+> the following snapshot not exists at all. Any ideas?
+>
+>
+>
+> Thanks
+> Xingjun
+>
+>
+>
+>
+>
+> Failed to execute goal on project odl-faas-fabric: Could not resolve
+> dependencies for project org.opendaylight.faas:odl-
+> faas-fabric:feature:1.4.0-SNAPSHOT: Failure to find
+> org.opendaylight.mdsal:mdsal-eos-binding-adapter:jar:2.4.0-20180205.135154-105
+> in https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/ was cached in the local repository, resolution
+> will not be reattempted until the update interval of opendaylight-snapshot
+> has elapsed or updates are forced -> [Help 1]
+>
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/9065efae/attachment.html>
+
+From thanh.ha at linuxfoundation.org  Tue Feb  6 07:28:27 2018
+From: thanh.ha at linuxfoundation.org (Thanh Ha)
+Date: Tue, 6 Feb 2018 02:28:27 -0500
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+	<CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+Message-ID: <CAEXadNrGeDd+1fkmT19vnvshSkvV3k2DQ2tOtyQ0u2VGgTY3aA@mail.gmail.com>
+
+mdsal merge job is complete. Please recheck any jobs that were failing due
+to this. I've noticed the old merge jobs are taking significantly longer to
+upload artifacts to Nexus and submitted a patch:
+
+https://git.opendaylight.org/gerrit/67949
+
+to set the merge job timeout to 3 hrs just to be safe. We'll need to figure
+out why it's taking so long separately.
+
+Regards,
+Thanh
+
+
+On Tue, Feb 6, 2018 at 12:53 AM, Thanh Ha <thanh.ha at linuxfoundation.org>
+wrote:
+
+> The old-style mdsal-merge job deployed and I kicked off a build:
+>
+> https://jenkins.opendaylight.org/releng/view/Merge-Jobs/
+> job/mdsal-merge-oxygen/1/console
+>
+> It takes about 50 minutes for mdsal to build so we'll know in ~50 minutes
+> if that fixed the issue.
+>
+> Regards,
+> Thanh
+>
+> On Tue, Feb 6, 2018 at 12:48 AM, Vishal Thapar <vishal.thapar at ericsson.com
+> > wrote:
+>
+>> Yep, there was a 2hour or so window where it was working [lucky me] but
+>> failing again. Thanh sent a mail earlier and fix(es) are in progress. Will
+>> take a bit of time though. In meantime, you have the option to compile the
+>> repo locally yourself.
+>>
+>>
+>>
+>> Regards,
+>>
+>> Vishal.
+>>
+>>
+>>
+>> *From:* controller-dev-bounces at lists.opendaylight.org [mailto:
+>> controller-dev-bounces at lists.opendaylight.org] *On Behalf Of *Dimple Jain
+>> *Sent:* 06 February 2018 10:58
+>> *To:* Faseela K <faseela.k at ericsson.com>; Xingjun Chu <
+>> Xingjun.Chu at huawei.com>; controller-dev <controller-dev at lists.opendayl
+>> ight.org>; mdsal-dev at lists.opendaylight.org
+>> *Cc:* faas-dev at lists.opendaylight.org; Thanh Ha <
+>> thanh.ha at linuxfoundation.org>
+>>
+>> *Subject:* Re: [controller-dev] compiling error about
+>> mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+>>
+>>
+>>
+>> Hi Faseela,
+>>
+>>
+>>
+>> Looks like the issue is not yet resolved. While trying to compile genius,
+>> got the following errors.
+>>
+>>
+>>
+>> [ERROR]   The project org.opendaylight.genius:lockmanager-impl:0.4.0-SNAPSHOT
+>> (C:\Users\edimjai\ericsson\opendaylight\419\genius\lockmanager\lockmanager-impl\pom.xml)
+>> has 1 error
+>>
+>> *[ERROR]     Non-resolvable import POM
+>> org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure
+>> to find
+>> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102
+>> in
+>> https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/
+>> <https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/>
+>> was cached in the local repository, resolution will not be reattempted
+>> until the update interval of opendaylight-snapshot has elapsed or updates
+>> are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT*,
+>> C:\Users\edimjai\ericsson\opendaylight\419\genius\.m2\reposi
+>> tory\org\opendaylight\mdsal\binding-parent\0.12.0-SNAPSHOT
+>> \binding-parent-0.12.0-SNAPSHOT.pom, line 63, column 25 -> [Help 2]
+>>
+>> [ERROR]
+>>
+>> [ERROR]   The project org.opendaylight.genius:mdsalutil-api:0.4.0-SNAPSHOT
+>> (C:\Users\edimjai\ericsson\opendaylight\419\genius\mdsalutil\mdsalutil-api\pom.xml)
+>> has 1 error
+>>
+>> [ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:m
+>> dsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find
+>> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102
+>> in https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/ was cached in the local repository, resolution will not
+>> be reattempted until the update interval of opendaylight-snapshot has
+>> elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT,
+>> C:\Users\edimjai\ericsson\opendaylight\419\genius\.m2\reposi
+>> tory\org\opendaylight\mdsal\binding-parent\0.12.0-SNAPSHOT
+>> \binding-parent-0.12.0-SNAPSHOT.pom, line 63, column 25 -> [Help 2]
+>>
+>> [ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:m
+>> dsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find
+>> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102
+>> in https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/ was cached in the local repository, resolution will not
+>> be reattempted until the update interval of opendaylight-snapshot has
+>> elapsed or updates are forced @ org.opendaylight.mdsal:binding
+>> -parent:0.12.0-SNAPSHOT,
+>>
+>> [ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:m
+>> dsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find
+>> org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102
+>> in https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/ was cached in the local repository, resolution will not
+>> be reattempted until the update interval of opendaylight-snapshot has
+>> elapsed or updates are forced @ org.opendaylight.mdsal:binding
+>> -parent:0.12.0-SNAPSHOT,
+>>
+>>
+>>
+>>
+>>
+>> Thanks & Regards,
+>>
+>> Dimple.
+>>
+>>
+>>
+>> *From:* controller-dev-bounces at lists.opendaylight.org [
+>> mailto:controller-dev-bounces at lists.opendaylight.org
+>> <controller-dev-bounces at lists.opendaylight.org>] *On Behalf Of *Faseela K
+>> *Sent:* Tuesday, February 06, 2018 7:14 AM
+>> *To:* Xingjun Chu; controller-dev; mdsal-dev at lists.opendaylight.org
+>> *Cc:* faas-dev at lists.opendaylight.org; Thanh Ha
+>> *Subject:* Re: [controller-dev] compiling error about
+>> mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+>>
+>>
+>>
+>> Hi Xingjun,
+>>
+>>   We had some issues with nexus yesterday, and Thanh has indicated that
+>> things should be stable now.
+>>
+>>   Could you please check if you are hitting the issue now?
+>>
+>> Thanks,
+>>
+>> Faseela
+>>
+>>
+>>
+>> *From:* controller-dev-bounces at lists.opendaylight.org [
+>> mailto:controller-dev-bounces at lists.opendaylight.org
+>> <controller-dev-bounces at lists.opendaylight.org>] *On Behalf Of *Xingjun
+>> Chu
+>> *Sent:* Tuesday, February 06, 2018 1:38 AM
+>> *To:* controller-dev <controller-dev at lists.opendaylight.org>;
+>> mdsal-dev at lists.opendaylight.org
+>> *Cc:* faas-dev at lists.opendaylight.org
+>> *Subject:* [controller-dev] compiling error about
+>> mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+>>
+>>
+>>
+>> Hi controller project,
+>>
+>>
+>>
+>> I try to switch to YANGTOOL 2.0.0 by using odlparent 3.0.2 according to
+>> release requirements, but I got an compilation error as below . And I found
+>> the following snapshot not exists at all. Any ideas?
+>>
+>>
+>>
+>> Thanks
+>> Xingjun
+>>
+>>
+>>
+>>
+>>
+>> Failed to execute goal on project odl-faas-fabric: Could not resolve
+>> dependencies for project org.opendaylight.faas:odl-faas
+>> -fabric:feature:1.4.0-SNAPSHOT: Failure to find
+>> org.opendaylight.mdsal:mdsal-eos-binding-adapter:jar:2.4.0-20180205.135154-105
+>> in https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/ was cached in the local repository, resolution will not
+>> be reattempted until the update interval of opendaylight-snapshot has
+>> elapsed or updates are forced -> [Help 1]
+>>
+>>
+>>
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/59b865d9/attachment-0001.html>
+
+From vishal.thapar at ericsson.com  Tue Feb  6 08:03:14 2018
+From: vishal.thapar at ericsson.com (Vishal Thapar)
+Date: Tue, 6 Feb 2018 08:03:14 +0000
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <CAEXadNrGeDd+1fkmT19vnvshSkvV3k2DQ2tOtyQ0u2VGgTY3aA@mail.gmail.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+	<CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+	<CAEXadNrGeDd+1fkmT19vnvshSkvV3k2DQ2tOtyQ0u2VGgTY3aA@mail.gmail.com>
+Message-ID: <VI1PR0701MB2720EB460D1B0AFFC9FBBADF90FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+
+Genius passed now, off to checking netvirt.
+
+https://jenkins.opendaylight.org/releng/job/genius-maven-verify-oxygen-mvn33-openjdk8/577/console
+
+From: Thanh Ha [mailto:thanh.ha at linuxfoundation.org]
+Sent: 06 February 2018 12:58
+To: Vishal Thapar <vishal.thapar at ericsson.com>
+Cc: Dimple Jain <dimple.jain at ericsson.com>; Faseela K <faseela.k at ericsson.com>; Xingjun Chu <Xingjun.Chu at huawei.com>; controller-dev <controller-dev at lists.opendaylight.org>; mdsal-dev at lists.opendaylight.org; faas-dev at lists.opendaylight.org
+Subject: Re: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+mdsal merge job is complete. Please recheck any jobs that were failing due to this. I've noticed the old merge jobs are taking significantly longer to upload artifacts to Nexus and submitted a patch:
+
+https://git.opendaylight.org/gerrit/67949
+
+to set the merge job timeout to 3 hrs just to be safe. We'll need to figure out why it's taking so long separately.
+
+Regards,
+Thanh
+
+
+On Tue, Feb 6, 2018 at 12:53 AM, Thanh Ha <thanh.ha at linuxfoundation.org<mailto:thanh.ha at linuxfoundation.org>> wrote:
+The old-style mdsal-merge job deployed and I kicked off a build:
+
+https://jenkins.opendaylight.org/releng/view/Merge-Jobs/job/mdsal-merge-oxygen/1/console
+
+It takes about 50 minutes for mdsal to build so we'll know in ~50 minutes if that fixed the issue.
+
+Regards,
+Thanh
+
+On Tue, Feb 6, 2018 at 12:48 AM, Vishal Thapar <vishal.thapar at ericsson.com<mailto:vishal.thapar at ericsson.com>> wrote:
+Yep, there was a 2hour or so window where it was working [lucky me] but failing again. Thanh sent a mail earlier and fix(es) are in progress. Will take a bit of time though. In meantime, you have the option to compile the repo locally yourself.
+
+Regards,
+Vishal.
+
+From: controller-dev-bounces at lists.opendaylight.org<mailto:controller-dev-bounces at lists.opendaylight.org> [mailto:controller-dev-bounces at lists.opendaylight.org<mailto:controller-dev-bounces at lists.opendaylight.org>] On Behalf Of Dimple Jain
+Sent: 06 February 2018 10:58
+To: Faseela K <faseela.k at ericsson.com<mailto:faseela.k at ericsson.com>>; Xingjun Chu <Xingjun.Chu at huawei.com<mailto:Xingjun.Chu at huawei.com>>; controller-dev <controller-dev at lists.opendaylight.org<mailto:controller-dev at lists.opendaylight.org>>; mdsal-dev at lists.opendaylight.org<mailto:mdsal-dev at lists.opendaylight.org>
+Cc: faas-dev at lists.opendaylight.org<mailto:faas-dev at lists.opendaylight.org>; Thanh Ha <thanh.ha at linuxfoundation.org<mailto:thanh.ha at linuxfoundation.org>>
+
+Subject: Re: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi Faseela,
+
+Looks like the issue is not yet resolved. While trying to compile genius, got the following errors.
+
+[ERROR]   The project org.opendaylight.genius:lockmanager-impl:0.4.0-SNAPSHOT (C:\Users\edimjai\ericsson\opendaylight\419\genius\lockmanager\lockmanager-impl\pom.xml) has 1 error
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT, C:\Users\edimjai\ericsson\opendaylight\419\genius\.m2\repository\org\opendaylight\mdsal\binding-parent\0.12.0-SNAPSHOT\binding-parent-0.12.0-SNAPSHOT.pom, line 63, column 25 -> [Help 2]
+[ERROR]
+[ERROR]   The project org.opendaylight.genius:mdsalutil-api:0.4.0-SNAPSHOT (C:\Users\edimjai\ericsson\opendaylight\419\genius\mdsalutil\mdsalutil-api\pom.xml) has 1 error
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT, C:\Users\edimjai\ericsson\opendaylight\419\genius\.m2\repository\org\opendaylight\mdsal\binding-parent\0.12.0-SNAPSHOT\binding-parent-0.12.0-SNAPSHOT.pom, line 63, column 25 -> [Help 2]
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT,
+[ERROR]     Non-resolvable import POM org.opendaylight.mdsal.model:mdsal-model-artifacts:0.12.0-SNAPSHOT: Failure to find org.opendaylight.mdsal.model:mdsal-model-artifacts:pom:0.12.0-20180206.034456-102 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced @ org.opendaylight.mdsal:binding-parent:0.12.0-SNAPSHOT,
+
+
+Thanks & Regards,
+Dimple.
+
+From: controller-dev-bounces at lists.opendaylight.org<mailto:controller-dev-bounces at lists.opendaylight.org> [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Faseela K
+Sent: Tuesday, February 06, 2018 7:14 AM
+To: Xingjun Chu; controller-dev; mdsal-dev at lists.opendaylight.org<mailto:mdsal-dev at lists.opendaylight.org>
+Cc: faas-dev at lists.opendaylight.org<mailto:faas-dev at lists.opendaylight.org>; Thanh Ha
+Subject: Re: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi Xingjun,
+  We had some issues with nexus yesterday, and Thanh has indicated that things should be stable now.
+  Could you please check if you are hitting the issue now?
+Thanks,
+Faseela
+
+From: controller-dev-bounces at lists.opendaylight.org<mailto:controller-dev-bounces at lists.opendaylight.org> [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Xingjun Chu
+Sent: Tuesday, February 06, 2018 1:38 AM
+To: controller-dev <controller-dev at lists.opendaylight.org<mailto:controller-dev at lists.opendaylight.org>>; mdsal-dev at lists.opendaylight.org<mailto:mdsal-dev at lists.opendaylight.org>
+Cc: faas-dev at lists.opendaylight.org<mailto:faas-dev at lists.opendaylight.org>
+Subject: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi controller project,
+
+I try to switch to YANGTOOL 2.0.0 by using odlparent 3.0.2 according to release requirements, but I got an compilation error as below . And I found the following snapshot not exists at all. Any ideas?
+
+Thanks
+Xingjun
+
+
+Failed to execute goal on project odl-faas-fabric: Could not resolve dependencies for project org.opendaylight.faas:odl-faas-fabric:feature:1.4.0-SNAPSHOT: Failure to find org.opendaylight.mdsal:mdsal-eos-binding-adapter:jar:2.4.0-20180205.135154-105 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced -> [Help 1]
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/00bcac09/attachment-0001.html>
+
+From nite at hq.sk  Tue Feb  6 10:20:16 2018
+From: nite at hq.sk (Robert Varga)
+Date: Tue, 6 Feb 2018 11:20:16 +0100
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+	<CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+Message-ID: <bdcca6a1-ec75-6a0c-d88d-7efa202b026a@hq.sk>
+
+On 06/02/18 06:53, Thanh Ha wrote:
+> The old-style mdsal-merge job deployed and I kicked off a build:
+> 
+> https://jenkins.opendaylight.org/releng/view/Merge-Jobs/job/mdsal-merge-oxygen/1/console
+> 
+> It takes about 50 minutes for mdsal to build so we'll know in ~50
+> minutes if that fixed the issue.
+
+Hello Thanh,
+
+the one thing I found is a difference in file upload strategy in the two
+jobs:
+
+old:
+
+> Deploying the main artifact iana-afn-safi-2013.07.04.12.0-SNAPSHOT.jar
+> Downloading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+> Downloaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 20.8 KB/sec)
+> Uploading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.071107-112.jar
+> Uploaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.071107-112.jar (23 KB at 2.4 KB/sec)
+> Uploading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.071107-112.pom
+> Uploaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.071107-112.pom (2 KB at 7.5 KB/sec)
+> Downloading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xml
+> Downloaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xml (481 B at 31.3 KB/sec)
+> Uploading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+> Uploaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 4.3 KB/sec)
+> Uploading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xml
+> Uploaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xml (481 B at 0.6 KB/sec)
+> Deploying the main artifact iana-afn-safi-2013.07.04.12.0-SNAPSHOT-javadoc.jar
+> Uploading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.071107-112-javadoc.jar
+> Uploaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.071107-112-javadoc.jar (50 KB at 58.1 KB/sec)
+> Uploading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+> Uploaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 2.7 KB/sec)
+> Deploying the main artifact iana-afn-safi-2013.07.04.12.0-SNAPSHOT-sources.jar
+> Uploading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.071107-112-sources.jar
+> Uploaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.071107-112-sources.jar (13 KB at 13.0 KB/sec)
+> Uploading: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+> Uploaded: https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 1.9 KB/sec)
+
+new:
+
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.jar.sha1
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.jar
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.jar.md5
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.pom
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.pom.sha1
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.pom.md5
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml.sha1
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml.md5
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-javadoc.jar
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-javadoc.jar.sha1
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-javadoc.jar.md5
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-sources.jar
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-sources.jar.sha1
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-sources.jar.md5
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xml
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xml.sha1
+> Uploading org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xml.md5
+
+It seems we are doing things in different order, old:
+- download artifact-$VERSION metadata
+- upload artifact-$VERSION content (jar, pom)
+- download artifact metadata
+- upload artifact-$VERSION metadata
+- upload artifact metadata
+
+Whereas new does not seem to do any sort of ordering -- and uploads also
+checksums, etc.
+
+Now I don't know if nexus is doing anything the the metadata it has or
+how it reacts to parallel deployment of related artifacts. I would
+suggest creating a smarter strategy:
+
+- group files by their artifact name (i.e. directory)
+
+for each artifact file group:
+- upload content (jars, pom, javadoc, sources, etc. etc.) for an
+artifact in a serial manner first
+- upload versioned metadata
+- upload metadata
+
+Never use parallelism inside a group, use parallelism across groups --
+i.e. deploy multiple artifacts concurrently while retaining file upload
+ordering matching how the old job does things within each artifact.
+
+Regards,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/6d58e4d3/attachment.sig>
+
+From thanh.ha at linuxfoundation.org  Tue Feb  6 13:45:19 2018
+From: thanh.ha at linuxfoundation.org (Thanh Ha)
+Date: Tue, 6 Feb 2018 08:45:19 -0500
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <bdcca6a1-ec75-6a0c-d88d-7efa202b026a@hq.sk>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+	<CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+	<bdcca6a1-ec75-6a0c-d88d-7efa202b026a@hq.sk>
+Message-ID: <CAEXadNph3+hq2PmMnb=SOcmA-wR6yucN6HLi-Z2w9qNdeUsHxA@mail.gmail.com>
+
+On Tue, Feb 6, 2018 at 5:20 AM, Robert Varga <nite at hq.sk> wrote:
+
+> On 06/02/18 06:53, Thanh Ha wrote:
+> > The old-style mdsal-merge job deployed and I kicked off a build:
+> >
+> > https://jenkins.opendaylight.org/releng/view/Merge-Jobs/
+> job/mdsal-merge-oxygen/1/console
+> >
+> > It takes about 50 minutes for mdsal to build so we'll know in ~50
+> > minutes if that fixed the issue.
+>
+> Hello Thanh,
+>
+> the one thing I found is a difference in file upload strategy in the two
+> jobs:
+>
+> old:
+>
+> > Deploying the main artifact iana-afn-safi-2013.07.04.12.0-SNAPSHOT.jar
+> > Downloading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+> > Downloaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 20.8 KB/sec)
+> > Uploading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.
+> 07.04.12.0-20180206.071107-112.jar
+> > Uploaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.
+> 07.04.12.0-20180206.071107-112.jar (23 KB at 2.4 KB/sec)
+> > Uploading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.
+> 07.04.12.0-20180206.071107-112.pom
+> > Uploaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.
+> 07.04.12.0-20180206.071107-112.pom (2 KB at 7.5 KB/sec)
+> > Downloading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/maven-metadata.xml
+> > Downloaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/maven-metadata.xml (481 B at 31.3 KB/sec)
+> > Uploading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+> > Uploaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 4.3 KB/sec)
+> > Uploading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/maven-metadata.xml
+> > Uploaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/maven-metadata.xml (481 B at 0.6 KB/sec)
+> > Deploying the main artifact iana-afn-safi-2013.07.04.12.0-
+> SNAPSHOT-javadoc.jar
+> > Uploading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.
+> 07.04.12.0-20180206.071107-112-javadoc.jar
+> > Uploaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.
+> 07.04.12.0-20180206.071107-112-javadoc.jar (50 KB at 58.1 KB/sec)
+> > Uploading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+> > Uploaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 2.7 KB/sec)
+> > Deploying the main artifact iana-afn-safi-2013.07.04.12.0-
+> SNAPSHOT-sources.jar
+> > Uploading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.
+> 07.04.12.0-20180206.071107-112-sources.jar
+> > Uploaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.
+> 07.04.12.0-20180206.071107-112-sources.jar (13 KB at 13.0 KB/sec)
+> > Uploading: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+> > Uploaded: https://nexus.opendaylight.org/content/repositories/
+> opendaylight.snapshot/org/opendaylight/mdsal/model/iana-
+> afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 1.9 KB/sec)
+>
+> new:
+>
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/maven-metadata.xml
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.jar.sha1
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.jar
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.jar.md5
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.pom
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.pom.sha1
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.pom.md5
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/maven-metadata.xml.sha1
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/maven-metadata.xml.md5
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-javadoc.jar
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-
+> 111-javadoc.jar.sha1
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-javadoc.jar.md5
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-sources.jar
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-
+> 111-sources.jar.sha1
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-
+> SNAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-sources.jar.md5
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xml
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.
+> xml.sha1
+> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.
+> xml.md5
+>
+> It seems we are doing things in different order, old:
+> - download artifact-$VERSION metadata
+> - upload artifact-$VERSION content (jar, pom)
+> - download artifact metadata
+> - upload artifact-$VERSION metadata
+> - upload artifact metadata
+>
+> Whereas new does not seem to do any sort of ordering -- and uploads also
+> checksums, etc.
+>
+> Now I don't know if nexus is doing anything the the metadata it has or
+> how it reacts to parallel deployment of related artifacts. I would
+> suggest creating a smarter strategy:
+>
+> - group files by their artifact name (i.e. directory)
+>
+> for each artifact file group:
+> - upload content (jars, pom, javadoc, sources, etc. etc.) for an
+> artifact in a serial manner first
+> - upload versioned metadata
+> - upload metadata
+>
+> Never use parallelism inside a group, use parallelism across groups --
+> i.e. deploy multiple artifacts concurrently while retaining file upload
+> ordering matching how the old job does things within each artifact.
+>
+> Regards,
+> Robert
+>
+
+Hi Robert,
+
+So how the new maven merge job works is as follows:
+
+1. Download maven-metadata.xml using wget recursive and copies it to
+$WORKSPACE/m2repo and $WORKSPACE/m2repo-backup in the same structure as a
+maven repo.
+2. Perform mvn clean
+deploy -DaltDeploymentRepository=staging::default::file:$WORKSPACE/m2repo
+in this case Maven considers this directory a m2repo and updates
+maven-metadata.xml as if the deployment repo was on a webserver
+3. Diff the 2 repos m2repo and m2repo-backup and delete all files that were
+not modified
+4. Use cURL + gnu-parallel to upload the artifacts to Nexus
+
+The issue is not with step 4 (Although uploading metadata last is a good
+idea) but with step 2 (and I realize now why the validation tool in 3
+didn't catch some errors) when `mvn clean deploy` is running, for some mvn
+occasionally produces artifacts and maven-metadata.xml that have the
+different timestamps. This is is a known issue for sure with mvn 3.5.0 and
+fixed in 3.5.2 I'm not sure if 3.3.9 had the issue or not.
+
+Last night Luis found a job that consistently always generated the wrong
+metadata, when I switched that job to mvn35 it passed, would need more data
+to confirm if 3.5.2 really solves the issue or we got lucky but it seems
+like perhaps Maven 3.3.9 has issues with deploying to a local maven repo.
+
+As for why the validation tool failed to catch the issue was, we were only
+checking for consistency inside of maven-metadata.xml so did not catch when
+the maven-metadata.xml was consistent inside the file but still had
+different filenames.
+
+This unfortunately puts us back on the old merge job which causes Jenkins
+instability but considering our crunch time now, a little instability with
+Jenkins is better than having bad metadata.
+
+Thanh
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/84d050f9/attachment-0001.html>
+
+From tompantelis at gmail.com  Tue Feb  6 15:09:20 2018
+From: tompantelis at gmail.com (Tom Pantelis)
+Date: Tue, 6 Feb 2018 10:09:20 -0500
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <CAEXadNph3+hq2PmMnb=SOcmA-wR6yucN6HLi-Z2w9qNdeUsHxA@mail.gmail.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+	<CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+	<bdcca6a1-ec75-6a0c-d88d-7efa202b026a@hq.sk>
+	<CAEXadNph3+hq2PmMnb=SOcmA-wR6yucN6HLi-Z2w9qNdeUsHxA@mail.gmail.com>
+Message-ID: <CAJv8kY30+3+P2X+SxERAzST-hzyT3yx9ovrfstBhoyZyfGhUhw@mail.gmail.com>
+
+It's not just merge jobs with random failures. Can anyone explain why this
+AR job failed:
+https://jenkins.opendaylight.org/releng/job/openflowplugin-validate-autorelease-oxygen/227/console
+?
+
+13:49:24 [INFO]
+------------------------------------------------------------------------
+13:49:24 [INFO] Reactor Summary:
+13:49:24 [INFO]
+13:49:24 [INFO] mdsal-artifacts ....................................
+SUCCESS [ 35.062 s]
+13:49:24 [INFO] mdsal-model-artifacts ..............................
+SUCCESS [ 34.991 s]
+13:49:24 [INFO] config-artifacts ...................................
+SUCCESS [ 42.971 s]
+13:49:24 [INFO] yang-test-plugin ...................................
+SUCCESS [01:13 min]
+13:49:24 [INFO] mdsal-artifacts ....................................
+SUCCESS [ 43.020 s]
+13:49:24 [INFO] autorelease-validate-projects ......................
+SUCCESS [ 35.985 s]
+13:49:24 [INFO]
+------------------------------------------------------------------------
+13:49:24 [INFO] BUILD SUCCESS
+13:49:24 [INFO]
+------------------------------------------------------------------------
+13:49:24 [INFO] Total time: 01:41 min (Wall Clock)
+13:49:24 [INFO] Finished at: 2018-02-06T13:49:24+00:00
+13:49:24 [INFO] Final Memory: 51M/309M
+
+
+It all indicates success but still mysteriously fails. I don't see any
+reason why in the output.
+
+On Tue, Feb 6, 2018 at 8:45 AM, Thanh Ha <thanh.ha at linuxfoundation.org>
+wrote:
+
+> On Tue, Feb 6, 2018 at 5:20 AM, Robert Varga <nite at hq.sk> wrote:
+>
+>> On 06/02/18 06:53, Thanh Ha wrote:
+>> > The old-style mdsal-merge job deployed and I kicked off a build:
+>> >
+>> > https://jenkins.opendaylight.org/releng/view/Merge-Jobs/job/
+>> mdsal-merge-oxygen/1/console
+>> >
+>> > It takes about 50 minutes for mdsal to build so we'll know in ~50
+>> > minutes if that fixed the issue.
+>>
+>> Hello Thanh,
+>>
+>> the one thing I found is a difference in file upload strategy in the two
+>> jobs:
+>>
+>> old:
+>>
+>> > Deploying the main artifact iana-afn-safi-2013.07.04.12.0-SNAPSHOT.jar
+>> > Downloading: https://nexus.opendaylight.org
+>> /content/repositories/opendaylight.snapshot/org/opendaylight
+>> /mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+>> > Downloaded: https://nexus.opendaylight.org
+>> /content/repositories/opendaylight.snapshot/org/opendaylight
+>> /mdsal/model/iana-afn-safi/2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+>> (2 KB at 20.8 KB/sec)
+>> > Uploading: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-
+>> 20180206.071107-112.jar
+>> > Uploaded: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-
+>> 20180206.071107-112.jar (23 KB at 2.4 KB/sec)
+>> > Uploading: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-
+>> 20180206.071107-112.pom
+>> > Uploaded: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-
+>> 20180206.071107-112.pom (2 KB at 7.5 KB/sec)
+>> > Downloading: https://nexus.opendaylight.org
+>> /content/repositories/opendaylight.snapshot/org/opendaylight
+>> /mdsal/model/iana-afn-safi/maven-metadata.xml
+>> > Downloaded: https://nexus.opendaylight.org
+>> /content/repositories/opendaylight.snapshot/org/opendaylight
+>> /mdsal/model/iana-afn-safi/maven-metadata.xml (481 B at 31.3 KB/sec)
+>> > Uploading: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+>> > Uploaded: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 4.3 KB/sec)
+>> > Uploading: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> maven-metadata.xml
+>> > Uploaded: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> maven-metadata.xml (481 B at 0.6 KB/sec)
+>> > Deploying the main artifact iana-afn-safi-2013.07.04.12.0-
+>> SNAPSHOT-javadoc.jar
+>> > Uploading: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-
+>> 20180206.071107-112-javadoc.jar
+>> > Uploaded: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-
+>> 20180206.071107-112-javadoc.jar (50 KB at 58.1 KB/sec)
+>> > Uploading: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+>> > Uploaded: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 2.7 KB/sec)
+>> > Deploying the main artifact iana-afn-safi-2013.07.04.12.0-
+>> SNAPSHOT-sources.jar
+>> > Uploading: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-
+>> 20180206.071107-112-sources.jar
+>> > Uploaded: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/iana-afn-safi-2013.07.04.12.0-
+>> 20180206.071107-112-sources.jar (13 KB at 13.0 KB/sec)
+>> > Uploading: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/maven-metadata.xml
+>> > Uploaded: https://nexus.opendaylight.org/content/repositories/opendayl
+>> ight.snapshot/org/opendaylight/mdsal/model/iana-afn-safi/
+>> 2013.07.04.12.0-SNAPSHOT/maven-metadata.xml (2 KB at 1.9 KB/sec)
+>>
+>> new:
+>>
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/maven-metadata.xml
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.jar.sha1
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.jar
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.jar.md5
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.pom
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.pom.sha1
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111.pom.md5
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/maven-metadata.xml.sha1
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/maven-metadata.xml.md5
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-javadoc.jar
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-
+>> javadoc.jar.sha1
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-javadoc.jar.md5
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-sources.jar
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-
+>> sources.jar.sha1
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/2013.07.04.12.0-S
+>> NAPSHOT/iana-afn-safi-2013.07.04.12.0-20180206.034156-111-sources.jar.md5
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xml
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xm
+>> l.sha1
+>> > Uploading org/opendaylight/mdsal/model/iana-afn-safi/maven-metadata.xm
+>> l.md5
+>>
+>> It seems we are doing things in different order, old:
+>> - download artifact-$VERSION metadata
+>> - upload artifact-$VERSION content (jar, pom)
+>> - download artifact metadata
+>> - upload artifact-$VERSION metadata
+>> - upload artifact metadata
+>>
+>> Whereas new does not seem to do any sort of ordering -- and uploads also
+>> checksums, etc.
+>>
+>> Now I don't know if nexus is doing anything the the metadata it has or
+>> how it reacts to parallel deployment of related artifacts. I would
+>> suggest creating a smarter strategy:
+>>
+>> - group files by their artifact name (i.e. directory)
+>>
+>> for each artifact file group:
+>> - upload content (jars, pom, javadoc, sources, etc. etc.) for an
+>> artifact in a serial manner first
+>> - upload versioned metadata
+>> - upload metadata
+>>
+>> Never use parallelism inside a group, use parallelism across groups --
+>> i.e. deploy multiple artifacts concurrently while retaining file upload
+>> ordering matching how the old job does things within each artifact.
+>>
+>> Regards,
+>> Robert
+>>
+>
+> Hi Robert,
+>
+> So how the new maven merge job works is as follows:
+>
+> 1. Download maven-metadata.xml using wget recursive and copies it to
+> $WORKSPACE/m2repo and $WORKSPACE/m2repo-backup in the same structure as a
+> maven repo.
+> 2. Perform mvn clean deploy -DaltDeploymentRepository=
+> staging::default::file:$WORKSPACE/m2repo in this case Maven considers
+> this directory a m2repo and updates maven-metadata.xml as if the deployment
+> repo was on a webserver
+> 3. Diff the 2 repos m2repo and m2repo-backup and delete all files that
+> were not modified
+> 4. Use cURL + gnu-parallel to upload the artifacts to Nexus
+>
+> The issue is not with step 4 (Although uploading metadata last is a good
+> idea) but with step 2 (and I realize now why the validation tool in 3
+> didn't catch some errors) when `mvn clean deploy` is running, for some mvn
+> occasionally produces artifacts and maven-metadata.xml that have the
+> different timestamps. This is is a known issue for sure with mvn 3.5.0 and
+> fixed in 3.5.2 I'm not sure if 3.3.9 had the issue or not.
+>
+> Last night Luis found a job that consistently always generated the wrong
+> metadata, when I switched that job to mvn35 it passed, would need more data
+> to confirm if 3.5.2 really solves the issue or we got lucky but it seems
+> like perhaps Maven 3.3.9 has issues with deploying to a local maven repo.
+>
+> As for why the validation tool failed to catch the issue was, we were only
+> checking for consistency inside of maven-metadata.xml so did not catch when
+> the maven-metadata.xml was consistent inside the file but still had
+> different filenames.
+>
+> This unfortunately puts us back on the old merge job which causes Jenkins
+> instability but considering our crunch time now, a little instability with
+> Jenkins is better than having bad metadata.
+>
+> Thanh
+>
+> _______________________________________________
+> controller-dev mailing list
+> controller-dev at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/controller-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/b38683f8/attachment-0001.html>
+
+From deepthi.v.v at ericsson.com  Tue Feb  6 04:56:53 2018
+From: deepthi.v.v at ericsson.com (Deepthi V V)
+Date: Tue, 6 Feb 2018 04:56:53 +0000
+Subject: [controller-dev] FW: IncorrectNestingException while trying to
+ write augmented instructions
+In-Reply-To: <AM4PR07MB309137EB8644979D5CA92E7D95FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+References: <AM4PR07MB16683DC1168E69D1DDBD7E7D95870@AM4PR07MB1668.eurprd07.prod.outlook.com>
+	<1481281889560.6373@Brocade.com>
+	<AM4PR07MB1668C48C30B85AAF7D41E64A95870@AM4PR07MB1668.eurprd07.prod.outlook.com>
+	<84de4559-9058-8bef-be8a-d82f685f8571@hq.sk>
+	<AM4PR07MB309137EB8644979D5CA92E7D95FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+Message-ID: <VI1PR0702MB374317324282857A944CB9C4C8FD0@VI1PR0702MB3743.eurprd07.prod.outlook.com>
+
+Hi Robert,
+
+The issue was due to missing code piece in interface manager's service binding yang where augmentations for Nicira extension action were required to be added.
+Review: https://git.opendaylight.org/gerrit/#/c/49966/ fixed the issue.
+
+Regards,
+Deepthi
+
+-----Original Message-----
+From: Faseela K 
+Sent: Tuesday, February 06, 2018 7:12 AM
+To: Robert Varga <nite at hq.sk>; controller-dev at lists.opendaylight.org
+Cc: Deepthi V V <deepthi.v.v at ericsson.com>; Yugandhar Sarraju <yugandhar.s at altencalsoftlabs.com>; D Arunprakash <d.arunprakash at ericsson.com>
+Subject: RE: [controller-dev] FW: IncorrectNestingException while trying to write augmented instructions
+
+Robert,
+   As far as I remember, the issue was with the code whatever we had, and we corrected it.
+   Deepthi will be able to give more inputs, if I am missing anything.
+Thanks,
+Faseela
+
+-----Original Message-----
+From: Robert Varga [mailto:nite at hq.sk]
+Sent: Tuesday, February 06, 2018 6:09 AM
+To: Faseela K <faseela.k at ericsson.com>; controller-dev at lists.opendaylight.org
+Cc: Deepthi V V <deepthi.v.v at ericsson.com>; Yugandhar Sarraju <yugandhar.s at altencalsoftlabs.com>; D Arunprakash <d.arunprakash at ericsson.com>
+Subject: Re: [controller-dev] FW: IncorrectNestingException while trying to write augmented instructions
+
+On 09/12/16 12:13, Faseela K wrote:
+> ?Hi ,
+
+Hello Faseela,
+
+I have just found this email in my backlog...
+
+> 
+> ? We have been stuck with an exception for so long, not knowing how to 
+> fix.
+> 
+> ?We have a container which uses
+> opendaylight-flow-types:instruction-list[0]
+> 
+> Whenever we try to populate this list with an instruction which is 
+> augmented from the base[1], it is throwing the below error, any pointers?
+> 
+> ?
+> 
+> ?
+> org.opendaylight.yangtools.binding.data.codec.impl.IncorrectNestingException:
+> Supplied class interface
+> org.opendaylight.yang.gen.v1.urn.opendaylight.openflowplugin.extension
+> .nicira.action.rev140714.nodes.node.table.flow.instructions.instructio
+> n.instruction.apply.actions._case.apply.actions.action.action.NxAction
+> RegLoadNodesNodeTableFlowApplyActionsCase
+> is not valid case^M
+
+[...]
+
+> [1] augment
+> "/inv:nodes/inv:node/fni:table/fni:flow/fni:instructions/fni:instruction/fni:instruction/fni:apply-actions-case/fni:apply-actions/fni:action/fni:action"
+> {
+> 
+> ??????? case
+> "nx-action-reg-load-nodes-node-table-flow-apply-actions-case" {
+> 
+> ??????????? uses nx-action-reg-load-grouping;
+> 
+> ??????? }
+> 
+> ??? }
+
+augment-choice-case-uses, this one is probably a troubled one (although it is missing union to the party).
+
+Does this happen with Nitrogen/Oxygen? If so, can you file a bug for MDSAL, component 'Binding V1 runtime' with steps to reproduce and a current stack trace, please?
+
+Thanks,
+Robert
+
+
+From nite at hq.sk  Tue Feb  6 15:27:15 2018
+From: nite at hq.sk (Robert Varga)
+Date: Tue, 6 Feb 2018 16:27:15 +0100
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <CAJv8kY30+3+P2X+SxERAzST-hzyT3yx9ovrfstBhoyZyfGhUhw@mail.gmail.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+	<CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+	<bdcca6a1-ec75-6a0c-d88d-7efa202b026a@hq.sk>
+	<CAEXadNph3+hq2PmMnb=SOcmA-wR6yucN6HLi-Z2w9qNdeUsHxA@mail.gmail.com>
+	<CAJv8kY30+3+P2X+SxERAzST-hzyT3yx9ovrfstBhoyZyfGhUhw@mail.gmail.com>
+Message-ID: <78abadcd-508a-ee1c-2598-379678416383@hq.sk>
+
+On 06/02/18 16:09, Tom Pantelis wrote:
+> It's not just merge jobs with random failures. Can anyone explain why
+> this AR job
+> failed:?https://jenkins.opendaylight.org/releng/job/openflowplugin-validate-autorelease-oxygen/227/console?
+> 
+> 13:49:24 [INFO]
+> ------------------------------------------------------------------------
+> 13:49:24 [INFO] Reactor Summary:
+> 13:49:24 [INFO]?
+> 13:49:24 [INFO] mdsal-artifacts ....................................
+> SUCCESS [ 35.062 s]
+> 13:49:24 [INFO] mdsal-model-artifacts ..............................
+> SUCCESS [ 34.991 s]
+> 13:49:24 [INFO] config-artifacts ...................................
+> SUCCESS [ 42.971 s]
+> 13:49:24 [INFO] yang-test-plugin ...................................
+> SUCCESS [01:13 min]
+> 13:49:24 [INFO] mdsal-artifacts ....................................
+> SUCCESS [ 43.020 s]
+> 13:49:24 [INFO] autorelease-validate-projects ......................
+> SUCCESS [ 35.985 s]
+> 13:49:24 [INFO]
+> ------------------------------------------------------------------------
+> 13:49:24 [INFO] BUILD SUCCESS
+> 13:49:24 [INFO]
+> ------------------------------------------------------------------------
+> 13:49:24 [INFO] Total time: 01:41 min (Wall Clock)
+> 13:49:24 [INFO] Finished at: 2018-02-06T13:49:24+00:00
+> 13:49:24 [INFO] Final Memory: 51M/309M
+> 
+> 
+> It all indicates success but still mysteriously fails. I don't see any
+> reason why in the output.?
+
+14:49:24 [openflowplugin-validate-autorelease-oxygen] $
+/w/tools/hudson.tasks.Maven_MavenInstallation/apache-maven-3.3.9/bin/mvn
+-f pom.xml
+[...]
+14:49:25 [INFO] Scanning for projects...
+14:50:36 Build step 'Invoke top-level Maven targets' marked build as failure
+14:50:36 $ ssh-agent -k
+14:50:37 unset SSH_AUTH_SOCK;
+14:50:37 unset SSH_AGENT_PID;
+14:50:37 echo Agent pid 8247 killed;
+14:50:37 [ssh-agent] Stopped.
+14:50:37 [PostBuildScript] - Execution post build scripts.
+
+Jenkins slave node died?
+
+I have seen overcommit errors (and hence JVM aborts) in other
+validate-autorelease jobs, so now I am just ignoring their results.
+
+Bye,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/ce9e66eb/attachment.sig>
+
+From tompantelis at gmail.com  Tue Feb  6 15:34:52 2018
+From: tompantelis at gmail.com (Tom Pantelis)
+Date: Tue, 6 Feb 2018 10:34:52 -0500
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <78abadcd-508a-ee1c-2598-379678416383@hq.sk>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+	<CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+	<bdcca6a1-ec75-6a0c-d88d-7efa202b026a@hq.sk>
+	<CAEXadNph3+hq2PmMnb=SOcmA-wR6yucN6HLi-Z2w9qNdeUsHxA@mail.gmail.com>
+	<CAJv8kY30+3+P2X+SxERAzST-hzyT3yx9ovrfstBhoyZyfGhUhw@mail.gmail.com>
+	<78abadcd-508a-ee1c-2598-379678416383@hq.sk>
+Message-ID: <CAJv8kY1Cp5B1d373U4B0XJu8o8cG+xH7p4tTzdRP9NywW9EPsg@mail.gmail.com>
+
+On Tue, Feb 6, 2018 at 10:27 AM, Robert Varga <nite at hq.sk> wrote:
+
+> On 06/02/18 16:09, Tom Pantelis wrote:
+> > It's not just merge jobs with random failures. Can anyone explain why
+> > this AR job
+> > failed: https://jenkins.opendaylight.org/releng/job/
+> openflowplugin-validate-autorelease-oxygen/227/console?
+> >
+> > 13:49:24 [INFO]
+> > ------------------------------------------------------------------------
+> > 13:49:24 [INFO] Reactor Summary:
+> > 13:49:24 [INFO]
+> > 13:49:24 [INFO] mdsal-artifacts ....................................
+> > SUCCESS [ 35.062 s]
+> > 13:49:24 [INFO] mdsal-model-artifacts ..............................
+> > SUCCESS [ 34.991 s]
+> > 13:49:24 [INFO] config-artifacts ...................................
+> > SUCCESS [ 42.971 s]
+> > 13:49:24 [INFO] yang-test-plugin ...................................
+> > SUCCESS [01:13 min]
+> > 13:49:24 [INFO] mdsal-artifacts ....................................
+> > SUCCESS [ 43.020 s]
+> > 13:49:24 [INFO] autorelease-validate-projects ......................
+> > SUCCESS [ 35.985 s]
+> > 13:49:24 [INFO]
+> > ------------------------------------------------------------------------
+> > 13:49:24 [INFO] BUILD SUCCESS
+> > 13:49:24 [INFO]
+> > ------------------------------------------------------------------------
+> > 13:49:24 [INFO] Total time: 01:41 min (Wall Clock)
+> > 13:49:24 [INFO] Finished at: 2018-02-06T13:49:24+00:00
+> > 13:49:24 [INFO] Final Memory: 51M/309M
+> >
+> >
+> > It all indicates success but still mysteriously fails. I don't see any
+> > reason why in the output.
+>
+> 14:49:24 [openflowplugin-validate-autorelease-oxygen] $
+> /w/tools/hudson.tasks.Maven_MavenInstallation/apache-maven-3.3.9/bin/mvn
+> -f pom.xml
+> [...]
+> 14:49:25 [INFO] Scanning for projects...
+> 14:50:36 Build step 'Invoke top-level Maven targets' marked build as
+> failure
+> 14:50:36 $ ssh-agent -k
+> 14:50:37 unset SSH_AUTH_SOCK;
+> 14:50:37 unset SSH_AGENT_PID;
+> 14:50:37 echo Agent pid 8247 killed;
+> 14:50:37 [ssh-agent] Stopped.
+> 14:50:37 [PostBuildScript] - Execution post build scripts.
+>
+> Jenkins slave node died?
+>
+> I have seen overcommit errors (and hence JVM aborts) in other
+> validate-autorelease jobs, so now I am just ignoring their results.
+>
+
+That's a subtle failure.  I agree - AR jobs are pretty much useless these
+days with the instability - I think we should just disable them. Maybe
+dist-check jobs too. It's lucky enough just to get a verify job to succeed
+these days :)
+
+
+>
+> Bye,
+> Robert
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/b34cfb3a/attachment-0001.html>
+
+From vorburger at redhat.com  Tue Feb  6 15:37:41 2018
+From: vorburger at redhat.com (Michael Vorburger)
+Date: Tue, 6 Feb 2018 16:37:41 +0100
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <CAJv8kY1Cp5B1d373U4B0XJu8o8cG+xH7p4tTzdRP9NywW9EPsg@mail.gmail.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+	<CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+	<bdcca6a1-ec75-6a0c-d88d-7efa202b026a@hq.sk>
+	<CAEXadNph3+hq2PmMnb=SOcmA-wR6yucN6HLi-Z2w9qNdeUsHxA@mail.gmail.com>
+	<CAJv8kY30+3+P2X+SxERAzST-hzyT3yx9ovrfstBhoyZyfGhUhw@mail.gmail.com>
+	<78abadcd-508a-ee1c-2598-379678416383@hq.sk>
+	<CAJv8kY1Cp5B1d373U4B0XJu8o8cG+xH7p4tTzdRP9NywW9EPsg@mail.gmail.com>
+Message-ID: <CACeyj_F9UMFNzATSx6FdQ0i6KE237MYgZzFt3y2ezB_-XCTedQ@mail.gmail.com>
+
+On Tue, Feb 6, 2018 at 4:34 PM, Tom Pantelis <tompantelis at gmail.com> wrote:
+
+> On Tue, Feb 6, 2018 at 10:27 AM, Robert Varga <nite at hq.sk> wrote:
+>
+>> On 06/02/18 16:09, Tom Pantelis wrote:
+>> > It's not just merge jobs with random failures. Can anyone explain why
+>> > this AR job
+>> > failed: https://jenkins.opendaylight.org/releng/job/openflow
+>> plugin-validate-autorelease-oxygen/227/console?
+>> >
+>> > 13:49:24 [INFO]
+>> > ------------------------------------------------------------
+>> ------------
+>> > 13:49:24 [INFO] Reactor Summary:
+>> > 13:49:24 [INFO]
+>> > 13:49:24 [INFO] mdsal-artifacts ....................................
+>> > SUCCESS [ 35.062 s]
+>> > 13:49:24 [INFO] mdsal-model-artifacts ..............................
+>> > SUCCESS [ 34.991 s]
+>> > 13:49:24 [INFO] config-artifacts ...................................
+>> > SUCCESS [ 42.971 s]
+>> > 13:49:24 [INFO] yang-test-plugin ...................................
+>> > SUCCESS [01:13 min]
+>> > 13:49:24 [INFO] mdsal-artifacts ....................................
+>> > SUCCESS [ 43.020 s]
+>> > 13:49:24 [INFO] autorelease-validate-projects ......................
+>> > SUCCESS [ 35.985 s]
+>> > 13:49:24 [INFO]
+>> > ------------------------------------------------------------
+>> ------------
+>> > 13:49:24 [INFO] BUILD SUCCESS
+>> > 13:49:24 [INFO]
+>> > ------------------------------------------------------------
+>> ------------
+>> > 13:49:24 [INFO] Total time: 01:41 min (Wall Clock)
+>> > 13:49:24 [INFO] Finished at: 2018-02-06T13:49:24+00:00
+>> > 13:49:24 [INFO] Final Memory: 51M/309M
+>> >
+>> >
+>> > It all indicates success but still mysteriously fails. I don't see any
+>> > reason why in the output.
+>>
+>> 14:49:24 [openflowplugin-validate-autorelease-oxygen] $
+>> /w/tools/hudson.tasks.Maven_MavenInstallation/apache-maven-3.3.9/bin/mvn
+>> -f pom.xml
+>> [...]
+>> 14:49:25 [INFO] Scanning for projects...
+>> 14:50:36 Build step 'Invoke top-level Maven targets' marked build as
+>> failure
+>> 14:50:36 $ ssh-agent -k
+>> 14:50:37 unset SSH_AUTH_SOCK;
+>> 14:50:37 unset SSH_AGENT_PID;
+>> 14:50:37 echo Agent pid 8247 killed;
+>> 14:50:37 [ssh-agent] Stopped.
+>> 14:50:37 [PostBuildScript] - Execution post build scripts.
+>>
+>> Jenkins slave node died?
+>>
+>> I have seen overcommit errors (and hence JVM aborts) in other
+>> validate-autorelease jobs,
+>
+>
+FYI I've just posted about an OOM (that one with failure message) in a new
+thread...
+
+
+> so now I am just ignoring their results.
+>>
+>
+> That's a subtle failure.  I agree - AR jobs are pretty much useless these
+> days with the instability - I think we should just disable them. Maybe
+> dist-check jobs too. It's lucky enough just to get a verify job to succeed
+> these days :)
+>
+
+I don't suppose we want to disable autorelease until stable again?
+
+
+>
+>
+>>
+>> Bye,
+>> Robert
+>>
+>>
+>
+> _______________________________________________
+> controller-dev mailing list
+> controller-dev at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/controller-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/ef806df7/attachment.html>
+
+From Xingjun.Chu at huawei.com  Tue Feb  6 15:52:53 2018
+From: Xingjun.Chu at huawei.com (Xingjun Chu)
+Date: Tue, 6 Feb 2018 15:52:53 +0000
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+Message-ID: <A80FD691ED8CBE458269B48D68F2E45E3AE0A40F@YYZEML701-CHM.china.huawei.com>
+
+It is fine now.
+
+Thanks
+Xingjun
+
+From: Faseela K [mailto:faseela.k at ericsson.com]
+Sent: Monday, February 05, 2018 8:44 PM
+To: Xingjun Chu <Xingjun.Chu at huawei.com>; controller-dev <controller-dev at lists.opendaylight.org>; mdsal-dev at lists.opendaylight.org
+Cc: faas-dev at lists.opendaylight.org; Thanh Ha <thanh.ha at linuxfoundation.org>
+Subject: RE: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi Xingjun,
+  We had some issues with nexus yesterday, and Thanh has indicated that things should be stable now.
+  Could you please check if you are hitting the issue now?
+Thanks,
+Faseela
+
+From: controller-dev-bounces at lists.opendaylight.org<mailto:controller-dev-bounces at lists.opendaylight.org> [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Xingjun Chu
+Sent: Tuesday, February 06, 2018 1:38 AM
+To: controller-dev <controller-dev at lists.opendaylight.org<mailto:controller-dev at lists.opendaylight.org>>; mdsal-dev at lists.opendaylight.org<mailto:mdsal-dev at lists.opendaylight.org>
+Cc: faas-dev at lists.opendaylight.org<mailto:faas-dev at lists.opendaylight.org>
+Subject: [controller-dev] compiling error about mdsal-eos-binding-adapter snapshot dependency when switch to odlparent 3.0.2
+
+Hi controller project,
+
+I try to switch to YANGTOOL 2.0.0 by using odlparent 3.0.2 according to release requirements, but I got an compilation error as below . And I found the following snapshot not exists at all. Any ideas?
+
+Thanks
+Xingjun
+
+
+Failed to execute goal on project odl-faas-fabric: Could not resolve dependencies for project org.opendaylight.faas:odl-faas-fabric:feature:1.4.0-SNAPSHOT: Failure to find org.opendaylight.mdsal:mdsal-eos-binding-adapter:jar:2.4.0-20180205.135154-105 in https://nexus.opendaylight.org/content/repositories/opendaylight.snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of opendaylight-snapshot has elapsed or updates are forced -> [Help 1]
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/b0c0917d/attachment.html>
+
+From thanh.ha at linuxfoundation.org  Tue Feb  6 16:49:26 2018
+From: thanh.ha at linuxfoundation.org (Thanh Ha)
+Date: Tue, 6 Feb 2018 11:49:26 -0500
+Subject: [controller-dev] compiling error about
+ mdsal-eos-binding-adapter snapshot dependency when switch to odlparent
+ 3.0.2
+In-Reply-To: <CAJv8kY30+3+P2X+SxERAzST-hzyT3yx9ovrfstBhoyZyfGhUhw@mail.gmail.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE087E9@YYZEML701-CHM.china.huawei.com>
+	<AM4PR07MB3091BEC8DAB25A2EFAB5DEF095FD0@AM4PR07MB3091.eurprd07.prod.outlook.com>
+	<AM5PR0701MB2674465777585807ABB126E792FD0@AM5PR0701MB2674.eurprd07.prod.outlook.com>
+	<VI1PR0701MB27202DA496E44FE928D7418190FD0@VI1PR0701MB2720.eurprd07.prod.outlook.com>
+	<CAEXadNrUimEP692Caki3EVBKvNa834bT7212rBK8Dc8czEjgmA@mail.gmail.com>
+	<bdcca6a1-ec75-6a0c-d88d-7efa202b026a@hq.sk>
+	<CAEXadNph3+hq2PmMnb=SOcmA-wR6yucN6HLi-Z2w9qNdeUsHxA@mail.gmail.com>
+	<CAJv8kY30+3+P2X+SxERAzST-hzyT3yx9ovrfstBhoyZyfGhUhw@mail.gmail.com>
+Message-ID: <CAEXadNr3gFB8G+muX0DVGOcmrVCNk=L6e1df_ppb598pUXNnLA@mail.gmail.com>
+
+On Tue, Feb 6, 2018 at 10:09 AM, Tom Pantelis <tompantelis at gmail.com> wrote:
+
+> It's not just merge jobs with random failures. Can anyone explain why this
+> AR job failed: https://jenkins.opendaylight.org/releng/job/
+> openflowplugin-validate-autorelease-oxygen/227/console?
+>
+> 13:49:24 [INFO] ------------------------------
+> ------------------------------------------
+> 13:49:24 [INFO] Reactor Summary:
+> 13:49:24 [INFO]
+> 13:49:24 [INFO] mdsal-artifacts ....................................
+> SUCCESS [ 35.062 s]
+> 13:49:24 [INFO] mdsal-model-artifacts ..............................
+> SUCCESS [ 34.991 s]
+> 13:49:24 [INFO] config-artifacts ...................................
+> SUCCESS [ 42.971 s]
+> 13:49:24 [INFO] yang-test-plugin ...................................
+> SUCCESS [01:13 min]
+> 13:49:24 [INFO] mdsal-artifacts ....................................
+> SUCCESS [ 43.020 s]
+> 13:49:24 [INFO] autorelease-validate-projects ......................
+> SUCCESS [ 35.985 s]
+> 13:49:24 [INFO] ------------------------------
+> ------------------------------------------
+> 13:49:24 [INFO] BUILD SUCCESS
+> 13:49:24 [INFO] ------------------------------
+> ------------------------------------------
+> 13:49:24 [INFO] Total time: 01:41 min (Wall Clock)
+> 13:49:24 [INFO] Finished at: 2018-02-06T13:49:24+00:00
+> 13:49:24 [INFO] Final Memory: 51M/309M
+>
+>
+> It all indicates success but still mysteriously fails. I don't see any
+> reason why in the output.
+>
+
+This first bit here is the validate-autorelease job preping the repo (Since
+projects need to import these artifacts they need to be available in the
+local mvn repo).
+
+The next step where it failed was the real validate-autorelease code which
+runs "mvn clean validate" to verify poms. Seems like the JVM crashed for
+some reason. Does it consistently happen every time or is this something
+that happens intermittently?
+
+Regards,
+Thanh
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180206/6b68519d/attachment-0001.html>
+
+From jenkins-dontreply at opendaylight.org  Wed Feb  7 00:26:59 2018
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Wed, 07 Feb 2018 00:26:59 +0000
+Subject: [controller-dev] [release] Autorelease nitrogen failed to build
+	yang-jmx-generator from controller
+Message-ID: <5a7a47d3.aQJtSRtJ+sOkGoPi%jenkins-dontreply@opendaylight.org>
+
+Attention controller-devs,
+
+Autorelease nitrogen failed to build yang-jmx-generator from controller in build
+386. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-nitrogen/386
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-nitrogen/386/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/octet-stream
+Size: 2148 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180207/ba307e8f/attachment.obj>
+
+From vorburger at redhat.com  Wed Feb  7 13:24:59 2018
+From: vorburger at redhat.com (Michael Vorburger)
+Date: Wed, 7 Feb 2018 14:24:59 +0100
+Subject: [controller-dev] [release] Autorelease nitrogen failed to build
+ yang-jmx-generator from controller
+In-Reply-To: <5a7a47d3.aQJtSRtJ+sOkGoPi%jenkins-dontreply@opendaylight.org>
+References: <5a7a47d3.aQJtSRtJ+sOkGoPi%jenkins-dontreply@opendaylight.org>
+Message-ID: <CACeyj_FQUQEth=S=ym0Fk_iS_JUJTB78sJxGPcHTTZB2pDwFCA@mail.gmail.com>
+
+On Wed, Feb 7, 2018 at 1:26 AM, Jenkins <jenkins-dontreply at opendaylight.org>
+wrote:
+
+> Attention controller-devs,
+>
+> Autorelease nitrogen failed to build yang-jmx-generator from controller in
+> build
+> 386. Attached is a snippet of the error message related to the
+> failure that we were able to automatically parse as well as console logs.
+>
+> Console Logs:
+> https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/
+> autorelease-release-nitrogen/386
+>
+> Jenkins Build:
+> https://jenkins.opendaylight.org/releng/job/autorelease-
+> release-nitrogen/386/
+>
+> Please review and provide an ETA on when a fix will be available.
+>
+
+This was caused by a
+org.opendaylight.controller.config.yangjmxgenerator.unknownextension.UnknownExtensionTest
+failure
+
+Expected: is "An extension of the simple pool of threads able to schedule
+work to be executed at some point in time."
+     but: was "An extension of the simple pool of threads able to
+schedule\nwork to be executed at some point in time."
+
+I've just pulled the latest master to locally run it, and the
+UnknownExtensionTest passes.. so either it already got fixed (anyone?),
+or.. this is some build server VS local build difference - but I'm not sure
+I see how a "\n" LF can just be inserted arbitrarily on the build...
+
+Thanks,
+> ODL releng/autorelease team
+>
+>
+> _______________________________________________
+> controller-dev mailing list
+> controller-dev at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/controller-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180207/ebd785bc/attachment.html>
+
+From nite at hq.sk  Thu Feb  8 11:27:38 2018
+From: nite at hq.sk (Robert Varga)
+Date: Thu, 8 Feb 2018 12:27:38 +0100
+Subject: [controller-dev] [release] Autorelease nitrogen failed to build
+ yang-jmx-generator from controller
+In-Reply-To: <CACeyj_FQUQEth=S=ym0Fk_iS_JUJTB78sJxGPcHTTZB2pDwFCA@mail.gmail.com>
+References: <5a7a47d3.aQJtSRtJ+sOkGoPi%jenkins-dontreply@opendaylight.org>
+	<CACeyj_FQUQEth=S=ym0Fk_iS_JUJTB78sJxGPcHTTZB2pDwFCA@mail.gmail.com>
+Message-ID: <379c4e85-c633-0723-6901-43171d62393a@hq.sk>
+
+On 07/02/18 14:24, Michael Vorburger wrote:
+> 
+> Expected: is "An extension of the simple pool of threads able to
+> schedule work to be executed at some point in time."
+> ? ? ?but: was "An extension of the simple pool of threads able to
+> schedule\nwork to be executed at some point in time."
+> 
+> I've just pulled the latest master to locally run it, and the
+> UnknownExtensionTest passes.. so either it already got fixed (anyone?)
+
+https://git.opendaylight.org/gerrit/67975 (git log would have told you
+as much :) )
+
+Bye,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180208/f7ba51e1/attachment.sig>
+
+From Xingjun.Chu at huawei.com  Thu Feb  8 14:52:57 2018
+From: Xingjun.Chu at huawei.com (Xingjun Chu)
+Date: Thu, 8 Feb 2018 14:52:57 +0000
+Subject: [controller-dev] FaaS build error
+Message-ID: <A80FD691ED8CBE458269B48D68F2E45E3AE132B5@YYZEML701-CHM.china.huawei.com>
+
+Hi,
+
+I got this error during build faas project. This never happen before. I bumped the YANTOOls to 2.0.0. it was fine till yesterday afternoon. Any ideas?
+
+Thanks
+Xingjun
+
+From: xingjun chu [mailto:chuxingjun at gmail.com]
+Sent: Thursday, February 08, 2018 9:49 AM
+To: Xingjun Chu <Xingjun.Chu at huawei.com>
+Subject: compilation error
+
+Tests in error:
+  Unable to resolve root: missing requirement [root] osgi.identity; osgi.identity=odl-faas-fabric; type=karaf.feature; version="[1.4.0.SNAPSHOT,1.4.0.SNAPSHOT]"; filter:="(&(osgi.identity=odl-faas-fabric)(type=karaf.feature)(version>=1.4.0.SNAPSHOT)(version<=1.4.0.SNAPSHOT))" [caused by: Unable to resolve odl-faas-fabric/1.4.0.SNAPSHOT: missing requirement [odl-faas-fabric/1.4.0.SNAPSHOT] osgi.identity; osgi.identity=odl-mdsal-broker; type=karaf.feature; version="[1.7.0.SNAPSHOT,1.7.0.SNAPSHOT]" [caused by: Unable to resolve odl-mdsal-broker/1.7.0.SNAPSHOT: missing requirement [odl-mdsal-broker/1.7.0.SNAPSHOT] osgi.identity; osgi.identity=odl-mdsal-distributed-datastore; type=karaf.feature; version="[1.7.0.SNAPSHOT,1.7.0.SNAPSHOT]" [caused by: Unable to resolve odl-mdsal-distributed-datastore/1.7.0.SNAPSHOT: missing requirement [odl-mdsal-distributed-datastore/1.7.0.SNAPSHOT] osgi.identity; osgi.identity=odl-mdsal-clustering-commons; type=karaf.feature; version="[1.7.0.SNAPSHOT,1.7.0.SNAPSHOT]" [caused by: Unable to resolve odl-mdsal-clustering-commons/1.7.0.SNAPSHOT: missing requirement [odl-mdsal-clustering-commons/1.7.0.SNAPSHOT] osgi.identity; osgi.identity=odl-akka-clustering-2.5; type=karaf.feature; version="[3.0.0,4.0.0)" [caused by: Unable to resolve odl-akka-clustering-2.5/3.0.2: missing requirement [odl-akka-clustering-2.5/3.0.2] osgi.identity; osgi.identity=com.typesafe.akka.cluster; type=osgi.bundle; version="[2.5.4,2.5.4]"; resolution:=mandatory [caused by: Unable to resolve com.typesafe.akka.cluster/2.5.4: missing requirement [com.typesafe.akka.cluster/2.5.4] osgi.wiring.package; filter:="(&(osgi.wiring.package=akka)(version>=2.5.0)(!(version>=2.6.0)))" [caused by: Unable to resolve com.typesafe.akka.actor/2.5.4: missing requirement [com.typesafe.akka.actor/2.5.4] osgi.wiring.package; filter:="(osgi.wiring.package=sun.net<http://sun.net>)"]]]]]]]
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180208/4ab510ef/attachment.html>
+
+From nite at hq.sk  Thu Feb  8 16:46:34 2018
+From: nite at hq.sk (Robert Varga)
+Date: Thu, 8 Feb 2018 17:46:34 +0100
+Subject: [controller-dev] FaaS build error
+In-Reply-To: <A80FD691ED8CBE458269B48D68F2E45E3AE132B5@YYZEML701-CHM.china.huawei.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE132B5@YYZEML701-CHM.china.huawei.com>
+Message-ID: <5080ea64-c6b1-9c55-451d-3fc5b46f5e8b@hq.sk>
+
+On 08/02/18 15:52, Xingjun Chu wrote:
+> Hi,
+
+Hello,
+
+> I got this error during build faas project. This never happen before. I
+> bumped the YANTOOls to 2.0.0. it was fine till yesterday afternoon. Any
+> ideas?
+
+[snip]
+
+> 
+> ? Unable to resolve root: missing requirement [root] osgi.identity;
+> osgi.identity=odl-faas-fabric; type=karaf.feature;
+> version="[1.4.0.SNAPSHOT,1.4.0.SNAPSHOT]";
+> filter:="(&(osgi.identity=odl-faas-fabric)(type=karaf.feature)(version>=1.4.0.SNAPSHOT)(version<=1.4.0.SNAPSHOT))"
+> [caused by: Unable to resolve odl-faas-fabric/1.4.0.SNAPSHOT: missing
+> requirement [odl-faas-fabric/1.4.0.SNAPSHOT] osgi.identity;
+> osgi.identity=odl-mdsal-broker; type=karaf.feature;
+> version="[1.7.0.SNAPSHOT,1.7.0.SNAPSHOT]" [caused by: Unable to resolve
+> odl-mdsal-broker/1.7.0.SNAPSHOT: missing requirement
+> [odl-mdsal-broker/1.7.0.SNAPSHOT] osgi.identity;
+> osgi.identity=odl-mdsal-distributed-datastore; type=karaf.feature;
+> version="[1.7.0.SNAPSHOT,1.7.0.SNAPSHOT]" [caused by: Unable to resolve
+> odl-mdsal-distributed-datastore/1.7.0.SNAPSHOT: missing requirement
+> [odl-mdsal-distributed-datastore/1.7.0.SNAPSHOT] osgi.identity;
+> osgi.identity=odl-mdsal-clustering-commons; type=karaf.feature;
+> version="[1.7.0.SNAPSHOT,1.7.0.SNAPSHOT]" [caused by: Unable to resolve
+> odl-mdsal-clustering-commons/1.7.0.SNAPSHOT: missing requirement
+> [odl-mdsal-clustering-commons/1.7.0.SNAPSHOT] osgi.identity;
+> osgi.identity=odl-akka-clustering-2.5; type=karaf.feature;
+> version="[3.0.0,4.0.0)" [caused by: Unable to resolve
+> odl-akka-clustering-2.5/3.0.2: missing requirement
+> [odl-akka-clustering-2.5/3.0.2] osgi.identity;
+> osgi.identity=com.typesafe.akka.cluster; type=osgi.bundle;
+> version="[2.5.4,2.5.4]"; resolution:=mandatory [caused by: Unable to
+> resolve com.typesafe.akka.cluster/2.5.4: missing requirement
+> [com.typesafe.akka.cluster/2.5.4] osgi.wiring.package;
+> filter:="(&(osgi.wiring.package=akka)(version>=2.5.0)(!(version>=2.6.0)))"
+> [caused by: Unable to resolve com.typesafe.akka.actor/2.5.4: missing
+> requirement [com.typesafe.akka.actor/2.5.4] osgi.wiring.package;
+> filter:="(osgi.wiring.package=sun.net <http://sun.net>)"]]]]]]]
+
+Can you provide a pointer to the failing job?
+
+Regards,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180208/4fcb6802/attachment.sig>
+
+From ajabbar2014 at namal.edu.pk  Thu Feb  8 17:16:55 2018
+From: ajabbar2014 at namal.edu.pk (Abdul Malik)
+Date: Thu, 8 Feb 2018 22:16:55 +0500
+Subject: [controller-dev] Port Binding between OpenStack nova VM and ODL
+	network
+Message-ID: <CALyOBYKA8tJY7TQu5+TVjVBJOgGQT0=m3tnODUcw81Za1QsCjg@mail.gmail.com>
+
+Hello all,
+
+I am working on SDN controllers in OpenStack and I want to connect a VM
+launched by Nova to a L3VPN port created in OpenDayLight. I have managed to
+connect this port to a VM in nova but how do I tell OpenDayLight that this
+port is connected to a VM located on a particular host with id <id>. Do I
+just need to update the attributes of that port in OpenDayLight or is there
+something else I need to do to configure OpenDayLight i-e attributes of a
+port are
+
+        "port": [
+            {
+                "uuid": "153f734e-396a-4201-b3ab-f16d08140504",
+                "tenant-id": "13d103ed-9d4b-4a5c-82bd-e34c68c7c3c5",
+                "network-id": "94c796b9-4e59-45e5-ba34-ce9d2c77bfa8",
+                "fixed-ips": [
+                    {
+                        "subnet-id": "f877cea0-6ff9-42cf-86f0-afb390f32017",
+                        "ip-address": "172.18.0.2"
+                    }
+                ],
+                "neutron-binding:vif-type": "ovs",
+                "neutron-binding:vif-details": [
+                    {}
+                ],
+                "neutron-binding:vnic-type": "normal",
+                "device-owner": "compute:None",
+                "name": "test_port",
+                "admin-state-up": true,
+                "mac-address": "fa:16:3e:b7:38:25"
+            }
+        ]
+
+Do I just need to add "host_id" and "device_id" in above information or
+something more.
+
+And if I am not getting things right guidance would be really appreciable.
+
+Thanks
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180208/4033aeb1/attachment.html>
+
+From Xingjun.Chu at huawei.com  Thu Feb  8 18:53:05 2018
+From: Xingjun.Chu at huawei.com (Xingjun Chu)
+Date: Thu, 8 Feb 2018 18:53:05 +0000
+Subject: [controller-dev] FaaS build error
+In-Reply-To: <5080ea64-c6b1-9c55-451d-3fc5b46f5e8b@hq.sk>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE132B5@YYZEML701-CHM.china.huawei.com>
+	<5080ea64-c6b1-9c55-451d-3fc5b46f5e8b@hq.sk>
+Message-ID: <A80FD691ED8CBE458269B48D68F2E45E3AE134E4@YYZEML701-CHM.china.huawei.com>
+
+Hi Robert,
+
+It is in my local dev environment. Not in CI environment.
+
+Thanks
+Xingjun
+
+-----Original Message-----
+From: Robert Varga [mailto:nite at hq.sk] 
+Sent: Thursday, February 08, 2018 11:47 AM
+To: Xingjun Chu <Xingjun.Chu at huawei.com>; mdsal-dev at lists.opendaylight.org; controller-dev <controller-dev at lists.opendaylight.org>; Release <release at lists.opendaylight.org>
+Subject: Re: [controller-dev] FaaS build error
+
+On 08/02/18 15:52, Xingjun Chu wrote:
+> Hi,
+
+Hello,
+
+> I got this error during build faas project. This never happen before. 
+> I bumped the YANTOOls to 2.0.0. it was fine till yesterday afternoon. 
+> Any ideas?
+
+[snip]
+
+> 
+> ? Unable to resolve root: missing requirement [root] osgi.identity; 
+> osgi.identity=odl-faas-fabric; type=karaf.feature; 
+> version="[1.4.0.SNAPSHOT,1.4.0.SNAPSHOT]";
+> filter:="(&(osgi.identity=odl-faas-fabric)(type=karaf.feature)(version>=1.4.0.SNAPSHOT)(version<=1.4.0.SNAPSHOT))"
+> [caused by: Unable to resolve odl-faas-fabric/1.4.0.SNAPSHOT: missing 
+> requirement [odl-faas-fabric/1.4.0.SNAPSHOT] osgi.identity; 
+> osgi.identity=odl-mdsal-broker; type=karaf.feature; 
+> version="[1.7.0.SNAPSHOT,1.7.0.SNAPSHOT]" [caused by: Unable to 
+> resolve
+> odl-mdsal-broker/1.7.0.SNAPSHOT: missing requirement 
+> [odl-mdsal-broker/1.7.0.SNAPSHOT] osgi.identity; 
+> osgi.identity=odl-mdsal-distributed-datastore; type=karaf.feature; 
+> version="[1.7.0.SNAPSHOT,1.7.0.SNAPSHOT]" [caused by: Unable to 
+> resolve
+> odl-mdsal-distributed-datastore/1.7.0.SNAPSHOT: missing requirement 
+> [odl-mdsal-distributed-datastore/1.7.0.SNAPSHOT] osgi.identity; 
+> osgi.identity=odl-mdsal-clustering-commons; type=karaf.feature; 
+> version="[1.7.0.SNAPSHOT,1.7.0.SNAPSHOT]" [caused by: Unable to 
+> resolve
+> odl-mdsal-clustering-commons/1.7.0.SNAPSHOT: missing requirement 
+> [odl-mdsal-clustering-commons/1.7.0.SNAPSHOT] osgi.identity; 
+> osgi.identity=odl-akka-clustering-2.5; type=karaf.feature; 
+> version="[3.0.0,4.0.0)" [caused by: Unable to resolve
+> odl-akka-clustering-2.5/3.0.2: missing requirement 
+> [odl-akka-clustering-2.5/3.0.2] osgi.identity; 
+> osgi.identity=com.typesafe.akka.cluster; type=osgi.bundle; 
+> version="[2.5.4,2.5.4]"; resolution:=mandatory [caused by: Unable to 
+> resolve com.typesafe.akka.cluster/2.5.4: missing requirement 
+> [com.typesafe.akka.cluster/2.5.4] osgi.wiring.package; 
+> filter:="(&(osgi.wiring.package=akka)(version>=2.5.0)(!(version>=2.6.0)))"
+> [caused by: Unable to resolve com.typesafe.akka.actor/2.5.4: missing 
+> requirement [com.typesafe.akka.actor/2.5.4] osgi.wiring.package; 
+> filter:="(osgi.wiring.package=sun.net <http://sun.net>)"]]]]]]]
+
+Can you provide a pointer to the failing job?
+
+Regards,
+Robert
+
+
+From nite at hq.sk  Thu Feb  8 18:54:46 2018
+From: nite at hq.sk (Robert Varga)
+Date: Thu, 8 Feb 2018 19:54:46 +0100
+Subject: [controller-dev] FaaS build error
+In-Reply-To: <A80FD691ED8CBE458269B48D68F2E45E3AE134E4@YYZEML701-CHM.china.huawei.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE132B5@YYZEML701-CHM.china.huawei.com>
+	<5080ea64-c6b1-9c55-451d-3fc5b46f5e8b@hq.sk>
+	<A80FD691ED8CBE458269B48D68F2E45E3AE134E4@YYZEML701-CHM.china.huawei.com>
+Message-ID: <e9ab10b8-bf99-fee6-38ff-1978987a4ad1@hq.sk>
+
+On 08/02/18 19:53, Xingjun Chu wrote:
+> Hi Robert,
+> 
+> It is in my local dev environment. Not in CI environment.
+
+Understood. What are the steps to reproduce?
+
+Regards,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180208/fe0c1aad/attachment.sig>
+
+From Xingjun.Chu at huawei.com  Thu Feb  8 19:19:28 2018
+From: Xingjun.Chu at huawei.com (Xingjun Chu)
+Date: Thu, 8 Feb 2018 19:19:28 +0000
+Subject: [controller-dev] odl-restconf feature missing
+Message-ID: <A80FD691ED8CBE458269B48D68F2E45E3AE1357F@YYZEML701-CHM.china.huawei.com>
+
+Hi,
+
+I was verifying one of the patches for faas, and I downloaded the pactch in a detached branch locally. And build karaf distribution. After I started the karaf, I cannot find old-restconf feature under
+Karaf console, is this a problem or I am missing something.
+
+Thanks
+Xingjun
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180208/6e587b36/attachment.html>
+
+From ecelgp at gmail.com  Thu Feb  8 19:35:51 2018
+From: ecelgp at gmail.com (Luis Gomez)
+Date: Thu, 8 Feb 2018 11:35:51 -0800
+Subject: [controller-dev] [integration-dev] odl-restconf feature missing
+In-Reply-To: <A80FD691ED8CBE458269B48D68F2E45E3AE1357F@YYZEML701-CHM.china.huawei.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE1357F@YYZEML701-CHM.china.huawei.com>
+Message-ID: <B9CB3A4A-9E67-4E0E-9FD1-F184E1724D9A@gmail.com>
+
+Hi Xingjun,
+
+We have plenty of jobs building a patch and distribution just after and we have not noticed this problem. Maybe if you describe more the problem you have: does distribution works fine if built without faas? are other ODL features present in the resulting distribution? does your patch change some features? we can assist better.
+
+BR/Luis
+
+> On Feb 8, 2018, at 11:19 AM, Xingjun Chu <Xingjun.Chu at huawei.com> wrote:
+> 
+> Hi,
+>  
+> I was verifying one of the patches for faas, and I downloaded the pactch in a detached branch locally. And build karaf distribution. After I started the karaf, I cannot find old-restconf feature under
+> Karaf console, is this a problem or I am missing something.
+>  
+> Thanks
+> Xingjun
+>  
+> _______________________________________________
+> integration-dev mailing list
+> integration-dev at lists.opendaylight.org <mailto:integration-dev at lists.opendaylight.org>
+> https://lists.opendaylight.org/mailman/listinfo/integration-dev <https://lists.opendaylight.org/mailman/listinfo/integration-dev>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180208/694bf997/attachment.html>
+
+From Xingjun.Chu at huawei.com  Thu Feb  8 19:47:22 2018
+From: Xingjun.Chu at huawei.com (Xingjun Chu)
+Date: Thu, 8 Feb 2018 19:47:22 +0000
+Subject: [controller-dev] [integration-dev] odl-restconf feature missing
+In-Reply-To: <B9CB3A4A-9E67-4E0E-9FD1-F184E1724D9A@gmail.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE1357F@YYZEML701-CHM.china.huawei.com>
+	<B9CB3A4A-9E67-4E0E-9FD1-F184E1724D9A@gmail.com>
+Message-ID: <A80FD691ED8CBE458269B48D68F2E45E3AE135B9@YYZEML701-CHM.china.huawei.com>
+
+I just followed the following instruction,
+
+git-review -d 66538
+<make your changes, `git add` them to git staging area>
+git commit -s --amend
+git-review
+
+What  I did is just to modify every odlparent flavor  from 3.0.2-SNAPSHOT to 3.0.2.
+
+The build succeeds, but when I run bin/karaf under local karaf-distribution generated, I cannot find odl-restconf feature somehow with feature list command. But all faas' features and other odl features are there, just wondering if this is intentional change or something wrong.
+
+The original patch is submitted by Tom and  just to bump the YANGTOOL version to 2.0.0 in bunch of .pom files.
+
+Regards
+Xingjun
+
+
+From: Luis Gomez [mailto:ecelgp at gmail.com]
+Sent: Thursday, February 08, 2018 2:36 PM
+To: Xingjun Chu <Xingjun.Chu at huawei.com>
+Cc: mdsal-dev at lists.opendaylight.org; controller-dev <controller-dev at lists.opendaylight.org>; Release <release at lists.opendaylight.org>; integration-dev at lists.opendaylight.org
+Subject: Re: [integration-dev] odl-restconf feature missing
+
+Hi Xingjun,
+
+We have plenty of jobs building a patch and distribution just after and we have not noticed this problem. Maybe if you describe more the problem you have: does distribution works fine if built without faas? are other ODL features present in the resulting distribution? does your patch change some features? we can assist better.
+
+BR/Luis
+
+On Feb 8, 2018, at 11:19 AM, Xingjun Chu <Xingjun.Chu at huawei.com<mailto:Xingjun.Chu at huawei.com>> wrote:
+
+Hi,
+
+I was verifying one of the patches for faas, and I downloaded the pactch in a detached branch locally. And build karaf distribution. After I started the karaf, I cannot find old-restconf feature under
+Karaf console, is this a problem or I am missing something.
+
+Thanks
+Xingjun
+
+_______________________________________________
+integration-dev mailing list
+integration-dev at lists.opendaylight.org<mailto:integration-dev at lists.opendaylight.org>
+https://lists.opendaylight.org/mailman/listinfo/integration-dev
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180208/646cf6b2/attachment-0001.html>
+
+From nite at hq.sk  Thu Feb  8 20:25:18 2018
+From: nite at hq.sk (Robert Varga)
+Date: Thu, 8 Feb 2018 21:25:18 +0100
+Subject: [controller-dev] [release] [integration-dev] odl-restconf
+	feature missing
+In-Reply-To: <A80FD691ED8CBE458269B48D68F2E45E3AE135B9@YYZEML701-CHM.china.huawei.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE1357F@YYZEML701-CHM.china.huawei.com>
+	<B9CB3A4A-9E67-4E0E-9FD1-F184E1724D9A@gmail.com>
+	<A80FD691ED8CBE458269B48D68F2E45E3AE135B9@YYZEML701-CHM.china.huawei.com>
+Message-ID: <fd114111-34ba-4371-a2d4-cfaefea8ecf1@hq.sk>
+
+On 08/02/18 20:47, Xingjun Chu wrote:
+> The original patch is submitted by Tom and ?just to bump the YANGTOOL
+> version to 2.0.0 in bunch of .pom files.
+> 
+
+Please use 2.0.1 for these instead.
+
+Thanks,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180208/5ec535b3/attachment.sig>
+
+From vorburger at redhat.com  Fri Feb  9 09:12:40 2018
+From: vorburger at redhat.com (Michael Vorburger)
+Date: Fri, 9 Feb 2018 10:12:40 +0100
+Subject: [controller-dev] FaaS build error
+In-Reply-To: <e9ab10b8-bf99-fee6-38ff-1978987a4ad1@hq.sk>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE132B5@YYZEML701-CHM.china.huawei.com>
+	<5080ea64-c6b1-9c55-451d-3fc5b46f5e8b@hq.sk>
+	<A80FD691ED8CBE458269B48D68F2E45E3AE134E4@YYZEML701-CHM.china.huawei.com>
+	<e9ab10b8-bf99-fee6-38ff-1978987a4ad1@hq.sk>
+Message-ID: <CACeyj_E4O0T1Z1pjm2+bZJzBNZvm+yNohCaKPkPVSHemfp4Q+g@mail.gmail.com>
+
+Xingjun,
+
+On Thu, Feb 8, 2018 at 7:54 PM, Robert Varga <nite at hq.sk> wrote:
+
+> On 08/02/18 19:53, Xingjun Chu wrote:
+> > Hi Robert,
+> >
+> > It is in my local dev environment. Not in CI environment.
+>
+
+in cases such as this I think it's preferable, and perfectly OK to, just
+push your WIP as a (non-Draft) Gerrit, so that others can pull that and
+help you better.
+
+It's not the end of world that you know it's broken anyway, and OK to share
+an early stage WIP, if it helps others to understand your problem faster.
+
+
+> Understood. What are the steps to reproduce?
+>
+> Regards,
+> Robert
+>
+>
+> _______________________________________________
+> controller-dev mailing list
+> controller-dev at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/controller-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180209/fde450d2/attachment.html>
+
+From jenkins-dontreply at opendaylight.org  Mon Feb 12 04:27:47 2018
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Mon, 12 Feb 2018 04:27:47 +0000
+Subject: [controller-dev] [release] Autorelease nitrogen failed to build
+ sal-distributed-datastore from controller
+Message-ID: <5a8117c3.92jLn9RhhUPzaRvi%jenkins-dontreply@opendaylight.org>
+
+Attention controller-devs,
+
+Autorelease nitrogen failed to build sal-distributed-datastore from controller in build
+395. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-nitrogen/395
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-nitrogen/395/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/octet-stream
+Size: 10159 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180212/8c68a8e4/attachment.obj>
+
+From muthukumaran.k at ericsson.com  Mon Feb 12 06:28:31 2018
+From: muthukumaran.k at ericsson.com (Muthukumaran K)
+Date: Mon, 12 Feb 2018 06:28:31 +0000
+Subject: [controller-dev] Rate limiting during Txn Creation and impact on
+	external systems
+Message-ID: <AM4PR07MB1668CA40B4DA0DA3052EFEC6F2F70@AM4PR07MB1668.eurprd07.prod.outlook.com>
+
+Hi,
+
+As we know, the txn rate-limiter *blocks* creation of new transaction(s) if the permits are not granted by rate-limiter.
+So, in context of the direct broker clients within ODL , this creates a level of backpressure which is understandable.
+
+But if the broker clients are invoked from the edge modules (eg. Neutron NB), the external client(s) could typically block. But the external client (eg. Neutron agent outside ODL process) may have a timeout and can fail the request as consequence. Are such external systems, expected to implement retry based on the timeout (of course with some backoff mechanism) ?
+
+What I am trying to understand is - if the external clients do not implement any backoff, can this result in thundering-herd problems ?
+
+I do not have a real running usecase on hand to prove/verify this. Would like to hear recommendations if anybody had experienced similar scenario(s).
+
+Regards
+Muthu
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180212/29a4fb6a/attachment.html>
+
+From muthukumaran.k at ericsson.com  Mon Feb 12 07:07:36 2018
+From: muthukumaran.k at ericsson.com (Muthukumaran K)
+Date: Mon, 12 Feb 2018 07:07:36 +0000
+Subject: [controller-dev] Rate limiting during Txn Creation and impact
+	on	external systems
+In-Reply-To: <AM4PR07MB1668CA40B4DA0DA3052EFEC6F2F70@AM4PR07MB1668.eurprd07.prod.outlook.com>
+References: <AM4PR07MB1668CA40B4DA0DA3052EFEC6F2F70@AM4PR07MB1668.eurprd07.prod.outlook.com>
+Message-ID: <AM4PR07MB16682D8D02C8922DE6B639BDF2F70@AM4PR07MB1668.eurprd07.prod.outlook.com>
+
+On second thought, for such scenarios as below, the throttling or rate-limiting is better realized  beyond ODL boundary and not to exercise/depend upon DS level Txn rate-limiter.
+So, in a sane deployment model, the rate-limiting for cases like below must even eliminate the possibilities of requests landing into ODL and must be contained within the originator (Neutron NB Client for example)
+
+Any thoughts ?
+
+Regards
+Muthu
+
+
+
+
+From: controller-dev-bounces at lists.opendaylight.org<mailto:controller-dev-bounces at lists.opendaylight.org> [mailto:controller-dev-bounces at lists.opendaylight.org] On Behalf Of Muthukumaran K
+Sent: Monday, February 12, 2018 11:59 AM
+To: controller-dev
+Subject: [controller-dev] Rate limiting during Txn Creation and impact on external systems
+
+Hi,
+
+As we know, the txn rate-limiter *blocks* creation of new transaction(s) if the permits are not granted by rate-limiter.
+So, in context of the direct broker clients within ODL , this creates a level of backpressure which is understandable.
+
+But if the broker clients are invoked from the edge modules (eg. Neutron NB), the external client(s) could typically block. But the external client (eg. Neutron agent outside ODL process) may have a timeout and can fail the request as consequence. Are such external systems, expected to implement retry based on the timeout (of course with some backoff mechanism) ?
+
+What I am trying to understand is - if the external clients do not implement any backoff, can this result in thundering-herd problems ?
+
+I do not have a real running usecase on hand to prove/verify this. Would like to hear recommendations if anybody had experienced similar scenario(s).
+
+Regards
+Muthu
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180212/fcc438fd/attachment-0001.html>
+
+From vorburger at redhat.com  Mon Feb 12 13:25:41 2018
+From: vorburger at redhat.com (Michael Vorburger)
+Date: Mon, 12 Feb 2018 14:25:41 +0100
+Subject: [controller-dev] [release] Autorelease nitrogen failed to build
+ sal-distributed-datastore from controller
+In-Reply-To: <5a8117c3.92jLn9RhhUPzaRvi%jenkins-dontreply@opendaylight.org>
+References: <5a8117c3.92jLn9RhhUPzaRvi%jenkins-dontreply@opendaylight.org>
+Message-ID: <CACeyj_GDTrnUgX7pVziVHHeVJJ13_yTkj6nTnerK9oBeRiXDBQ@mail.gmail.com>
+
+On Mon, Feb 12, 2018 at 5:27 AM, Jenkins <jenkins-dontreply at opendaylight.org
+> wrote:
+
+> Attention controller-devs,
+>
+> Autorelease nitrogen failed to build sal-distributed-datastore from
+> controller in build
+> 395. Attached is a snippet of the error message related to the
+> failure that we were able to automatically parse as well as console logs.
+>
+> Console Logs:
+> https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/
+> autorelease-release-nitrogen/395
+>
+> Jenkins Build:
+> https://jenkins.opendaylight.org/releng/job/autorelease-
+> release-nitrogen/395/
+>
+> Please review and provide an ETA on when a fix will be available.
+
+
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-nitrogen/395/console.log.gz
+
+
+org.opendaylight.controller.cluster.datastore.DistributedDataStoreRemotingIntegrationTest
+testSingleShardTransactionsWithLeaderChanges[class
+org.opendaylight.controller.cluster.datastore.DistributedDataStore](org.opendaylight.controller.cluster.datastore.DistributedDataStoreRemotingIntegrationTest)
+ Time elapsed: 4.845 sec  <<< ERROR!
+java.util.concurrent.ExecutionException:
+org.opendaylight.controller.cluster.datastore.exceptions.NoShardLeaderException:
+Shard member-2-shard-cars-testSingleShardTransactionsWithLeaderChanges
+currently has no leader. Try again later.
+
+Nothing obvious in this log:
+
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-nitrogen/395/controller/opendaylight/md-sal/sal-distributed-datastore/target/surefire-reports/org.opendaylight.controller.cluster.datastore.DistributedDataStoreRemotingIntegrationTest-output.txt.gz
+
+ dunno how to make this intermittently failing test more stable.
+
+Thanks,
+> ODL releng/autorelease team
+>
+>
+> _______________________________________________
+> controller-dev mailing list
+> controller-dev at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/controller-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180212/aa8c7618/attachment.html>
+
+From Xingjun.Chu at huawei.com  Mon Feb 12 20:18:12 2018
+From: Xingjun.Chu at huawei.com (Xingjun Chu)
+Date: Mon, 12 Feb 2018 20:18:12 +0000
+Subject: [controller-dev] [integration-dev] odl-restconf feature missing
+In-Reply-To: <B9CB3A4A-9E67-4E0E-9FD1-F184E1724D9A@gmail.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE1357F@YYZEML701-CHM.china.huawei.com>
+	<B9CB3A4A-9E67-4E0E-9FD1-F184E1724D9A@gmail.com>
+Message-ID: <A80FD691ED8CBE458269B48D68F2E45E3AE1833F@YYZEML701-CHM.china.huawei.com>
+
+Hi Luis,
+
+What I did is to get the patch https://git.opendaylight.org/gerrit/#/c/66538/,  which is just to bump the parent to 3.0.2 version.
+And apply the patch to my local FaaS master branch, and maven builds successfully as before.
+
+Then launch the karaf from the local build karaf distribution directory under faas ->districtuion-karaf/target/assembly/bin/karaf.
+
+feature:list | grep odl-restconf,  there is no such feature anymore :(.
+
+Thanks
+XIngjun
+
+From: Luis Gomez [mailto:ecelgp at gmail.com]
+Sent: Thursday, February 08, 2018 2:36 PM
+To: Xingjun Chu <Xingjun.Chu at huawei.com>
+Cc: mdsal-dev at lists.opendaylight.org; controller-dev <controller-dev at lists.opendaylight.org>; Release <release at lists.opendaylight.org>; integration-dev at lists.opendaylight.org
+Subject: Re: [integration-dev] odl-restconf feature missing
+
+Hi Xingjun,
+
+We have plenty of jobs building a patch and distribution just after and we have not noticed this problem. Maybe if you describe more the problem you have: does distribution works fine if built without faas? are other ODL features present in the resulting distribution? does your patch change some features? we can assist better.
+
+BR/Luis
+
+On Feb 8, 2018, at 11:19 AM, Xingjun Chu <Xingjun.Chu at huawei.com<mailto:Xingjun.Chu at huawei.com>> wrote:
+
+Hi,
+
+I was verifying one of the patches for faas, and I downloaded the pactch in a detached branch locally. And build karaf distribution. After I started the karaf, I cannot find old-restconf feature under
+Karaf console, is this a problem or I am missing something.
+
+Thanks
+Xingjun
+
+_______________________________________________
+integration-dev mailing list
+integration-dev at lists.opendaylight.org<mailto:integration-dev at lists.opendaylight.org>
+https://lists.opendaylight.org/mailman/listinfo/integration-dev
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180212/28a79bfa/attachment.html>
+
+From ryandgoulding at gmail.com  Tue Feb 13 16:53:01 2018
+From: ryandgoulding at gmail.com (Ryan Goulding)
+Date: Tue, 13 Feb 2018 11:53:01 -0500
+Subject: [controller-dev] Kernel Projects Call
+Message-ID: <CAP3y0aacgdc6nb23O_t048y=Dzjjz1DxD1pydjO5Cv12-xAmgg@mail.gmail.com>
+
+Hi Team,
+
+Unfortunately, something very important came up last minute, and I cannot
+make the Kernel call today.  Please feel free to utilize my zoom account.
+
+Regards,
+
+Ryan
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180213/204731a3/attachment.html>
+
+From ecelgp at gmail.com  Wed Feb 14 00:00:15 2018
+From: ecelgp at gmail.com (Luis Gomez)
+Date: Tue, 13 Feb 2018 16:00:15 -0800
+Subject: [controller-dev] [integration-dev] odl-restconf feature missing
+In-Reply-To: <A80FD691ED8CBE458269B48D68F2E45E3AE1833F@YYZEML701-CHM.china.huawei.com>
+References: <A80FD691ED8CBE458269B48D68F2E45E3AE1357F@YYZEML701-CHM.china.huawei.com>
+	<B9CB3A4A-9E67-4E0E-9FD1-F184E1724D9A@gmail.com>
+	<A80FD691ED8CBE458269B48D68F2E45E3AE1833F@YYZEML701-CHM.china.huawei.com>
+Message-ID: <E1679049-AD0F-4DD9-90C0-51A0E7613841@gmail.com>
+
+Just to be clear the issue is not in int/dist but in faas local distribution. My believe is that the odl-restconf feature is not there because this feature is not referenced by any of the faas features.
+
+> On Feb 12, 2018, at 12:18 PM, Xingjun Chu <Xingjun.Chu at huawei.com> wrote:
+> 
+> Hi Luis,
+>  
+> What I did is to get the patch https://git.opendaylight.org/gerrit/#/c/66538/ <https://git.opendaylight.org/gerrit/#/c/66538/>,  which is just to bump the parent to 3.0.2 version.
+> And apply the patch to my local FaaS master branch, and maven builds successfully as before.
+>  
+> Then launch the karaf from the local build karaf distribution directory under faas ->districtuion-karaf/target/assembly/bin/karaf.
+>  
+> feature:list | grep odl-restconf,  there is no such feature anymore L.   
+>  
+> Thanks
+> XIngjun
+>  
+> From: Luis Gomez [mailto:ecelgp at gmail.com] 
+> Sent: Thursday, February 08, 2018 2:36 PM
+> To: Xingjun Chu <Xingjun.Chu at huawei.com>
+> Cc: mdsal-dev at lists.opendaylight.org; controller-dev <controller-dev at lists.opendaylight.org>; Release <release at lists.opendaylight.org>; integration-dev at lists.opendaylight.org
+> Subject: Re: [integration-dev] odl-restconf feature missing
+>  
+> Hi Xingjun,
+>  
+> We have plenty of jobs building a patch and distribution just after and we have not noticed this problem. Maybe if you describe more the problem you have: does distribution works fine if built without faas? are other ODL features present in the resulting distribution? does your patch change some features? we can assist better.
+>  
+> BR/Luis
+>  
+> On Feb 8, 2018, at 11:19 AM, Xingjun Chu <Xingjun.Chu at huawei.com <mailto:Xingjun.Chu at huawei.com>> wrote:
+>  
+> Hi,
+>  
+> I was verifying one of the patches for faas, and I downloaded the pactch in a detached branch locally. And build karaf distribution. After I started the karaf, I cannot find old-restconf feature under
+> Karaf console, is this a problem or I am missing something.
+>  
+> Thanks
+> Xingjun
+>  
+> _______________________________________________
+> integration-dev mailing list
+> integration-dev at lists.opendaylight.org <mailto:integration-dev at lists.opendaylight.org>
+> https://lists.opendaylight.org/mailman/listinfo/integration-dev <https://lists.opendaylight.org/mailman/listinfo/integration-dev>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-dev/attachments/20180213/6debaa81/attachment.html>
+
