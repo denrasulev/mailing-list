@@ -1,15 +1,21 @@
-from urllib.request import urlopen
-from bs4 import BeautifulSoup as bs
+import requests
+from bs4 import BeautifulSoup
 
 # get list of all mailing lists in opendaylight project
 lists_page = 'https://lists.opendaylight.org/mailman/listinfo'
 
-page = urlopen(lists_page)
-soup = bs(page, 'html.parser')
+page = requests.get(lists_page)
+if page.status_code == '200':
+    cont = page.content
+
+soup = BeautifulSoup(cont, 'html.parser')
 
 all_lists = []
 for row in soup.find_all('a'):
-    all_lists.append(row.get('href').partition('/')[2])
+    text = row.get('href').partition('/')[2]
+    if len(text) > 0:
+        print(text)
+        all_lists.append(text)
 
 with open('lists.txt', 'w') as f:
     f.write(all_lists)
