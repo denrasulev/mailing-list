@@ -37,9 +37,7 @@ for i in range(0, len(all_lists)):
 
     ml_files = []
     for row in ml_soup.find_all('a', href=re.compile(".txt")):
-        text = row.get('href')
-        if len(text) > 0:
-            ml_files.append(text)
+        ml_files.append(row.get('href'))
 
     # save them to disk
     name = 'files_for_' + all_lists[i] + '.txt'
