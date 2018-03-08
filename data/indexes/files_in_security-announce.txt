@@ -1,0 +1,7 @@
+2018-January.txt
+2017-November.txt.gz
+2017-June.txt.gz
+2017-May.txt.gz
+2015-June.txt.gz
+2015-March.txt.gz
+2015-January.txt.gz

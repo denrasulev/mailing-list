@@ -1,9 +1,0 @@
-All lists are listed here: https://lists.opendaylight.org/mailman/listinfo
-
-Base: https://lists.opendaylight.org/pipermail/ + 'name of the list'
-
-Examples:
-https://lists.opendaylight.org/pipermail/advisory-group/
-https://lists.opendaylight.org/pipermail/controller-dev/
-https://lists.opendaylight.org/pipermail/controller-announce/
-
