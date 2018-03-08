@@ -75,30 +75,36 @@ def days_last_modified(file):
 # start
 start_time = time.time()
 
+# set base parameters
 lists_index_page_url = 'https://lists.opendaylight.org/mailman/listinfo'
 files_pages_base_url = 'https://lists.opendaylight.org/pipermail/'
-update_interval      = 30  # in days
+lindex = 'data/lists_index.txt'
+period = 30  # in days
 
-# if lists index file does not exist then create it
-if not os.path.exists('data/lists_index.txt'):
+# if lists index file doesn't exist or size is 0 or is older than period
+if not os.path.exists(lindex) or os.path.getsize(lindex) == 0 or \
+   days_last_modified(lindex) > period:
+
+    # then create it or update it
     lists_index = get_lists_names(lists_index_page_url)
 
-# if lists index file is older than one month then update it
-if days_last_modified('data/lists_index.txt') > 30:
-    lists_index = get_lists_names(lists_index_page_url)
+    # and save it to disk
+    with open(lindex, 'w') as f:
+        f.write('\n'.join(lists_index))
 
-# and save lists index file to disk
-with open('data/lists_index.txt', 'w') as f:
-    f.write('\n'.join(lists_index))
+# read mailing lists index file
+f = open(lindex, 'r')
+lists_index = f.readlines()
+lists_index = [s.rstrip() for s in lists_index]
 
-# get list of archived text files for every mailing list
+# for every mailing list get list of archived text files in it
 for i in range(len(lists_index)):
 
     # construct name for individual list of files for every mailing list
     name = 'data/indexes/files_in_' + lists_index[i] + '.txt'
 
     # if this list of files does not exist or it is older than required:
-    if not os.path.exists(name) or days_last_modified(name) > update_interval:
+    if not os.path.exists(name) or days_last_modified(name) > period:
 
         # get or update it
         ml_files = get_files_names(files_pages_base_url, lists_index[i])
@@ -107,5 +113,8 @@ for i in range(len(lists_index)):
         with open(name, 'w') as f:
             f.write('\n'.join(ml_files))
 
-# inform user on how log did it take
-print(f"Done in {(time.time() - start_time)} seconds.")
+# close index file
+f.close()
+
+# inform user on how long did it take
+print(f"Done in {(time.time() - start_time):1.2f} second(s).")
