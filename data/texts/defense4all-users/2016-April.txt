@@ -1,0 +1,13 @@
+From m8a8h8d8i at gmail.com  Fri Apr 15 16:31:25 2016
+From: m8a8h8d8i at gmail.com (mahdi khodabandello)
+Date: Fri, 15 Apr 2016 21:01:25 +0430
+Subject: [defense4all-users] simulate defense4all
+Message-ID: <CABDX3QNJgkm_2rmUbPB2GhkT7g0o9KZ7L5zFXtcF38HD44qbPw@mail.gmail.com>
+
+how i can simulate defensepro for ams config in defense4all ?
+
+please help me .
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/defense4all-users/attachments/20160415/f9af3fb4/attachment.html>
+

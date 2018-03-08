@@ -1,0 +1,73 @@
+From xueke.odl at gmail.com  Tue Apr 11 22:46:29 2017
+From: xueke.odl at gmail.com (Xueke Li)
+Date: Tue, 11 Apr 2017 15:46:29 -0700
+Subject: [atrium-dev] Atrium Project,
+	please submit Carbon M4 status report ASAP
+Message-ID: <CAMGoX7ZvbAaXyzo-qDZ2wE9cm67k58zv9fGtGc-byFMCKai5dg@mail.gmail.com>
+
+Hi,
+
+Atrium Project 's Carbon M4 status report is missing. Please submit it ASAP.
+
+Thanks,
+
+Xueke(On behalf of Katie)
+
+Following is the M4 Status report template:
+
+<Project Name>
+
+1. Please provide updates on any previously-incomplete items from prior
+milestone readouts.
+
+
+2. Has your project achieved API freeze such that all externally accessible
+Stable or Provisional APIs will not be modified after now? (Yes/No)
+
+*  (Link to gerrit search for patches modifying the API [1])
+
+
+3. Do you have content in your project documentation? (Yes/No)
+
+*  (For each document, provide current word count)
+
+*  (For each document, link to the file in gerrit)
+
+*  (Link to pending gerrit patches waiting approval)
+
+
+4. Has your project met the requirements to be included in Maven Central
+[2]? (Yes/No)
+
+
+
+5. Were project-specific deliverables planned for this milestone delivered
+successfully? (No Deliverables/Yes/No)
+
+
+
+6. Have you started automated system testing for your top-level features.
+(Yes/No)
+
+*  (If yes, link to test report)
+
+*  (If no, explain why)
+
+
+
+7. Does your project use any ports, including for testing? (Yes/No)
+
+*  (If yes, list of ports used)
+
+*  (If yes, have you updated the wiki [3] with all ports used? Yes/No)
+
+
+
+8. Does your project build successful in Autorelease?
+
+*  (If yes, link to successful autorelease job [4])
+*  (If not, explain why)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/atrium-dev/attachments/20170411/35b6fd50/attachment.html>
+

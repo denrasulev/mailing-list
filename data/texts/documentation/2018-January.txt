@@ -1,0 +1,20 @@
+From thanh.ha at linuxfoundation.org  Wed Jan 17 15:09:02 2018
+From: thanh.ha at linuxfoundation.org (Thanh Ha)
+Date: Wed, 17 Jan 2018 10:09:02 -0500
+Subject: [documentation] New Docs PTL - Charles La Voy
+Message-ID: <CAEXadNrABSLQErqhcuZah=tXjuMNajZpVmiUM64LiwBnSha9CQ@mail.gmail.com>
+
+Hi Everyone,
+
+I just wanted to announce that we decided to name Charles as the new Docs
+project PTL during yesterday's sync meeting [0]. Congrats Charles!
+
+Regards,
+Thanh
+
+[0]
+https://meetings.opendaylight.org/opendaylight-docs/2018/docs/opendaylight-docs-docs.2018-01-16-19.59.html
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/documentation/attachments/20180117/11fadddd/attachment.html>
+

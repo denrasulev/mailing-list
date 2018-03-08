@@ -1,0 +1,39 @@
+From An.Ho at huawei.com  Thu Mar 24 20:36:35 2016
+From: An.Ho at huawei.com (An Ho)
+Date: Thu, 24 Mar 2016 20:36:35 +0000
+Subject: [opendove-dev] OPENDOVE Active Committers
+Message-ID: <EEEA408CE50B48498B9F866085AEF2912FAEEA67@SJCEML701-CHM.china.huawei.com>
+
+Hi Jay Kidambi <jkidambi at us.ibm.com>, Amitabha Biswas <abiswas at us.ibm.com>, Ryan Moats <rmoats at us.ibm.com>, Stephan Benny <sbenny at us.ibm.com>, John Buswell <jbuswell at us.ibm.com>, Sushma Anantharam <ananthas at us.ibm.com>, Anees Shaikh <anees.shaikh at gmail.com>, Prashanth Nageshappa <prashanth.k.n at in.ibm.com>, Katherine Barabash <kathy at il.ibm.com>, Liran Schour <lirans at il.ibm.com>,
+
+Please reply to this email to indicate that you are still an active committer on this project.
+
+Best Regards,
+An Ho
+
+
+
+
+From An.Ho at huawei.com  Thu Mar 24 20:36:32 2016
+From: An.Ho at huawei.com (An Ho)
+Date: Thu, 24 Mar 2016 20:36:32 +0000
+Subject: [opendove-dev] Plans for Archiving OPENDOVE Project
+Message-ID: <EEEA408CE50B48498B9F866085AEF2912FAEEA5F@SJCEML701-CHM.china.huawei.com>
+
+Hi OPENDOVE Team,
+
+1. Does your project have any plans to be archived?  If your project has no plans for any future active development, project committers can vote to move a project to the Archived State by a Termination Review according to the OpenDaylight Project Lifecycle and Releases document [1].
+2. If you projects plans to remain active, does it intend to participate in the Boron Simultaneous Release as documented in the Boron Release Plan [2]?  If not, could someone please publicly decline to participate with a message like so: "The <PROJECT_NAME> project is formally declining to participate in the Boron SR".
+
+The last project related activity on Gerrit is Oct 20, 2014.
+
+Best Regards,
+An Ho
+
+[1] https://www.opendaylight.org/project-lifecycle-releases
+[2] https://wiki.opendaylight.org/view/Simultaneous_Release:Boron_Release_Plan
+
+
+
+
+

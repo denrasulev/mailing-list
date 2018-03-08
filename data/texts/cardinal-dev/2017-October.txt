@@ -1,0 +1,23 @@
+From klou.external at gmail.com  Fri Oct 13 00:56:18 2017
+From: klou.external at gmail.com (Kit Lou)
+Date: Thu, 12 Oct 2017 19:56:18 -0500
+Subject: [cardinal-dev] [Notification] Cardinal project removed from Oxygen
+	Simultaneous Release
+Message-ID: <CAKxjJnQ8wKEaV2029CQ86uXmr=EJXN=yZ+gE2urjEgeWQ7N7iw@mail.gmail.com>
+
+Hello Cardinal Project Team,
+
+As you have not responded to our email [1],  this is to notify you that we
+are officially removing your project from the Oxygen Simultaneous Release.
+
+Thank you for your past participation and contributions!
+
+Best Regards,
+Kit Lou
+
+[1]
+https://lists.opendaylight.org/pipermail/release/2017-September/012522.html
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/cardinal-dev/attachments/20171012/8a5cf1e3/attachment.html>
+

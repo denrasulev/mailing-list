@@ -1,0 +1,241 @@
+From mranga at gmail.com  Sun Dec  3 22:11:50 2017
+From: mranga at gmail.com (M. Ranganathan)
+Date: Sun, 3 Dec 2017 17:11:50 -0500
+Subject: [openflowplugin-users] Push Vlan + set tag + output to port and GoTo
+Message-ID: <CAHiu4JP_tRXTcASopA5_C8RoRe7FDtvRcc-pM3VjhS0Krmk6tA@mail.gmail.com>
+
+I am trying to replicate the following in opendaylight that works fine for
+me using ovs-ofctl :
+
+
+sudo ovs-ofctl add-flow s1
+priority=35,table=2,metadata=1379878762,actions=push_vlan:0x8100,mod_vlan_vid:4000,output:6,goto_table:3
+-O openflow13
+
+When I do this with opendaylight, I don't see any actions related to vlan
+appearing in my flow. Here is the code I use to create the instructions to
+push the flow:
+
+
+       vlan.setTag(vlanId);
+
+        vlan.setEthernetType(0x8100);
+        ab.setAction(new
+PushVlanActionCaseBuilder().setPushVlanAction(vlan.build()).build());
+        ab.setKey(new ActionKey(0));
+        ab.setOrder(0);
+        actionList.add(ab.build());
+
+       /* Then we set vlan id value as vlanId */
+        SetVlanIdActionBuilder vl = new SetVlanIdActionBuilder();
+        vl.setVlanId(new VlanId(vlanId));
+        ab = new ActionBuilder();
+        ab.setKey(new ActionKey(0));
+        ab.setAction(new
+SetVlanIdActionCaseBuilder().setSetVlanIdAction(vl.build()).build());
+        ab.setOrder(1);
+        actionList.add(ab.build());
+
+
+        OutputActionBuilder output = new OutputActionBuilder();
+        output.setMaxLength(Integer.valueOf(0xffff));
+
+        Uri controllerPort = new Uri(outputPortUri);
+        output.setOutputNodeConnector(controllerPort);
+
+        ab = new ActionBuilder();
+        ab.setKey(new ActionKey(0));
+        ab.setAction(new
+OutputActionCaseBuilder().setOutputAction(output.build()).build());
+        ab.setOrder(2);
+        actionList.add(ab.build());
+
+
+        // Create an Apply Action
+        ApplyActionsBuilder aab = new ApplyActionsBuilder();
+
+        aab.setAction(actionList);
+
+
+        // Wrap our Apply Action in an Instruction
+        ib.setOrder(0).setInstruction(new
+ApplyActionsCaseBuilder().setApplyActions(aab.build()).build());
+
+
+Thanks in advance for any clues.
+
+Ranga
+
+
+
+
+-- 
+M. Ranganathan
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/openflowplugin-users/attachments/20171203/b1e0a631/attachment.html>
+
+From mranga at gmail.com  Mon Dec  4 03:05:56 2017
+From: mranga at gmail.com (M. Ranganathan)
+Date: Sun, 3 Dec 2017 22:05:56 -0500
+Subject: [openflowplugin-users] Push Vlan + set tag + output to port and
+	GoTo
+In-Reply-To: <CAHiu4JP_tRXTcASopA5_C8RoRe7FDtvRcc-pM3VjhS0Krmk6tA@mail.gmail.com>
+References: <CAHiu4JP_tRXTcASopA5_C8RoRe7FDtvRcc-pM3VjhS0Krmk6tA@mail.gmail.com>
+Message-ID: <CAHiu4JPt6szPs8wVxqC2Vx7pjvMP2JyeyG=EHOAsPrUg7=8VGA@mail.gmail.com>
+
+Please see dump of config datastore for this flow below. I am using
+Carbon-42 plugin. Is this a known bug? I am quite new to ODL.
+
+On Sun, Dec 3, 2017 at 5:11 PM, M. Ranganathan <mranga at gmail.com> wrote:
+
+> I am trying to replicate the following in opendaylight that works fine for
+> me using ovs-ofctl :
+>
+>
+> sudo ovs-ofctl add-flow s1 priority=35,table=2,metadata=
+> 1379878762,actions=push_vlan:0x8100,mod_vlan_vid:4000,output:6,goto_table:3
+> -O openflow13
+>
+> When I do this with opendaylight, I don't see any actions related to vlan
+> appearing in my flow. Here is the code I use to create the instructions to
+> push the flow:
+>
+>
+>        vlan.setTag(vlanId);
+>
+>         vlan.setEthernetType(0x8100);
+>         ab.setAction(new PushVlanActionCaseBuilder().
+> setPushVlanAction(vlan.build()).build());
+>         ab.setKey(new ActionKey(0));
+>         ab.setOrder(0);
+>         actionList.add(ab.build());
+>
+>        /* Then we set vlan id value as vlanId */
+>         SetVlanIdActionBuilder vl = new SetVlanIdActionBuilder();
+>         vl.setVlanId(new VlanId(vlanId));
+>         ab = new ActionBuilder();
+>         ab.setKey(new ActionKey(0));
+>         ab.setAction(new SetVlanIdActionCaseBuilder().
+> setSetVlanIdAction(vl.build()).build());
+>         ab.setOrder(1);
+>         actionList.add(ab.build());
+>
+>
+>         OutputActionBuilder output = new OutputActionBuilder();
+>         output.setMaxLength(Integer.valueOf(0xffff));
+>
+>         Uri controllerPort = new Uri(outputPortUri);
+>         output.setOutputNodeConnector(controllerPort);
+>
+>         ab = new ActionBuilder();
+>         ab.setKey(new ActionKey(0));
+>         ab.setAction(new OutputActionCaseBuilder().
+> setOutputAction(output.build()).build());
+>         ab.setOrder(2);
+>         actionList.add(ab.build());
+>
+>
+>         // Create an Apply Action
+>         ApplyActionsBuilder aab = new ApplyActionsBuilder();
+>
+>         aab.setAction(actionList);
+>
+>
+>         // Wrap our Apply Action in an Instruction
+>         ib.setOrder(0).setInstruction(new    ApplyActionsCaseBuilder().
+> setApplyActions(aab.build()).build());
+>
+>
+> Thanks in advance for any clues.
+>
+> Ranga
+>
+>
+>
+>
+> --
+> M. Ranganathan
+>
+
+
+    Proceeding along here's how I actually create the flow
+
+        MatchBuilder matchBuilder = new MatchBuilder();
+        createMetadataMatch(matchBuilder, flowCookie.getValue());
+
+        InstructionBuilder ib = new InstructionBuilder();
+
+       // See above.
+        Instruction createVlanTag =
+FlowUtils.createSetVlanAndOutputToPortInstructions(
+                SdnMudConstants.MUD_RULE_HIT_LABEL, outputPortUri);
+
+        InstructionsBuilder insb = new InstructionsBuilder();
+        ArrayList<Instruction> instructions = new ArrayList<Instruction>();
+        instructions.add(createVlanTag);
+        Instruction gotoInstruction = ib.setInstruction(new
+GoToTableCaseBuilder()
+                .setGoToTable(new
+GoToTableBuilder().setTableId(SdnMudConstants.STRIP_VLAN_RULE_TABLE).build()).build())
+                .setKey(new InstructionKey(0)).build();
+
+        instructions.add(gotoInstruction);
+
+        insb.setInstruction(instructions);
+
+tagPacketFlow.setMatch(matchBuilder.build()).setInstructions(insb.build())
+                .setPriority(35).setBufferId(OFConstants.ANY)
+                .setHardTimeout(time).setIdleTimeout(0).setFlags(new
+FlowModFlags(false, false, false, false, false));
+
+
+
+I put everything into an instructionsbuilder and created a flow that
+included the instruction above and a goto_table instruction.
+
+Note that ONLY the gototable instruction appeared although I had set the
+vlan tag. What happened to my Vlan instructions? Can they coexist?
+
+
+ {
+                            "buffer_id": 4294967295,
+                            "cookie": 1379878762,
+                            "flags": "",
+                            "flow-name":
+"metadataMatchVlanTagSendToPortAndGoToStripVlanTagTable",
+                            "hard-timeout": 30000,
+                            "id": "toaster/42",
+                            "idle-timeout": 0,
+                            "instructions": {
+                                "instruction": [
+                                    {
+                                        "go-to-table": {
+                                            "table_id": 3
+                                        },
+                                        "order": 0
+                                    }
+                                ]
+                            },
+                            "match": {
+                                "metadata": {
+                                    "metadata": 1379878762
+                                }
+                            },
+                            "priority": 35,
+                            "table_id": 2
+                        }
+
+
+
+
+
+-- 
+M. Ranganathan
+
+?If debugging is the process of removing software bugs, then programming
+must be the process of putting them in.? ? Edsger Dijkstra
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/openflowplugin-users/attachments/20171203/bfb5b7d1/attachment.html>
+

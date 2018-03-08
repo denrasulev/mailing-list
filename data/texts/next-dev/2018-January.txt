@@ -1,0 +1,24 @@
+From hthu at utstar.com  Tue Jan  9 06:18:31 2018
+From: hthu at utstar.com (hthu)
+Date: Tue, 9 Jan 2018 14:18:31 +0800
+Subject: [next-dev] How can I update label and color or icon with no refresh
+	when I get the notification from backend
+Message-ID: <02cf01d38911$ac771110$05653330$@utstar.com>
+
+Dear:
+
+When I rendered the topology, how can I update label and color or icon with
+no refresh the full topology when I get the notification from backend.
+
+ 
+
+Thanks!
+
+ 
+
+Bruse
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/next-dev/attachments/20180109/21c8d099/attachment.html>
+

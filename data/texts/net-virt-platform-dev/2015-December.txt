@@ -1,0 +1,89 @@
+From tech.kals at gmail.com  Thu Dec 31 07:17:40 2015
+From: tech.kals at gmail.com (tech_kals Kals)
+Date: Thu, 31 Dec 2015 12:47:40 +0530
+Subject: [net-virt-platform-dev] OFDPA TTP with ODL controller
+Message-ID: <CAHWErLf86wWojL_RSWAJ7M7wb7qdq+_hGzqezNJ9pECCzKJP6g@mail.gmail.com>
+
+Hi experts,
+
+  I am trying to integrate OFDPA2.0 switch (with Indigo agent) with
+OpenDayLight controller.
+
+(1) Could someone explain me / point out how a switch and controller would
+exchange TTP ? Just want to understand Switch and Controller negotiation on
+TTP.
+
+(2) I know, I need to write a new TTP for a specific application. But, how
+to load the written TTP into the switch ? How switch would exchange it to
+controller ?
+
+Thanks,
+__Kals__
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/net-virt-platform-dev/attachments/20151231/3efe4dd5/attachment.html>
+
+From rob.sherwood at bigswitch.com  Thu Dec 31 12:27:05 2015
+From: rob.sherwood at bigswitch.com (Rob Sherwood)
+Date: Thu, 31 Dec 2015 04:27:05 -0800
+Subject: [net-virt-platform-dev] OFDPA TTP with ODL controller
+In-Reply-To: <CAHWErLf86wWojL_RSWAJ7M7wb7qdq+_hGzqezNJ9pECCzKJP6g@mail.gmail.com>
+References: <CAHWErLf86wWojL_RSWAJ7M7wb7qdq+_hGzqezNJ9pECCzKJP6g@mail.gmail.com>
+Message-ID: <CAGsE96UGco3DqbyR3YJqQ9P0OKp1F0twN_inH=R818L+EYPsAg@mail.gmail.com>
+
+Hi Kals,
+
+A lot of folks and mailing lists on this CC - IMHO the ONL mailing list (
+http://opennetlinux.org/community) is probably the best place for this.
+
+For (1), I believe in theory there are protocols built into OFConfig (a
+completely separate data channel) to get which TTP a switch supports and to
+select which one to use.  Currently, OFDPA2.0 only supports a single TTP so
+this is less important of a step.  Further, the Indigo OpenFlow agent
+doesn't implement OFConfig (happy to accept the patch), so this information
+isn't available through the switch agent anyway.  Best bet is to
+dynamically pull from the website:
+https://raw.githubusercontent.com/Broadcom-Switch/of-dpa/master/OF-DPA-2.0/ofdpa-v2.0.0.2.ttp.json
+
+
+For (2), you don't/can't write a TTP for an application- it's the other way
+around.  You write an application to a TTP.  Perhaps you're thinking of P4
+where you write a P4 description of what you want the switch to do?  As I
+mentioned above, while the underlying Broadcom hardware can in theory
+support many many TTPs, OFDPA doesn't expose any of those knobs to you, so
+there's only effectively the one TTP available.  In other words, you have
+to think about how to use the existing tables exposed by OFDPA and figure
+out how to manage them to support your application.
+
+On the last part, I and my team have written a couple of applications on
+top of OFDPA, so if you want to post to the ONL mailing lists, we'd be
+happy to help you think this through.
+
+Hope this helps,
+
+- Rob
+.
+
+On Wed, Dec 30, 2015 at 11:17 PM, tech_kals Kals <tech.kals at gmail.com>
+wrote:
+
+> Hi experts,
+>
+>   I am trying to integrate OFDPA2.0 switch (with Indigo agent) with
+> OpenDayLight controller.
+>
+> (1) Could someone explain me / point out how a switch and controller would
+> exchange TTP ? Just want to understand Switch and Controller negotiation on
+> TTP.
+>
+> (2) I know, I need to write a new TTP for a specific application. But, how
+> to load the written TTP into the switch ? How switch would exchange it to
+> controller ?
+>
+> Thanks,
+> __Kals__
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/net-virt-platform-dev/attachments/20151231/d535a5cf/attachment.html>
+

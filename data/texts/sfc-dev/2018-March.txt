@@ -1,0 +1,33 @@
+From jenkins-dontreply at opendaylight.org  Thu Mar  1 07:55:40 2018
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Thu, 01 Mar 2018 07:55:40 +0000
+Subject: [sfc-dev] [release] Autorelease fluorine failed to build
+ odl-sfc-pot-netconf-renderer from sfc
+Message-ID: <5a97b1fc.AZI/0J/+r7CvIhLt%jenkins-dontreply@opendaylight.org>
+
+Attention sfc-devs,
+
+Autorelease fluorine failed to build odl-sfc-pot-netconf-renderer from sfc in build
+3. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-fluorine/3
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-fluorine/3/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/octet-stream
+Size: 2081 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/sfc-dev/attachments/20180301/76e49206/attachment-0001.obj>
+

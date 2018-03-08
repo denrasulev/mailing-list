@@ -1,0 +1,57 @@
+From anuguleria at grads.cds.iisc.ac.in  Fri Jun  2 20:04:51 2017
+From: anuguleria at grads.cds.iisc.ac.in (Anubhav Guleria)
+Date: Fri, 2 Jun 2017 20:04:51 +0000
+Subject: [dlux-users] Doubt regarding Dlux,ODL Controller & Mininet
+Message-ID: <BMXPR01MB072825D0EF1352E17DC390B7E3F70@BMXPR01MB0728.INDPRD01.PROD.OUTLOOK.COM>
+
+Hi,
+
+
+I created a topology in Mininet and connecting it with the Remote ODL controller.
+
+
+I have few doubts:
+
+
+1) For Sample1.py the dlux displays correct topology (after pingall) but for Sample2.py it displays test.png .
+There should be one more switch and two more hosts.
+I tried pingall from mininet and it was sucessful for all the hosts.
+
+
+2) Also is by default the controller is going to implement simple ethernet learning switch ?
+
+
+What is it that I am missing? Do I need to install some extra feature?
+
+
+
+Thanks,
+
+Anubhav
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/dlux-users/attachments/20170602/df9807a6/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Sample1.py
+Type: text/x-python
+Size: 1142 bytes
+Desc: Sample1.py
+URL: <http://lists.opendaylight.org/pipermail/dlux-users/attachments/20170602/df9807a6/attachment-0002.py>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: test.png
+Type: image/png
+Size: 26127 bytes
+Desc: test.png
+URL: <http://lists.opendaylight.org/pipermail/dlux-users/attachments/20170602/df9807a6/attachment-0001.png>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Sample2.py
+Type: text/x-python
+Size: 1254 bytes
+Desc: Sample2.py
+URL: <http://lists.opendaylight.org/pipermail/dlux-users/attachments/20170602/df9807a6/attachment-0003.py>
+

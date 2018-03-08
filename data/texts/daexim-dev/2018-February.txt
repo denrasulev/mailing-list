@@ -1,0 +1,33 @@
+From jenkins-dontreply at opendaylight.org  Sun Feb  4 02:57:12 2018
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Sun, 04 Feb 2018 02:57:12 +0000
+Subject: [daexim-dev] [release] Autorelease nitrogen failed to build
+ daexim-impl from daexim
+Message-ID: <5a767688.E38WwkJco70SgQpK%jenkins-dontreply@opendaylight.org>
+
+Attention daexim-devs,
+
+Autorelease nitrogen failed to build daexim-impl from daexim in build
+383. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-nitrogen/383
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-nitrogen/383/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/octet-stream
+Size: 144 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/daexim-dev/attachments/20180204/544848b7/attachment.obj>
+

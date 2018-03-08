@@ -1,0 +1,23 @@
+From klou.external at gmail.com  Thu Feb  1 21:04:24 2018
+From: klou.external at gmail.com (Kit Lou)
+Date: Thu, 1 Feb 2018 15:04:24 -0600
+Subject: [snmp4sdn-dev] [Oxygen Projects] Important Reminder on RC0
+Message-ID: <CAKxjJnTa8V4QgKVjU_h6s0gNccFKnhWjxFcO8b4aJWcQa3j62g@mail.gmail.com>
+
+Hello Oxygen Projects,
+
+RC0 is in about 2 weeks on February 14.  If your project is not migrated to
+work with the latest Odlparent/Yangtools and not in the distribution before
+the date,  we will drop your project from the release.
+
+Please see my email from yesterday for more details [1].
+
+If you are in the red category (*eman, faaas, groupbasedpolicy, nic,
+snmp4sdn, vtn*), it is imperative that you take action immediately.  Thanks!
+
+Best Regards,
+Kit Lou
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/snmp4sdn-dev/attachments/20180201/597edfe2/attachment.html>
+

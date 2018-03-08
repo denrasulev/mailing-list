@@ -1,0 +1,23 @@
+From An.Ho at huawei.com  Thu Sep  7 22:25:48 2017
+From: An.Ho at huawei.com (An Ho)
+Date: Thu, 7 Sep 2017 22:25:48 +0000
+Subject: [usc-dev] USC M0 Status
+In-Reply-To: <0e5401d3281b$9b028ce0$d107a6a0$@gmail.com>
+References: <0e5401d3281b$9b028ce0$d107a6a0$@gmail.com>
+Message-ID: <EEEA408CE50B48498B9F866085AEF29132C0A284@dfweml501-mbb>
+
+1.? The USC project formally joins the OpenDaylight Oxygen Simultaneous Release and agrees to the activities and timeline documented in [1]
+ 
+2.? Project Offset: Offset 1 
+
+3.? Project Category: Protocol 
+
+4.? Project Labels: unified secure channel? 
+
+5.? Project PTL: An Ho / an.ho at huawei.com /anipbu
+
+6.? Do you confirm that the list of Active Project Committers is updated and accurate? Yes
+
+[1] http://docs.opendaylight.org/en/latest/release-process/release-schedule.html
+[2]?? https://wiki.opendaylight.org/view/Simultaneous_Release:Oxygen_Release_Plan
+

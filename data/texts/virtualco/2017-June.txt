@@ -1,0 +1,15 @@
+From maheendars at yahoo.com  Tue Jun  6 19:27:02 2017
+From: maheendars at yahoo.com (Maheen Iqbal)
+Date: Tue, 6 Jun 2017 19:27:02 +0000 (UTC)
+Subject: [Virtualco] Opendaylight/Openvirtex Compatibility
+References: <1611652282.4234287.1496777222019.ref@mail.yahoo.com>
+Message-ID: <1611652282.4234287.1496777222019@mail.yahoo.com>
+
+Hello,
+I am working on an OpenVirtex Project and I am kinda stuck and would like to ask for help.?I just want to ask that if I consolidated three physical switches into one virtual switch. So do I need to add flows to all the trunk ports or I just need to write flows for only the host access ports that are attached to that virtual switch.
+I am also trying to connect my opendaylight boron controller but it is continuosly showing error of reconnectHandler and failing to connect the controller. It would be helpful if i can get some guidance.
+Regards,Maheen Iqbal
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/virtualco/attachments/20170606/a0719956/attachment.html>
+

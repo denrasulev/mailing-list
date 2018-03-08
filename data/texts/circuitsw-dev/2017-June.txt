@@ -1,0 +1,34 @@
+From admin at webex.com  Wed Jun 21 17:51:25 2017
+From: admin at webex.com (Phil Robb via Cisco WebEx)
+Date: Wed, 21 Jun 2017 17:51:25 +0000 (GMT)
+Subject: [circuitsw-dev] Canceled WebEx meeting: OFextensions Circuitsw
+	Weekly
+Message-ID: <1446922018.895511498067485471.JavaMail.nobody@rsj9rmd001.webex.com>
+
+Hi,
+
+Phil Robb canceled the WebEx meeting OFextensions Circuitsw Weekly. This meeting was scheduled for Every Wednesday, from Wed, Apr 26, 2017 to no end date, 10:00 am, Denver (Mountain Daylight Time, GMT-06:00).
+
+Phil Robb wrote:
+"Meeting "OFextensions Circuitsw Weekly" has been canceled."
+
+Delivering the power of collaboration
+Cisco WebEx Team
+
+-----------------------------------------------------------
+
+IMPORTANT NOTICE: This WebEx service includes a feature that allows audio and any documents and other materials exchanged or viewed during the meeting to be recorded. By joining this meeting, you automatically consent to such recordings. If you do not consent to the recording, discuss your concerns with the meeting host prior to the start of the recording or do not join the meeting. Please note that any such recordings may be subject to discovery in the event of litigation.
+?2016 Cisco and/or its affiliates. All rights reserved.
+
+MT-A-010
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/circuitsw-dev/attachments/20170621/d1ce1bf6/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OFextensions Circuitsw Weekly.ics
+Type: application/octet-stream
+Size: 2053 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/circuitsw-dev/attachments/20170621/d1ce1bf6/attachment.obj>
+

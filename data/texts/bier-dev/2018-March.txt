@@ -1,0 +1,33 @@
+From jenkins-dontreply at opendaylight.org  Tue Mar  6 06:56:02 2018
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Tue, 06 Mar 2018 06:56:02 +0000
+Subject: [bier-dev] [release] Autorelease oxygen failed to build bier-karaf
+	from bier
+Message-ID: <5a9e3b82.oKZfk3N+iJe2FawW%jenkins-dontreply@opendaylight.org>
+
+Attention bier-devs,
+
+Autorelease oxygen failed to build bier-karaf from bier in build
+201. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-oxygen/201
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-oxygen/201/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/octet-stream
+Size: 7642 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/bier-dev/attachments/20180306/72103763/attachment.obj>
+

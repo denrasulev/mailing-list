@@ -1,0 +1,337 @@
+From zxcv811013.cs03g at g2.nctu.edu.tw  Fri Jan 12 07:32:44 2018
+From: zxcv811013.cs03g at g2.nctu.edu.tw (Weichih Lu)
+Date: Fri, 12 Jan 2018 15:32:44 +0800
+Subject: [openflowplugin-users] [opendaylight-users] Not able to start
+ clustering services for node openflow:327701
+Message-ID: <CAGwsV=fkExz_RQK_Ak=baHVi7_5xPMWrPQtCxY+Jy-aPzF5JKQ@mail.gmail.com>
+
+Dear all :
+
+I used mininet to create 80 openvswitch bridge and set controller to
+opendaylight. I didn't set manager.
+I wrote a script. Every minute random choose four ovs to disconnect from
+odl and reconnect after 30 seconds.
+After a day. I found that there were two ovs bridge cannot connect to
+OpenDayLight successfully.
+When it connected to OpenDayLight, it showed Not able to start clustering
+services for node openflow:327701 then disconnected.
+Then ovs connected to OpenDayLight again. This situation happened again.
+I remove this ovs and create new one with same dpid cannot solve this
+problem, but change dpid does.
+
+Does anyone have any idea about it ?
+
+Thanks,
+WeiChih Lu
+
+OpenDayLight version : nitrogen-sr1
+Install feature : odl-netvirt-openstack
+ovs version :2.5.2 protocols=OpenFlow13
+OS : Ubuntu 16.04.1 LTS
+
+Log is below :
+
+Last time disconnect before happended
+
+2017-12-21 04:55:26,716 | INFO  | ntLoopGroup-9-17 |
+SystemNotificationsListenerImpl  | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | ConnectionEvent: Connection closed by device, Device:/
+10.144.207.20:42942, NodeId:openflow:327701
+2017-12-21 04:55:26,716 | INFO  | ntLoopGroup-9-17 |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | Device openflow:327701 disconnected.
+2017-12-21 04:55:26,716 | INFO  | ntLoopGroup-9-17 |
+ReconciliationManagerImpl        | 343 - org.opendaylight.
+openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping
+reconciliation for node Uri [_value=openflow:327701]
+2017-12-21 04:55:26,717 | INFO  | ntLoopGroup-9-17 | DeviceManagerImpl
+          | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Publishing
+node removed notification for Uri [_value=openflow:327701]
+2017-12-21 04:55:26,717 | INFO  | pool-40-thread-1 |
+DeviceMastershipManager          | 340 - org.opendaylight.
+openflowplugin.applications.forwardingrules-manager - 0.5.1 | Unregistered
+FRM cluster singleton service for service id : openflow:327701
+2017-12-21 04:55:26,717 | INFO  | ntLoopGroup-9-17 | ContextChainImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Closed
+clustering services registration for node openflow:327701
+2017-12-21 04:55:26,717 | INFO  | ntLoopGroup-9-17 | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+Terminating DeviceContextImpl[RUNNING] service for node openflow:327701
+2017-12-21 04:55:26,717 | INFO  | ntLoopGroup-9-17 | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+Terminating RpcContextImpl[RUNNING] service for node openflow:327701
+2017-12-21 04:55:26,719 | INFO  | t-dispatcher-182 |
+ReconciliationManagerImpl        | 343 - org.opendaylight.
+openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping
+reconciliation for node Uri [_value=openflow:327701]
+2017-12-21 04:55:26,719 | INFO  | t-dispatcher-182 |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | Role SLAVE was granted to device openflow:327701
+2017-12-21 04:55:26,719 | INFO  | t-dispatcher-182 | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping
+RoleContextImpl[RUNNING] service for node openflow:327701
+2017-12-21 04:55:26,719 | INFO  | t-dispatcher-182 | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping
+StatisticsContextImpl[RUNNING] service for node openflow:327701
+2017-12-21 04:55:26,719 | INFO  | t-dispatcher-182 | StatisticsContextImpl
+          | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping
+running statistics gathering for node openflow:327701
+2017-12-21 04:55:26,726 | INFO  | ntLoopGroup-9-17 | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+Terminating StatisticsContextImpl[TERMINATED] service for node
+openflow:327701
+2017-12-21 04:55:26,726 | INFO  | ntLoopGroup-9-17 | StatisticsContextImpl
+          | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping
+running statistics gathering for node openflow:327701
+2017-12-21 04:55:26,726 | INFO  | ntLoopGroup-9-17 | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+Terminating RoleContextImpl[TERMINATED] service for node openflow:327701
+2017-12-21 04:55:26,726 | INFO  | ofppool-3        | ContextChainImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Closed
+clustering services for node openflow:327701
+2017-12-21 04:55:26,727 | INFO  | t-dispatcher-133 |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | Try to remove device Uri [_value=openflow:327701] from
+operational DS
+2017-12-21 04:55:26,733 | INFO  | t-dispatcher-133 |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | Removing device from operational DS Uri [_value=openflow:327701]
+was successful
+
+Happened (Every time log is same)
+
+2017-12-21 04:56:01,896 | INFO  | ntLoopGroup-9-14 |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | Device openflow:327701 connected.
+2017-12-21 04:56:01,896 | INFO  | ntLoopGroup-9-14 |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | No context chain found for device: openflow:327701, creating new.
+2017-12-21 04:56:01,896 | INFO  | ntLoopGroup-9-14 | DeviceManagerImpl
+          | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+ConnectionEvent: Device connected to controller, Device:/10.144.207.20:42990,
+NodeId:Uri [_value=openflow:327701]
+2017-12-21 04:56:01,897 | INFO  | ntLoopGroup-9-14 | RoleContextImpl
+          | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Started
+timer for setting SLAVE role on device openflow:327701 if no role will be
+set in 20s.
+2017-12-21 04:56:01,900 | INFO  | ntLoopGroup-9-14 | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Starting
+DeviceContextImpl[NEW] service for node openflow:327701
+2017-12-21 04:56:08,183 | INFO  | ntLoopGroup-9-45 |
+SystemNotificationsListenerImpl  | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | ConnectionEvent: Connection closed by device, Device:/
+10.144.207.19:37286, NodeId:openflow:262147
+2017-12-21 04:56:08,183 | INFO  | ntLoopGroup-9-45 |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | Device openflow:262147 disconnected.
+2017-12-21 04:56:08,183 | INFO  | ntLoopGroup-9-45 |
+ReconciliationManagerImpl        | 343 - org.opendaylight.
+openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping
+reconciliation for node Uri [_value=openflow:262147]
+2017-12-21 04:56:08,183 | INFO  | ntLoopGroup-9-45 | DeviceManagerImpl
+          | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Publishing
+node removed notification for Uri [_value=openflow:262147]
+2017-12-21 04:56:08,185 | INFO  | pool-40-thread-1 |
+DeviceMastershipManager          | 340 - org.opendaylight.
+openflowplugin.applications.forwardingrules-manager - 0.5.1 | Unregistered
+FRM cluster singleton service for service id : openflow:262147
+2017-12-21 04:56:09,449 | INFO  | ntLoopGroup-9-15 | ConnectionAdapterImpl
+          | 359 -
+org.opendaylight.openflowplugin.openflowjava.openflow-protocol-impl
+- 0.5.1 | Hello received
+2017-12-21 04:56:09,454 | INFO  | ntLoopGroup-9-15 |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | Device openflow:131073 connected.
+2017-12-21 04:56:09,454 | INFO  | ntLoopGroup-9-15 |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | No context chain found for device: openflow:131073, creating new.
+2017-12-21 04:56:09,454 | INFO  | ntLoopGroup-9-15 | DeviceManagerImpl
+          | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+ConnectionEvent: Device connected to controller, Device:/10.144.75.9:48934,
+NodeId:Uri [_value=openflow:131073]
+2017-12-21 04:56:09,456 | INFO  | ntLoopGroup-9-15 | RoleContextImpl
+          | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Started
+timer for setting SLAVE role on device openflow:131073 if no role will be
+set in 20s.
+2017-12-21 04:56:10,902 | WARN  | ntLoopGroup-9-14 | ContextChainImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Not able
+to start clustering services for node openflow:327701
+2017-12-21 04:56:10,902 | WARN  | ofppool-3        |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | Not able to set MASTER role on device openflow:327701, reason:
+java.lang.RuntimeException: Failed to initialize device openflow:327701 in
+9s: java.util.concurrent.TimeoutException
+2017-12-21 04:56:10,902 | WARN  | ofppool-3        |
+ContextChainHolderImpl           | 351 - org.opendaylight.openflowplugin.impl
+- 0.5.1 | This mastering is mandatory, destroying context chain and closing
+connection for device openflow:327701.
+2017-12-21 04:56:10,902 | INFO  | ofppool-3        |
+ReconciliationManagerImpl        | 343 - org.opendaylight.
+openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping
+reconciliation for node Uri [_value=openflow:327701]
+2017-12-21 04:56:10,902 | INFO  | ofppool-3        | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+Terminating DeviceContextImpl[STARTING] service for node openflow:327701
+2017-12-21 04:56:10,904 | INFO  | ofppool-3        | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+Terminating RpcContextImpl[NEW] service for node openflow:327701
+2017-12-21 04:56:10,904 | INFO  | ofppool-3        | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+Terminating StatisticsContextImpl[NEW] service for node openflow:327701
+2017-12-21 04:56:10,904 | INFO  | ofppool-3        | StatisticsContextImpl
+          | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping
+running statistics gathering for node openflow:327701
+2017-12-21 04:56:10,905 | INFO  | ofppool-3        | GuardedContextImpl
+           | 351 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+Terminating RoleContextImpl[NEW] service for node openflow:327701
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/openflowplugin-users/attachments/20180112/85783b53/attachment-0001.html>
+
+From jluhrsen at gmail.com  Thu Jan 18 20:39:40 2018
+From: jluhrsen at gmail.com (Jamo Luhrsen)
+Date: Thu, 18 Jan 2018 12:39:40 -0800
+Subject: [openflowplugin-users] [opendaylight-users] Not able to start
+ clustering services for node openflow:327701
+In-Reply-To: <CAGwsV=fkExz_RQK_Ak=baHVi7_5xPMWrPQtCxY+Jy-aPzF5JKQ@mail.gmail.com>
+References: <CAGwsV=fkExz_RQK_Ak=baHVi7_5xPMWrPQtCxY+Jy-aPzF5JKQ@mail.gmail.com>
+Message-ID: <60dee069-f6d5-3a33-5ae0-56c75c2f00d2@gmail.com>
+
+adding openflowplugin-dev as that list is more actively watched, I think.
+
+On 01/11/2018 11:32 PM, Weichih Lu wrote:
+> Dear all :??
+> 
+> I used mininet to create 80 openvswitch bridge and set controller to opendaylight. I didn't set manager.
+> I wrote a script. Every minute random choose four ovs to disconnect from odl and reconnect after 30 seconds.
+> After a day. I found that there were two ovs bridge cannot connect to OpenDayLight successfully.
+> When it connected to OpenDayLight, it showed Not able to start clustering services for node openflow:327701 then disconnected.
+> Then ovs connected to OpenDayLight again. This situation happened again.
+> I remove this ovs and create new one with same dpid cannot solve this problem, but change dpid does.
+> 
+> Does anyone have any idea about it ?
+> 
+> Thanks,
+> WeiChih Lu
+> 
+> OpenDayLight version : nitrogen-sr1
+> Install feature : odl-netvirt-openstack
+> ovs version :2.5.2 protocols=OpenFlow13
+> OS : Ubuntu 16.04.1 LTS
+> 
+> Log is below :
+> 
+> Last time disconnect before happended
+> 
+> 2017-12-21 04:55:26,716 | INFO? | ntLoopGroup-9-17 | SystemNotificationsListenerImpl? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | ConnectionEvent: Connection closed by device, Device:/10.144.207.20:42942
+> <http://10.144.207.20:42942/>, NodeId:openflow:327701
+> 2017-12-21 04:55:26,716 | INFO? | ntLoopGroup-9-17 | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Device openflow:327701 disconnected.
+> 2017-12-21 04:55:26,716 | INFO? | ntLoopGroup-9-17 | ReconciliationManagerImpl? ? ? ? | 343 -
+> org.opendaylight.openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping reconciliation for node Uri
+> [_value=openflow:327701]
+> 2017-12-21 04:55:26,717 | INFO? | ntLoopGroup-9-17 | DeviceManagerImpl? ? ? ? ? ? ? ? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Publishing node removed notification for Uri [_value=openflow:327701]
+> 2017-12-21 04:55:26,717 | INFO? | pool-40-thread-1 | DeviceMastershipManager? ? ? ? ? | 340 -
+> org.opendaylight.openflowplugin.applications.forwardingrules-manager - 0.5.1 | Unregistered FRM cluster singleton service for
+> service id : openflow:327701
+> 2017-12-21 04:55:26,717 | INFO? | ntLoopGroup-9-17 | ContextChainImpl? ? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Closed clustering services registration for node openflow:327701
+> 2017-12-21 04:55:26,717 | INFO? | ntLoopGroup-9-17 | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating DeviceContextImpl[RUNNING] service for node openflow:327701
+> 2017-12-21 04:55:26,717 | INFO? | ntLoopGroup-9-17 | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating RpcContextImpl[RUNNING] service for node openflow:327701
+> 2017-12-21 04:55:26,719 | INFO? | t-dispatcher-182 | ReconciliationManagerImpl? ? ? ? | 343 -
+> org.opendaylight.openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping reconciliation for node Uri
+> [_value=openflow:327701]
+> 2017-12-21 04:55:26,719 | INFO? | t-dispatcher-182 | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Role SLAVE was granted to device openflow:327701
+> 2017-12-21 04:55:26,719 | INFO? | t-dispatcher-182 | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping RoleContextImpl[RUNNING] service for node openflow:327701
+> 2017-12-21 04:55:26,719 | INFO? | t-dispatcher-182 | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping StatisticsContextImpl[RUNNING] service for node openflow:327701
+> 2017-12-21 04:55:26,719 | INFO? | t-dispatcher-182 | StatisticsContextImpl? ? ? ? ? ? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping running statistics gathering for node openflow:327701
+> 2017-12-21 04:55:26,726 | INFO? | ntLoopGroup-9-17 | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating StatisticsContextImpl[TERMINATED] service for node openflow:327701
+> 2017-12-21 04:55:26,726 | INFO? | ntLoopGroup-9-17 | StatisticsContextImpl? ? ? ? ? ? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping running statistics gathering for node openflow:327701
+> 2017-12-21 04:55:26,726 | INFO? | ntLoopGroup-9-17 | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating RoleContextImpl[TERMINATED] service for node openflow:327701
+> 2017-12-21 04:55:26,726 | INFO? | ofppool-3? ? ? ? | ContextChainImpl? ? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Closed clustering services for node openflow:327701
+> 2017-12-21 04:55:26,727 | INFO? | t-dispatcher-133 | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Try to remove device Uri [_value=openflow:327701] from operational DS
+> 2017-12-21 04:55:26,733 | INFO? | t-dispatcher-133 | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Removing device from operational DS Uri [_value=openflow:327701] was successful
+> 
+> Happened (Every time log is same)
+> 
+> 2017-12-21 04:56:01,896 | INFO? | ntLoopGroup-9-14 | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Device openflow:327701 connected.
+> 2017-12-21 04:56:01,896 | INFO? | ntLoopGroup-9-14 | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | No context chain found for device: openflow:327701, creating new.
+> 2017-12-21 04:56:01,896 | INFO? | ntLoopGroup-9-14 | DeviceManagerImpl? ? ? ? ? ? ? ? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | ConnectionEvent: Device connected to controller, Device:/10.144.207.20:42990
+> <http://10.144.207.20:42990/>, NodeId:Uri [_value=openflow:327701]
+> 2017-12-21 04:56:01,897 | INFO? | ntLoopGroup-9-14 | RoleContextImpl? ? ? ? ? ? ? ? ? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Started timer for setting SLAVE role on device openflow:327701 if no role will
+> be set in 20s.
+> 2017-12-21 04:56:01,900 | INFO? | ntLoopGroup-9-14 | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Starting DeviceContextImpl[NEW] service for node openflow:327701
+> 2017-12-21 04:56:08,183 | INFO? | ntLoopGroup-9-45 | SystemNotificationsListenerImpl? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | ConnectionEvent: Connection closed by device, Device:/10.144.207.19:37286
+> <http://10.144.207.19:37286/>, NodeId:openflow:262147
+> 2017-12-21 04:56:08,183 | INFO? | ntLoopGroup-9-45 | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Device openflow:262147 disconnected.
+> 2017-12-21 04:56:08,183 | INFO? | ntLoopGroup-9-45 | ReconciliationManagerImpl? ? ? ? | 343 -
+> org.opendaylight.openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping reconciliation for node Uri
+> [_value=openflow:262147]
+> 2017-12-21 04:56:08,183 | INFO? | ntLoopGroup-9-45 | DeviceManagerImpl? ? ? ? ? ? ? ? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Publishing node removed notification for Uri [_value=openflow:262147]
+> 2017-12-21 04:56:08,185 | INFO? | pool-40-thread-1 | DeviceMastershipManager? ? ? ? ? | 340 -
+> org.opendaylight.openflowplugin.applications.forwardingrules-manager - 0.5.1 | Unregistered FRM cluster singleton service for
+> service id : openflow:262147
+> 2017-12-21 04:56:09,449 | INFO? | ntLoopGroup-9-15 | ConnectionAdapterImpl? ? ? ? ? ? | 359 -
+> org.opendaylight.openflowplugin.openflowjava.openflow-protocol-impl - 0.5.1 | Hello received
+> 2017-12-21 04:56:09,454 | INFO? | ntLoopGroup-9-15 | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Device openflow:131073 connected.
+> 2017-12-21 04:56:09,454 | INFO? | ntLoopGroup-9-15 | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | No context chain found for device: openflow:131073, creating new.
+> 2017-12-21 04:56:09,454 | INFO? | ntLoopGroup-9-15 | DeviceManagerImpl? ? ? ? ? ? ? ? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | ConnectionEvent: Device connected to controller, Device:/10.144.75.9:48934
+> <http://10.144.75.9:48934/>, NodeId:Uri [_value=openflow:131073]
+> 2017-12-21 04:56:09,456 | INFO? | ntLoopGroup-9-15 | RoleContextImpl? ? ? ? ? ? ? ? ? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Started timer for setting SLAVE role on device openflow:131073 if no role will
+> be set in 20s.
+> 2017-12-21 04:56:10,902 | WARN? | ntLoopGroup-9-14 | ContextChainImpl? ? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Not able to start clustering services for node openflow:327701
+> 2017-12-21 04:56:10,902 | WARN? | ofppool-3? ? ? ? | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Not able to set MASTER role on device openflow:327701, reason:
+> java.lang.RuntimeException: Failed to initialize device openflow:327701 in 9s: java.util.concurrent.TimeoutException
+> 2017-12-21 04:56:10,902 | WARN? | ofppool-3? ? ? ? | ContextChainHolderImpl? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | This mastering is mandatory, destroying context chain and closing connection
+> for device openflow:327701.
+> 2017-12-21 04:56:10,902 | INFO? | ofppool-3? ? ? ? | ReconciliationManagerImpl? ? ? ? | 343 -
+> org.opendaylight.openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping reconciliation for node Uri
+> [_value=openflow:327701]
+> 2017-12-21 04:56:10,902 | INFO? | ofppool-3? ? ? ? | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating DeviceContextImpl[STARTING] service for node openflow:327701
+> 2017-12-21 04:56:10,904 | INFO? | ofppool-3? ? ? ? | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating RpcContextImpl[NEW] service for node openflow:327701
+> 2017-12-21 04:56:10,904 | INFO? | ofppool-3? ? ? ? | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating StatisticsContextImpl[NEW] service for node openflow:327701
+> 2017-12-21 04:56:10,904 | INFO? | ofppool-3? ? ? ? | StatisticsContextImpl? ? ? ? ? ? | 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping running statistics gathering for node openflow:327701
+> 2017-12-21 04:56:10,905 | INFO? | ofppool-3? ? ? ? | GuardedContextImpl? ? ? ? ? ? ? ?| 351 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating RoleContextImpl[NEW] service for node openflow:327701
+> 
+> 
+> 
+> _______________________________________________
+> openflowplugin-users mailing list
+> openflowplugin-users at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/openflowplugin-users
+> 
+

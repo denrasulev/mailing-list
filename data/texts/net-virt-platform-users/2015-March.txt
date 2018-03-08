@@ -1,0 +1,23 @@
+From lukas.hubschmid at students.fhnw.ch  Thu Mar 12 08:11:09 2015
+From: lukas.hubschmid at students.fhnw.ch (Lukas Hubschmid FHNW)
+Date: Thu, 12 Mar 2015 09:11:09 +0100
+Subject: [net-virt-platform-users] OSCP & net-virt vs. Helium & VTN
+Message-ID: <c9lt7btxjila14if3qwb9ryn.1426146292324@email.android.com>
+
+Hello everybody
+
+Can someone enlighten me about the differences between OSCP with net-virt and Helium Release with VTN.?
+I am especially interested in the virtual router and the ACL feature.
+
+OSCP & net-virt seems to have both features implemented and documented, according to the example (not tried yet).
+I might be wrong, but I couldn't find any up-to-date information - is OSCP & net-virt still alive and maintained?
+
+In ODL Helium & VTN, at least the vRouter feature seems to be not yet implemented (REST API not supported in current release).?
+(When) does VTN support the same features as net-virt?
+
+Kind regards & many thanks
+Lukas
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/net-virt-platform-users/attachments/20150312/095a7400/attachment.html>
+

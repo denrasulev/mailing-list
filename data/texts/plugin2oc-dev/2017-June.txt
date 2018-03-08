@@ -1,0 +1,339 @@
+From colin at colindixon.com  Thu Jun 29 16:12:05 2017
+From: colin at colindixon.com (Colin Dixon)
+Date: Thu, 29 Jun 2017 12:12:05 -0400
+Subject: [Plugin2oc-dev] Fwd: [OpenDaylight TSC] Archiving inactive projects
+In-Reply-To: <CAEXadNr5Gg1NkvROikMs-2Nr6MmV0HfBfTisU+Bks5MEZd=a7w@mail.gmail.com>
+References: <CAEXadNr5Gg1NkvROikMs-2Nr6MmV0HfBfTisU+Bks5MEZd=a7w@mail.gmail.com>
+Message-ID: <CANPTM8EJYc=9OH3cETRreTLYoGodmMLbjsWBAX8AeMWj7uCLyA@mail.gmail.com>
+
+Dear Discovery, Plugin2OC and Amoury devs,
+
+It appears as though your projects have been inactive for 18 months or
+longer and thus the TSC is likely to archive the projects. I plan to
+generate archive review documents today and start a TSC vote on them in two
+weeks at the July 13th TSC call. The process is described here:
+https://wiki.opendaylight.org/view/TSC:Main#Project_Archiving_and_Termination_Reviews
+
+--Colin
+
+
+---------- Forwarded message ----------
+From: Thanh Ha <thanh.ha at linuxfoundation.org>
+Date: Tue, Jun 13, 2017 at 4:03 PM
+Subject: [OpenDaylight TSC] Archiving inactive projects
+To: "tsc at lists.opendaylight.org" <tsc at lists.opendaylight.org>
+
+
+Hello TSC,
+
+There's a few projects I've identified below as being inactive. Curious if
+we should consider archiving some of these?
+
+
+*armoury*
+No real activity since 2015-11-02
+
+https://git.opendaylight.org/gerrit/#/q/project:armoury
+
+
+*discovery*
+No activity since 2015-04-09
+
+https://git.opendaylight.org/gerrit/#/q/project:discovery
+
+
+*plugin2oc*
+No activity since 2015-02-02
+
+https://git.opendaylight.org/gerrit/#/q/project:plugin2oc
+
+
+*tcpmd5*
+Last release was Beryllium and no activity since.
+
+https://git.opendaylight.org/gerrit/#/q/project:tcpmd5
+
+
+Regards,
+Thanh
+
+
+_______________________________________________
+TSC mailing list
+TSC at lists.opendaylight.org
+https://lists.opendaylight.org/mailman/listinfo/tsc
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/plugin2oc-dev/attachments/20170629/3997e10e/attachment.html>
+
+From colin at colindixon.com  Thu Jun 29 16:28:54 2017
+From: colin at colindixon.com (Colin Dixon)
+Date: Thu, 29 Jun 2017 12:28:54 -0400
+Subject: [Plugin2oc-dev] [OpenDaylight TSC] Archiving inactive projects
+In-Reply-To: <CANPTM8EJYc=9OH3cETRreTLYoGodmMLbjsWBAX8AeMWj7uCLyA@mail.gmail.com>
+References: <CAEXadNr5Gg1NkvROikMs-2Nr6MmV0HfBfTisU+Bks5MEZd=a7w@mail.gmail.com>
+	<CANPTM8EJYc=9OH3cETRreTLYoGodmMLbjsWBAX8AeMWj7uCLyA@mail.gmail.com>
+Message-ID: <CANPTM8HpyE0abWCinaJKd+q7SbhQGtkoEa0Gj7mjpvDtQpCLPQ@mail.gmail.com>
+
+Actually Plugin2oc was archived on 8/24/2016. See:
+https://wiki.opendaylight.org/view/Archive_Proposals/Southbound_plugin_to_the_OpenContrail_platform#Archive_Vote_and_Date
+
+--Colin
+
+
+On Thu, Jun 29, 2017 at 12:12 PM, Colin Dixon <colin at colindixon.com> wrote:
+
+> Dear Discovery, Plugin2OC and Amoury devs,
+>
+> It appears as though your projects have been inactive for 18 months or
+> longer and thus the TSC is likely to archive the projects. I plan to
+> generate archive review documents today and start a TSC vote on them in two
+> weeks at the July 13th TSC call. The process is described here:
+> https://wiki.opendaylight.org/view/TSC:Main#Project_
+> Archiving_and_Termination_Reviews
+>
+> --Colin
+>
+>
+> ---------- Forwarded message ----------
+> From: Thanh Ha <thanh.ha at linuxfoundation.org>
+> Date: Tue, Jun 13, 2017 at 4:03 PM
+> Subject: [OpenDaylight TSC] Archiving inactive projects
+> To: "tsc at lists.opendaylight.org" <tsc at lists.opendaylight.org>
+>
+>
+> Hello TSC,
+>
+> There's a few projects I've identified below as being inactive. Curious if
+> we should consider archiving some of these?
+>
+>
+> *armoury*
+> No real activity since 2015-11-02
+>
+> https://git.opendaylight.org/gerrit/#/q/project:armoury
+>
+>
+> *discovery*
+> No activity since 2015-04-09
+>
+> https://git.opendaylight.org/gerrit/#/q/project:discovery
+>
+>
+> *plugin2oc*
+> No activity since 2015-02-02
+>
+> https://git.opendaylight.org/gerrit/#/q/project:plugin2oc
+>
+>
+> *tcpmd5*
+> Last release was Beryllium and no activity since.
+>
+> https://git.opendaylight.org/gerrit/#/q/project:tcpmd5
+>
+>
+> Regards,
+> Thanh
+>
+>
+> _______________________________________________
+> TSC mailing list
+> TSC at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/tsc
+>
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/plugin2oc-dev/attachments/20170629/d7f83349/attachment.html>
+
+From colin at colindixon.com  Thu Jun 29 16:41:54 2017
+From: colin at colindixon.com (Colin Dixon)
+Date: Thu, 29 Jun 2017 12:41:54 -0400
+Subject: [Plugin2oc-dev] [OpenDaylight TSC] Archiving inactive projects
+In-Reply-To: <CANPTM8HpyE0abWCinaJKd+q7SbhQGtkoEa0Gj7mjpvDtQpCLPQ@mail.gmail.com>
+References: <CAEXadNr5Gg1NkvROikMs-2Nr6MmV0HfBfTisU+Bks5MEZd=a7w@mail.gmail.com>
+	<CANPTM8EJYc=9OH3cETRreTLYoGodmMLbjsWBAX8AeMWj7uCLyA@mail.gmail.com>
+	<CANPTM8HpyE0abWCinaJKd+q7SbhQGtkoEa0Gj7mjpvDtQpCLPQ@mail.gmail.com>
+Message-ID: <CANPTM8HvurD53-=BH7E3QFJmpST+ZZjac-CCv9_HY8dqEcg97w@mail.gmail.com>
+
+As you can all see from the other thread on the TSC list, we've started the
+archive process for the 2 remaining projects which aren't already archived.
+
+--Colin
+
+
+On Thu, Jun 29, 2017 at 12:28 PM, Colin Dixon <colin at colindixon.com> wrote:
+
+> Actually Plugin2oc was archived on 8/24/2016. See:
+> https://wiki.opendaylight.org/view/Archive_Proposals/
+> Southbound_plugin_to_the_OpenContrail_platform#Archive_Vote_and_Date
+>
+> --Colin
+>
+>
+> On Thu, Jun 29, 2017 at 12:12 PM, Colin Dixon <colin at colindixon.com>
+> wrote:
+>
+>> Dear Discovery, Plugin2OC and Amoury devs,
+>>
+>> It appears as though your projects have been inactive for 18 months or
+>> longer and thus the TSC is likely to archive the projects. I plan to
+>> generate archive review documents today and start a TSC vote on them in two
+>> weeks at the July 13th TSC call. The process is described here:
+>> https://wiki.opendaylight.org/view/TSC:Main#Project_Archivin
+>> g_and_Termination_Reviews
+>>
+>> --Colin
+>>
+>>
+>> ---------- Forwarded message ----------
+>> From: Thanh Ha <thanh.ha at linuxfoundation.org>
+>> Date: Tue, Jun 13, 2017 at 4:03 PM
+>> Subject: [OpenDaylight TSC] Archiving inactive projects
+>> To: "tsc at lists.opendaylight.org" <tsc at lists.opendaylight.org>
+>>
+>>
+>> Hello TSC,
+>>
+>> There's a few projects I've identified below as being inactive. Curious
+>> if we should consider archiving some of these?
+>>
+>>
+>> *armoury*
+>> No real activity since 2015-11-02
+>>
+>> https://git.opendaylight.org/gerrit/#/q/project:armoury
+>>
+>>
+>> *discovery*
+>> No activity since 2015-04-09
+>>
+>> https://git.opendaylight.org/gerrit/#/q/project:discovery
+>>
+>>
+>> *plugin2oc*
+>> No activity since 2015-02-02
+>>
+>> https://git.opendaylight.org/gerrit/#/q/project:plugin2oc
+>>
+>>
+>> *tcpmd5*
+>> Last release was Beryllium and no activity since.
+>>
+>> https://git.opendaylight.org/gerrit/#/q/project:tcpmd5
+>>
+>>
+>> Regards,
+>> Thanh
+>>
+>>
+>> _______________________________________________
+>> TSC mailing list
+>> TSC at lists.opendaylight.org
+>> https://lists.opendaylight.org/mailman/listinfo/tsc
+>>
+>>
+>>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/plugin2oc-dev/attachments/20170629/dab2eff9/attachment.html>
+
+From thanh.ha at linuxfoundation.org  Thu Jun 29 16:41:40 2017
+From: thanh.ha at linuxfoundation.org (Thanh Ha)
+Date: Thu, 29 Jun 2017 12:41:40 -0400
+Subject: [Plugin2oc-dev] [OpenDaylight TSC] Archiving inactive projects
+In-Reply-To: <CANPTM8HpyE0abWCinaJKd+q7SbhQGtkoEa0Gj7mjpvDtQpCLPQ@mail.gmail.com>
+References: <CAEXadNr5Gg1NkvROikMs-2Nr6MmV0HfBfTisU+Bks5MEZd=a7w@mail.gmail.com>
+	<CANPTM8EJYc=9OH3cETRreTLYoGodmMLbjsWBAX8AeMWj7uCLyA@mail.gmail.com>
+	<CANPTM8HpyE0abWCinaJKd+q7SbhQGtkoEa0Gj7mjpvDtQpCLPQ@mail.gmail.com>
+Message-ID: <CAEXadNqAsEr0FSruf9xFeSo9oh=TSJwCfPrrWOBV_7pJw+g9Uw@mail.gmail.com>
+
+Looks like we missed archiving it. It is now complete.
+
+Thanh
+
+On Thu, Jun 29, 2017 at 12:28 PM, Colin Dixon <colin at colindixon.com> wrote:
+
+> Actually Plugin2oc was archived on 8/24/2016. See:
+> https://wiki.opendaylight.org/view/Archive_Proposals/
+> Southbound_plugin_to_the_OpenContrail_platform#Archive_Vote_and_Date
+>
+> --Colin
+>
+>
+> On Thu, Jun 29, 2017 at 12:12 PM, Colin Dixon <colin at colindixon.com>
+> wrote:
+>
+>> Dear Discovery, Plugin2OC and Amoury devs,
+>>
+>> It appears as though your projects have been inactive for 18 months or
+>> longer and thus the TSC is likely to archive the projects. I plan to
+>> generate archive review documents today and start a TSC vote on them in two
+>> weeks at the July 13th TSC call. The process is described here:
+>> https://wiki.opendaylight.org/view/TSC:Main#Project_Archivin
+>> g_and_Termination_Reviews
+>>
+>> --Colin
+>>
+>>
+>> ---------- Forwarded message ----------
+>> From: Thanh Ha <thanh.ha at linuxfoundation.org>
+>> Date: Tue, Jun 13, 2017 at 4:03 PM
+>> Subject: [OpenDaylight TSC] Archiving inactive projects
+>> To: "tsc at lists.opendaylight.org" <tsc at lists.opendaylight.org>
+>>
+>>
+>> Hello TSC,
+>>
+>> There's a few projects I've identified below as being inactive. Curious
+>> if we should consider archiving some of these?
+>>
+>>
+>> *armoury*
+>> No real activity since 2015-11-02
+>>
+>> https://git.opendaylight.org/gerrit/#/q/project:armoury
+>>
+>>
+>> *discovery*
+>> No activity since 2015-04-09
+>>
+>> https://git.opendaylight.org/gerrit/#/q/project:discovery
+>>
+>>
+>> *plugin2oc*
+>> No activity since 2015-02-02
+>>
+>> https://git.opendaylight.org/gerrit/#/q/project:plugin2oc
+>>
+>>
+>> *tcpmd5*
+>> Last release was Beryllium and no activity since.
+>>
+>> https://git.opendaylight.org/gerrit/#/q/project:tcpmd5
+>>
+>>
+>> Regards,
+>> Thanh
+>>
+>>
+>> _______________________________________________
+>> TSC mailing list
+>> TSC at lists.opendaylight.org
+>> https://lists.opendaylight.org/mailman/listinfo/tsc
+>>
+>>
+>>
+>
+> _______________________________________________
+> TSC mailing list
+> TSC at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/tsc
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/plugin2oc-dev/attachments/20170629/dea09a98/attachment-0001.html>
+

@@ -1,0 +1,16 @@
+From michal.cmarada at pantheon.tech  Mon Jan  8 09:10:35 2018
+From: michal.cmarada at pantheon.tech (=?iso-8859-2?Q?Michal_=C8marada?=)
+Date: Mon, 8 Jan 2018 09:10:35 +0000
+Subject: [vbd-dev] Honeycomb/VBD M3 status
+Message-ID: <8ae39b02ce2c478aa0be479b0fd2cad2@pantheon.tech>
+
+Hi,
+
+Sending M3 status for Honeycomb/VBD project:
+https://git.opendaylight.org/gerrit/#/c/66931/
+
+Michal
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/vbd-dev/attachments/20180108/b7e054db/attachment.html>
+

@@ -1,0 +1,19 @@
+From An.Ho at huawei.com  Thu Sep 22 17:31:49 2016
+From: An.Ho at huawei.com (An Ho)
+Date: Thu, 22 Sep 2016 17:31:49 +0000
+Subject: [Tcpmd5-dev] Closing Weather Item: TCPMD5 migration to
+ netty-native-trasport-epoll
+Message-ID: <EEEA408CE50B48498B9F866085AEF2912FB3A51B@SJCEML701-CHM.china.huawei.com>
+
+Hi TCPMD5,
+
+We believe that the following weather item has been resolved and would like to close this item by moving it to the Historical Weather Page.  Please let us know if your teams have any objections or concerns and we will revert the action.  Please let us know if this weather item has not been resolved and has pending work.  Thank you for the tremendous help in this cross project effort.
+
+Name: TCPMD5 migration to netty-native-trasport-epoll
+Description: For projects dependent on TCP-MD5, all required functionality is available in netty-native-trasport-epoll v. 4.0.33 and later. Dependent projects should migrate to using netty-provided functionality.
+
+Best Regards,
+An Ho
+
+[1] https://wiki.opendaylight.org/view/Weather#TCPMD5_migration_to_netty-native-trasport-epoll
+

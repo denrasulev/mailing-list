@@ -1,0 +1,146 @@
+From michal.cmarada at pantheon.tech  Mon Dec 11 08:27:21 2017
+From: michal.cmarada at pantheon.tech (=?utf-8?B?TWljaGFsIMSMbWFyYWRh?=)
+Date: Mon, 11 Dec 2017 08:27:21 +0000
+Subject: [vbd-dev] [release] Autorelease carbon failed to build
+ vbd-ui-module from honeycomb
+In-Reply-To: <CAHv78iZi_7ghqaAfNGRnuHvoeKPpbeetbvt5q+HzrQxovpWV=A@mail.gmail.com>
+References: <5a2d92f9.TXX3+kuQOMHkYDQ9%jenkins-dontreply@opendaylight.org>
+	<CAHv78iZi_7ghqaAfNGRnuHvoeKPpbeetbvt5q+HzrQxovpWV=A@mail.gmail.com>
+Message-ID: <6ff7595844804fc193b6f187db11c78f@pantheon.tech>
+
+Hi,
+
+I tried to build VBD localy and it was successful. However the gui part was done by Daniel (on cc). Maybe he knows more about this error.
+
+BTW: Why was this sent to honeycomb-dev at lists.opendaylight.org . This mailing list does not exist. It should be vbd-dev at lists.opendaylight.org<mailto:vbd-dev at lists.opendaylight.org>
+
+Michal
+
+From: Anil Belur [mailto:abelur at linuxfoundation.org]
+Sent: Monday, December 11, 2017 4:56 AM
+To: Jenkins <jenkins-dontreply at opendaylight.org>; Michal ?marada <michal.cmarada at pantheon.tech>; wdec at cisco.com; Robert Varga <nite at hq.sk>
+Cc: honeycomb-dev at lists.opendaylight.org; Release <release at lists.opendaylight.org>
+Subject: Re: [release] Autorelease carbon failed to build vbd-ui-module from honeycomb
+
+
+
+On Mon, Dec 11, 2017 at 6:03 AM, Jenkins <jenkins-dontreply at opendaylight.org<mailto:jenkins-dontreply at opendaylight.org>> wrote:
+Attention honeycomb-devs,
+
+Autorelease carbon failed to build vbd-ui-module from honeycomb in build
+506. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs.
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/jenkins092/autorelease-release-carbon/506
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-carbon/506/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+
+
+Hello honeycomb-dev team:
+
+Please confirm if this is an intermittent issue or something which needs to be fixed.
+
+Thanks,
+Anil
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/vbd-dev/attachments/20171211/c4f194b1/attachment.html>
+
+From daniel.malachovsky at pantheon.tech  Mon Dec 11 09:51:19 2017
+From: daniel.malachovsky at pantheon.tech (=?utf-8?B?RGFuaWVsIE1hbGFjaG92c2vDvQ==?=)
+Date: Mon, 11 Dec 2017 09:51:19 +0000
+Subject: [vbd-dev] [release] Autorelease carbon failed to build
+ vbd-ui-module from honeycomb
+In-Reply-To: <6ff7595844804fc193b6f187db11c78f@pantheon.tech>
+References: <5a2d92f9.TXX3+kuQOMHkYDQ9%jenkins-dontreply@opendaylight.org>
+	<CAHv78iZi_7ghqaAfNGRnuHvoeKPpbeetbvt5q+HzrQxovpWV=A@mail.gmail.com>,
+	<6ff7595844804fc193b6f187db11c78f@pantheon.tech>
+Message-ID: <e0c9dc63a0b24a66bee998f98cc194a9@pantheon.tech>
+
+Hello,
+
+
+problem was in downloading dependency from 3rd party repository:
+
+[ERROR] bower angular#1.4.14                ECONNREFUSED Request to https://bower.herokuapp.com/packages/angular failed: connect ECONNREFUSED
+
+It happens from time to time. Run the build again.
+Real solution is to move from Bower to Npm, so instead of two failing repos there will be only one [?]
+
+
+
+dano
+
+
+________________________________
+Od: Michal ?marada
+Odoslan?: pondelok, 11. decembra 2017 9:27:21
+Komu: Anil Belur; Jenkins; wdec at cisco.com; Robert Varga
+K?pia: honeycomb-dev at lists.opendaylight.org; Release; Daniel Malachovsk?; vbd-dev at lists.opendaylight.org
+Predmet: RE: [release] Autorelease carbon failed to build vbd-ui-module from honeycomb
+
+Hi,
+
+I tried to build VBD localy and it was successful. However the gui part was done by Daniel (on cc). Maybe he knows more about this error.
+
+BTW: Why was this sent to honeycomb-dev at lists.opendaylight.org . This mailing list does not exist. It should be vbd-dev at lists.opendaylight.org<mailto:vbd-dev at lists.opendaylight.org>
+
+Michal
+
+From: Anil Belur [mailto:abelur at linuxfoundation.org]
+Sent: Monday, December 11, 2017 4:56 AM
+To: Jenkins <jenkins-dontreply at opendaylight.org>; Michal ?marada <michal.cmarada at pantheon.tech>; wdec at cisco.com; Robert Varga <nite at hq.sk>
+Cc: honeycomb-dev at lists.opendaylight.org; Release <release at lists.opendaylight.org>
+Subject: Re: [release] Autorelease carbon failed to build vbd-ui-module from honeycomb
+
+
+
+On Mon, Dec 11, 2017 at 6:03 AM, Jenkins <jenkins-dontreply at opendaylight.org<mailto:jenkins-dontreply at opendaylight.org>> wrote:
+Attention honeycomb-devs,
+
+Autorelease carbon failed to build vbd-ui-module from honeycomb in build
+506. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs.
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/jenkins092/autorelease-release-carbon/506
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-carbon/506/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+
+
+Hello honeycomb-dev team:
+
+Please confirm if this is an intermittent issue or something which needs to be fixed.
+
+Thanks,
+Anil
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/vbd-dev/attachments/20171211/a2ece463/attachment-0001.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: OutlookEmoji-?.png
+Type: image/png
+Size: 488 bytes
+Desc: OutlookEmoji-?.png
+URL: <http://lists.opendaylight.org/pipermail/vbd-dev/attachments/20171211/a2ece463/attachment-0001.png>
+

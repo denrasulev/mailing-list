@@ -1,0 +1,33 @@
+From jenkins-dontreply at opendaylight.org  Sat Jan 27 07:30:12 2018
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Sat, 27 Jan 2018 07:30:12 +0000
+Subject: [packetcable-dev] [release] Autorelease nitrogen failed to build
+ packetcable-policy-server from packetcable
+Message-ID: <5a6c2a84.BkQJNA8eV4ltuV4E%jenkins-dontreply@opendaylight.org>
+
+Attention packetcable-devs,
+
+Autorelease nitrogen failed to build packetcable-policy-server from packetcable in build
+372. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-nitrogen/372
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-nitrogen/372/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/octet-stream
+Size: 5139 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/packetcable-dev/attachments/20180127/81e5d386/attachment.obj>
+

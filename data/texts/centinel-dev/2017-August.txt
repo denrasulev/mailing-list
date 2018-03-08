@@ -1,0 +1,53 @@
+From vorburger at redhat.com  Wed Aug 16 11:20:46 2017
+From: vorburger at redhat.com (Michael Vorburger)
+Date: Wed, 16 Aug 2017 13:20:46 +0200
+Subject: [centinel-dev] Merge a few clean up gerrits
+In-Reply-To: <CACeyj_F+wb=7kQ+vqLuzvv4BeTVLyHJmLt3h6uKzYMNBJZaFsg@mail.gmail.com>
+References: <CACeyj_F+wb=7kQ+vqLuzvv4BeTVLyHJmLt3h6uKzYMNBJZaFsg@mail.gmail.com>
+Message-ID: <CACeyj_FKcDdaFZZnx0Wuh-OWWE8RAYVgk5+9Hg8CuURH9WhiWw@mail.gmail.com>
+
+Hello centinel project,
+
+On Mon, Jan 23, 2017 at 8:54 PM, Michael Vorburger <vorburger at redhat.com>
+wrote:
+
+> Dear centinel committers,
+>
+> would you please kindly consider to merge a few pending clean up gerrits:
+>
+
+Over the last 6 months, I had proposed 5 minor enhancements to your
+project, see https://git.opendaylight.org/
+gerrit/#/q/owner:vorburger+project:centinel:
+
+* https://git.opendaylight.org/gerrit/#/c/50860/
+* https://git.opendaylight.org/gerrit/#/c/49722/
+* https://git.opendaylight.org/gerrit/#/c/49727/
+* https://git.opendaylight.org/gerrit/#/c/50894/
+* https://git.opendaylight.org/gerrit/#/c/50302/
+
+As none of them have been merged in 6 months, I'm assuming your project is
+dead, and have therefore Abandoned those patches. Should you nevertheless
+have any interest in them, please feel free to Restore them in Gerrit, or
+reply to this email if you would like me to restore and rebase (some of)
+them.
+
+Tx,
+M.
+--
+Michael Vorburger, Red Hat
+vorburger at redhat.com | IRC: vorburger @freenode | ~ = http://vorburger.ch
+
+
+> https://git.opendaylight.org/gerrit/#/q/owner:self+project:centinel
+>
+> Tx,
+> M.
+> --
+> Michael Vorburger <vorburger at redhat.com> | IRC: vorburger @freenode | ~ =
+> http://vorburger.ch
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/centinel-dev/attachments/20170816/d6a81291/attachment.html>
+

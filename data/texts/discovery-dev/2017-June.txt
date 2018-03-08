@@ -1,0 +1,83 @@
+From colin at colindixon.com  Thu Jun 29 16:12:05 2017
+From: colin at colindixon.com (Colin Dixon)
+Date: Thu, 29 Jun 2017 12:12:05 -0400
+Subject: [discovery-dev] Fwd: [OpenDaylight TSC] Archiving inactive projects
+In-Reply-To: <CAEXadNr5Gg1NkvROikMs-2Nr6MmV0HfBfTisU+Bks5MEZd=a7w@mail.gmail.com>
+References: <CAEXadNr5Gg1NkvROikMs-2Nr6MmV0HfBfTisU+Bks5MEZd=a7w@mail.gmail.com>
+Message-ID: <CANPTM8EJYc=9OH3cETRreTLYoGodmMLbjsWBAX8AeMWj7uCLyA@mail.gmail.com>
+
+Dear Discovery, Plugin2OC and Amoury devs,
+
+It appears as though your projects have been inactive for 18 months or
+longer and thus the TSC is likely to archive the projects. I plan to
+generate archive review documents today and start a TSC vote on them in two
+weeks at the July 13th TSC call. The process is described here:
+https://wiki.opendaylight.org/view/TSC:Main#Project_Archiving_and_Termination_Reviews
+
+--Colin
+
+
+---------- Forwarded message ----------
+From: Thanh Ha <thanh.ha at linuxfoundation.org>
+Date: Tue, Jun 13, 2017 at 4:03 PM
+Subject: [OpenDaylight TSC] Archiving inactive projects
+To: "tsc at lists.opendaylight.org" <tsc at lists.opendaylight.org>
+
+
+Hello TSC,
+
+There's a few projects I've identified below as being inactive. Curious if
+we should consider archiving some of these?
+
+
+*armoury*
+No real activity since 2015-11-02
+
+https://git.opendaylight.org/gerrit/#/q/project:armoury
+
+
+*discovery*
+No activity since 2015-04-09
+
+https://git.opendaylight.org/gerrit/#/q/project:discovery
+
+
+*plugin2oc*
+No activity since 2015-02-02
+
+https://git.opendaylight.org/gerrit/#/q/project:plugin2oc
+
+
+*tcpmd5*
+Last release was Beryllium and no activity since.
+
+https://git.opendaylight.org/gerrit/#/q/project:tcpmd5
+
+
+Regards,
+Thanh
+
+
+_______________________________________________
+TSC mailing list
+TSC at lists.opendaylight.org
+https://lists.opendaylight.org/mailman/listinfo/tsc
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/discovery-dev/attachments/20170629/3997e10e/attachment.html>
+
+From colin at colindixon.com  Thu Jun 29 16:35:50 2017
+From: colin at colindixon.com (Colin Dixon)
+Date: Thu, 29 Jun 2017 12:35:50 -0400
+Subject: [discovery-dev] Archiving Discovery
+Message-ID: <CANPTM8FA6SUqLoeEPs6TV5_gALKhH6aCWVrYZ2jHYwntu7Wc+w@mail.gmail.com>
+
+This e-mail serves to start the 2 week counter to archive Discovery per
+this Archive review:
+https://wiki.opendaylight.org/view/Archive_Proposals/Discovery
+
+--Colin
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/discovery-dev/attachments/20170629/99b3dcd6/attachment.html>
+

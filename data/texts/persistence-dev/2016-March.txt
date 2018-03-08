@@ -1,0 +1,35 @@
+From An.Ho at huawei.com  Wed Mar 23 23:24:08 2016
+From: An.Ho at huawei.com (An Ho)
+Date: Wed, 23 Mar 2016 23:24:08 +0000
+Subject: [persistence-dev] Plans for Archiving Persistence Project
+Message-ID: <EEEA408CE50B48498B9F866085AEF2912FAEE634@SJCEML701-CHM.china.huawei.com>
+
+Hi Persistence Team,
+
+1. Does your project have any plans to be archived?  If your project has no plans for any future active development, project committers can vote to move a project to the Archived State by a Termination Review according to the OpenDaylight Project Lifecycle and Releases document [1].
+2. If you projects plans to remain active, does it intend to participate in the Boron Simultaneous Release as documented in the Boron Release Plan [2]?  If not, could someone please publicly decline to participate with a message like so: "The <PROJECT_NAME> project is formally declining to participate in the Boron SR".
+
+The last project related activity on Gerrit is Aug 21, 2015.
+
+Best Regards,
+An Ho
+
+[1] https://www.opendaylight.org/project-lifecycle-releases
+[2] https://wiki.opendaylight.org/view/Simultaneous_Release:Boron_Release_Plan
+
+
+From An.Ho at huawei.com  Wed Mar 23 23:28:10 2016
+From: An.Ho at huawei.com (An Ho)
+Date: Wed, 23 Mar 2016 23:28:10 +0000
+Subject: [persistence-dev] Persistence Active Committers
+Message-ID: <EEEA408CE50B48498B9F866085AEF2912FAEE64C@SJCEML701-CHM.china.huawei.com>
+
+Hi Fabiel Zuniga <fabiel.zuniga at hp.com>, Nachiket Abhyankar <nabhyank at hp.com>, Mark Mozolewski <mark.mozolewski at hp.com>, Liem Manh Nguyen <liem_m_nguyen at hp.com>,
+
+Please reply to this email to indicate that you are still an active committer on this project.
+
+Best Regards,
+An Ho
+
+
+

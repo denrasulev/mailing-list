@@ -1,0 +1,333 @@
+From ko at sv01.de  Sat Jan  6 23:47:37 2018
+From: ko at sv01.de (Kevin Olbrich)
+Date: Sun, 7 Jan 2018 00:47:37 +0100
+Subject: [controller-users] Juniper MX104 - Was not able to propagate
+	MASTER role on device.
+In-Reply-To: <CA+gLzy_XbfmnG1TeTuQswGx_aHwrDHqMJ16_ER2eJ3e77fKLmA@mail.gmail.com>
+References: <CA+gLzy_XbfmnG1TeTuQswGx_aHwrDHqMJ16_ER2eJ3e77fKLmA@mail.gmail.com>
+Message-ID: <CA+gLzy-jCpHUL8W0Hf3W96CVEPaEtbt3qPNRayiVYjA-Kwx6fA@mail.gmail.com>
+
+Hi,
+
+when I add a Juniper MX104 to my new ODL installation, I get this error:
+
+2018-01-07 00:09:03,191 | INFO  | entLoopGroup-9-4 | ConnectionAdapterImpl
+>           | 311 - org.opendaylight.openflowplugin.openflowjava.openflow-protocol-impl
+> - 0.5.1 | Hello received
+> 2018-01-07 00:09:03,632 | INFO  | entLoopGroup-9-4 |
+> ContextChainHolderImpl           | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | Device openflow:61913192855536 connected.
+> 2018-01-07 00:09:03,632 | INFO  | entLoopGroup-9-4 |
+> ContextChainHolderImpl           | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | No context chain found for device: openflow:61913192855536,
+> creating new.
+> 2018-01-07 00:09:03,632 | INFO  | entLoopGroup-9-4 | DeviceManagerImpl
+>             | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> ConnectionEvent: Device connected to controller, Device:/
+> 192.168.162.10:58064, NodeId:Uri [_value=openflow:61913192855536]
+> 2018-01-07 00:09:03,633 | INFO  | entLoopGroup-9-4 | RoleContextImpl
+>             | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Started timer for setting SLAVE role on device openflow:61913192855536 if
+> no role will be set in 20s.
+> 2018-01-07 00:09:03,637 | INFO  | ult-dispatcher-3 | GuardedContextImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Starting DeviceContextImpl[NEW] service for node openflow:61913192855536
+> 2018-01-07 00:09:03,639 | INFO  | entLoopGroup-9-4 |
+> DeviceInitializationUtil         | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | IP address of the node openflow:61913192855536 is: IpAddress
+> [_ipv4Address=Ipv4Address [_value=192.168.162.10]]
+> 2018-01-07 00:09:03,639 | INFO  | entLoopGroup-9-4 |
+> DeviceInitializationUtil         | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | Port number of the node openflow:61913192855536 is: 58064
+>
+> *2018-01-07 00:09:03,641 | WARN  | entLoopGroup-9-4 |
+> OF13DeviceInitializer            | 305 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Failed to retrieve static
+> node OFPMPMETERFEATURES info: Device reported error type BADREQUEST code
+> BADMULTIPART*2018-01-07 00:09:03,680 | INFO  | entLoopGroup-9-4 |
+> OF13DeviceInitializer            | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | Static node openflow:61913192855536 info: OFPMPGROUPFEATURES
+> collected
+> 2018-01-07 00:09:03,681 | INFO  | entLoopGroup-9-4 |
+> OF13DeviceInitializer            | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | Static node openflow:61913192855536 info: OFPMPPORTDESC collected
+> 2018-01-07 00:09:03,681 | INFO  | entLoopGroup-9-4 |
+> OF13DeviceInitializer            | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | Static node openflow:61913192855536 successfully finished
+> collecting
+> 2018-01-07 00:09:03,682 | INFO  | ult-dispatcher-3 | GuardedContextImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Starting RpcContextImpl[NEW] service for node openflow:61913192855536
+> 2018-01-07 00:09:03,688 | INFO  | ult-dispatcher-3 | GuardedContextImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Starting StatisticsContextImpl[NEW] service for node openflow:61913192855536
+> 2018-01-07 00:09:03,689 | INFO  | ult-dispatcher-3 | GuardedContextImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Starting RoleContextImpl[NEW] service for node openflow:61913192855536
+> 2018-01-07 00:09:03,689 | INFO  | ult-dispatcher-3 | SalRoleServiceImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 | SetRole
+> called with input:SetRoleInput [_controllerRole=BECOMEMASTER, _node=NodeRef
+> [_value=KeyedInstanceIdentifier{targetType=interface
+> org.opendaylight.yang.gen.v1.urn.opendaylight.inventory.rev130819.nodes.Node,
+> path=[org.opendaylight.yang.gen.v1.urn.opendaylight.inventory.rev130819.Nodes,
+> org.opendaylight.yang.gen.v1.urn.opendaylight.inventory.
+> rev130819.nodes.Node[key=NodeKey [_id=Uri [_value=openflow:61913192855536]]]]}],
+> augmentation=[]]
+> 2018-01-07 00:09:03,689 | INFO  | ult-dispatcher-3 | SalRoleServiceImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Requesting state change to BECOMEMASTER
+> 2018-01-07 00:09:03,689 | INFO  | ult-dispatcher-3 | SalRoleServiceImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> RoleChangeTask called on device:openflow:61913192855536 OFPRole:BECOMEMASTER
+> 2018-01-07 00:09:03,689 | INFO  | ult-dispatcher-3 | RoleService
+>             | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> getGenerationIdFromDevice called for device: openflow:61913192855536
+> 2018-01-07 00:09:03,689 | INFO  | ult-dispatcher-3 | ContextChainImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 | Started
+> clustering services for node openflow:61913192855536
+>
+> *2018-01-07 00:09:03,690 | ERROR | entLoopGroup-9-4 | RoleService
+>             | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> getGenerationIdFromDevice RPC error null**2018-01-07 00:09:03,690 | WARN
+> | entLoopGroup-9-4 | ContextChainHolderImpl           | 305 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Not able to set MASTER role
+> on device openflow:61913192855536, reason: Was not able to propagate MASTER
+> role on device. Error:
+> org.opendaylight.openflowplugin.impl.role.RoleChangeException: Device
+> reported error type BADREQUEST code BADTYPE*
+> 2018-01-07 00:09:03,691 | WARN  | entLoopGroup-9-4 |
+> ContextChainHolderImpl           | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | This mastering is mandatory, destroying context chain and closing
+> connection for device openflow:61913192855536.
+> 2018-01-07 00:09:03,691 | INFO  | entLoopGroup-9-4 |
+> ReconciliationManagerImpl        | 298 - org.opendaylight.
+> openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping
+> reconciliation for node Uri [_value=openflow:61913192855536]
+> 2018-01-07 00:09:03,691 | INFO  | entLoopGroup-9-4 | ContextChainImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 | Closed
+> clustering services registration for node openflow:61913192855536
+> 2018-01-07 00:09:03,691 | INFO  | entLoopGroup-9-4 | GuardedContextImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Terminating DeviceContextImpl[RUNNING] service for node
+> openflow:61913192855536
+> 2018-01-07 00:09:03,691 | INFO  | entLoopGroup-9-4 | GuardedContextImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Terminating RpcContextImpl[RUNNING] service for node openflow:61913192855536
+> 2018-01-07 00:09:03,692 | INFO  | entLoopGroup-9-4 | GuardedContextImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Terminating StatisticsContextImpl[RUNNING] service for node
+> openflow:61913192855536
+> 2018-01-07 00:09:03,692 | INFO  | entLoopGroup-9-4 |
+> StatisticsContextImpl            | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | Stopping running statistics gathering for node
+> openflow:61913192855536
+>
+>
+> *2018-01-07 00:09:03,692 | WARN  | entLoopGroup-9-4 |
+> ContextChainHolderImpl           | 305 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | Not able to set MASTER role
+> on device openflow:61913192855536, reason: Initial gathering statistics
+> unsuccessful: Task was cancelled.2018-01-07 00:09:03,692 | WARN  |
+> entLoopGroup-9-4 | ContextChainHolderImpl           | 305 -
+> org.opendaylight.openflowplugin.impl - 0.5.1 | This mastering is mandatory,
+> destroying context chain and closing connection for device
+> openflow:61913192855536.*2018-01-07 00:09:03,692 | INFO  |
+> entLoopGroup-9-4 | ReconciliationManagerImpl        | 298 -
+> org.opendaylight.openflowplugin.applications.reconciliation-framework -
+> 0.5.1 | Stopping reconciliation for node Uri [_value=openflow:
+> 61913192855536]
+> 2018-01-07 00:09:03,692 | INFO  | entLoopGroup-9-4 | GuardedContextImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 |
+> Terminating RoleContextImpl[RUNNING] service for node
+> openflow:61913192855536
+> 2018-01-07 00:09:03,696 | INFO  | lt-dispatcher-34 |
+> ReconciliationManagerImpl        | 298 - org.opendaylight.
+> openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping
+> reconciliation for node Uri [_value=openflow:61913192855536]
+> 2018-01-07 00:09:03,696 | INFO  | lt-dispatcher-34 |
+> ContextChainHolderImpl           | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | Role SLAVE was granted to device openflow:61913192855536
+> 2018-01-07 00:09:03,696 | INFO  | ofppool-0        | ContextChainImpl
+>            | 305 - org.opendaylight.openflowplugin.impl - 0.5.1 | Closed
+> clustering services for node openflow:61913192855536
+> 2018-01-07 00:09:03,699 | INFO  | ult-dispatcher-3 |
+> ContextChainHolderImpl           | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | Try to remove device Uri [_value=openflow:61913192855536] from
+> operational DS
+> 2018-01-07 00:09:03,700 | INFO  | ult-dispatcher-3 |
+> ContextChainHolderImpl           | 305 - org.opendaylight.openflowplugin.impl
+> - 0.5.1 | Removing device from operational DS Uri [_value=openflow:61913192855536]
+> was successful
+
+
+The session is down in this case and the device tries to connect again some
+seconds later.
+
+Kind regards,
+Kevin
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-users/attachments/20180107/37cd908c/attachment-0001.html>
+
+From jluhrsen at gmail.com  Mon Jan  8 21:00:42 2018
+From: jluhrsen at gmail.com (Jamo Luhrsen)
+Date: Mon, 8 Jan 2018 13:00:42 -0800
+Subject: [controller-users] Juniper MX104 - Was not able to propagate
+ MASTER role on device.
+In-Reply-To: <CA+gLzy-jCpHUL8W0Hf3W96CVEPaEtbt3qPNRayiVYjA-Kwx6fA@mail.gmail.com>
+References: <CA+gLzy_XbfmnG1TeTuQswGx_aHwrDHqMJ16_ER2eJ3e77fKLmA@mail.gmail.com>
+	<CA+gLzy-jCpHUL8W0Hf3W96CVEPaEtbt3qPNRayiVYjA-Kwx6fA@mail.gmail.com>
+Message-ID: <704bb6d0-21b8-4c51-226a-d6c617ef6cc8@gmail.com>
+
+adding openflowplugin-dev list.
+
+Kevin,
+
+you might want to look at a packet capture of the OF connection
+attempts. tcpdump on the ODL system on port 6633 (or 6653) should
+be enough.
+
+I think it's a case of the switch rejecting the connection, but
+not 100% sure on that. You might have some logs on the switch
+side to look at as well.
+
+Thanks,
+JamO
+
+On 01/06/2018 03:47 PM, Kevin Olbrich wrote:
+> Hi,
+> 
+> when I add a Juniper MX104 to my new ODL installation, I get this error:
+> 
+>     2018-01-07 00:09:03,191 | INFO? | entLoopGroup-9-4 | ConnectionAdapterImpl? ? ? ? ? ? | 311 -
+>     org.opendaylight.openflowplugin.openflowjava.openflow-protocol-impl - 0.5.1 | Hello received
+>     2018-01-07 00:09:03,632 | INFO? | entLoopGroup-9-4 | ContextChainHolderImpl? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Device openflow:61913192855536 connected.
+>     2018-01-07 00:09:03,632 | INFO? | entLoopGroup-9-4 | ContextChainHolderImpl? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | No context chain found for device: openflow:61913192855536, creating new.
+>     2018-01-07 00:09:03,632 | INFO? | entLoopGroup-9-4 | DeviceManagerImpl? ? ? ? ? ? ? ? | 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | ConnectionEvent: Device connected to controller,
+>     Device:/192.168.162.10:58064 <http://192.168.162.10:58064/>, NodeId:Uri [_value=openflow:61913192855536]
+>     2018-01-07 00:09:03,633 | INFO? | entLoopGroup-9-4 | RoleContextImpl? ? ? ? ? ? ? ? ? | 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Started timer for setting SLAVE role on device openflow:61913192855536 if
+>     no role will be set in 20s.
+>     2018-01-07 00:09:03,637 | INFO? | ult-dispatcher-3 | GuardedContextImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Starting DeviceContextImpl[NEW] service for node openflow:61913192855536
+>     2018-01-07 00:09:03,639 | INFO? | entLoopGroup-9-4 | DeviceInitializationUtil? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | IP address of the node openflow:61913192855536 is: IpAddress
+>     [_ipv4Address=Ipv4Address [_value=192.168.162.10]]
+>     2018-01-07 00:09:03,639 | INFO? | entLoopGroup-9-4 | DeviceInitializationUtil? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Port number of the node openflow:61913192855536 is: 58064
+>     *2018-01-07 00:09:03,641 | WARN? | entLoopGroup-9-4 | OF13DeviceInitializer? ? ? ? ? ? | 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Failed to retrieve static node OFPMPMETERFEATURES info: Device reported
+>     error type BADREQUEST code BADMULTIPART
+>     *2018-01-07 00:09:03,680 | INFO? | entLoopGroup-9-4 | OF13DeviceInitializer? ? ? ? ? ? | 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Static node openflow:61913192855536 info: OFPMPGROUPFEATURES collected
+>     2018-01-07 00:09:03,681 | INFO? | entLoopGroup-9-4 | OF13DeviceInitializer? ? ? ? ? ? | 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Static node openflow:61913192855536 info: OFPMPPORTDESC collected
+>     2018-01-07 00:09:03,681 | INFO? | entLoopGroup-9-4 | OF13DeviceInitializer? ? ? ? ? ? | 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Static node openflow:61913192855536 successfully finished collecting
+>     2018-01-07 00:09:03,682 | INFO? | ult-dispatcher-3 | GuardedContextImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Starting RpcContextImpl[NEW] service for node openflow:61913192855536
+>     2018-01-07 00:09:03,688 | INFO? | ult-dispatcher-3 | GuardedContextImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Starting StatisticsContextImpl[NEW] service for node openflow:61913192855536
+>     2018-01-07 00:09:03,689 | INFO? | ult-dispatcher-3 | GuardedContextImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Starting RoleContextImpl[NEW] service for node openflow:61913192855536
+>     2018-01-07 00:09:03,689 | INFO? | ult-dispatcher-3 | SalRoleServiceImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | SetRole called with input:SetRoleInput [_controllerRole=BECOMEMASTER,
+>     _node=NodeRef [_value=KeyedInstanceIdentifier{targetType=interface
+>     org.opendaylight.yang.gen.v1.urn.opendaylight.inventory.rev130819.nodes.Node,
+>     path=[org.opendaylight.yang.gen.v1.urn.opendaylight.inventory.rev130819.Nodes,
+>     org.opendaylight.yang.gen.v1.urn.opendaylight.inventory.rev130819.nodes.Node[key=NodeKey [_id=Uri
+>     [_value=openflow:61913192855536]]]]}], augmentation=[]]
+>     2018-01-07 00:09:03,689 | INFO? | ult-dispatcher-3 | SalRoleServiceImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Requesting state change to BECOMEMASTER
+>     2018-01-07 00:09:03,689 | INFO? | ult-dispatcher-3 | SalRoleServiceImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | RoleChangeTask called on device:openflow:61913192855536 OFPRole:BECOMEMASTER
+>     2018-01-07 00:09:03,689 | INFO? | ult-dispatcher-3 | RoleService? ? ? ? ? ? ? ? ? ? ? | 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | getGenerationIdFromDevice called for device: openflow:61913192855536
+>     2018-01-07 00:09:03,689 | INFO? | ult-dispatcher-3 | ContextChainImpl? ? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Started clustering services for node openflow:61913192855536
+>     *2018-01-07 00:09:03,690 | ERROR | entLoopGroup-9-4 | RoleService? ? ? ? ? ? ? ? ? ? ? | 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | getGenerationIdFromDevice RPC error null
+>     **2018-01-07 00:09:03,690 | WARN? | entLoopGroup-9-4 | ContextChainHolderImpl? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Not able to set MASTER role on device openflow:61913192855536, reason: Was
+>     not able to propagate MASTER role on device. Error: org.opendaylight.openflowplugin.impl.role.RoleChangeException: Device
+>     reported error type BADREQUEST code BADTYPE*
+>     2018-01-07 00:09:03,691 | WARN? | entLoopGroup-9-4 | ContextChainHolderImpl? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | This mastering is mandatory, destroying context chain and closing
+>     connection for device openflow:61913192855536.
+>     2018-01-07 00:09:03,691 | INFO? | entLoopGroup-9-4 | ReconciliationManagerImpl? ? ? ? | 298 -
+>     org.opendaylight.openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping reconciliation for node Uri
+>     [_value=openflow:61913192855536]
+>     2018-01-07 00:09:03,691 | INFO? | entLoopGroup-9-4 | ContextChainImpl? ? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Closed clustering services registration for node openflow:61913192855536
+>     2018-01-07 00:09:03,691 | INFO? | entLoopGroup-9-4 | GuardedContextImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating DeviceContextImpl[RUNNING] service for node
+>     openflow:61913192855536
+>     2018-01-07 00:09:03,691 | INFO? | entLoopGroup-9-4 | GuardedContextImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating RpcContextImpl[RUNNING] service for node openflow:61913192855536
+>     2018-01-07 00:09:03,692 | INFO? | entLoopGroup-9-4 | GuardedContextImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating StatisticsContextImpl[RUNNING] service for node
+>     openflow:61913192855536
+>     2018-01-07 00:09:03,692 | INFO? | entLoopGroup-9-4 | StatisticsContextImpl? ? ? ? ? ? | 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Stopping running statistics gathering for node openflow:61913192855536
+>     *2018-01-07 00:09:03,692 | WARN? | entLoopGroup-9-4 | ContextChainHolderImpl? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Not able to set MASTER role on device openflow:61913192855536, reason:
+>     Initial gathering statistics unsuccessful: Task was cancelled.
+>     2018-01-07 00:09:03,692 | WARN? | entLoopGroup-9-4 | ContextChainHolderImpl? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | This mastering is mandatory, destroying context chain and closing
+>     connection for device openflow:61913192855536.
+>     *2018-01-07 00:09:03,692 | INFO? | entLoopGroup-9-4 | ReconciliationManagerImpl? ? ? ? | 298 -
+>     org.opendaylight.openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping reconciliation for node Uri
+>     [_value=openflow:61913192855536]
+>     2018-01-07 00:09:03,692 | INFO? | entLoopGroup-9-4 | GuardedContextImpl? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Terminating RoleContextImpl[RUNNING] service for node openflow:61913192855536
+>     2018-01-07 00:09:03,696 | INFO? | lt-dispatcher-34 | ReconciliationManagerImpl? ? ? ? | 298 -
+>     org.opendaylight.openflowplugin.applications.reconciliation-framework - 0.5.1 | Stopping reconciliation for node Uri
+>     [_value=openflow:61913192855536]
+>     2018-01-07 00:09:03,696 | INFO? | lt-dispatcher-34 | ContextChainHolderImpl? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Role SLAVE was granted to device openflow:61913192855536
+>     2018-01-07 00:09:03,696 | INFO? | ofppool-0? ? ? ? | ContextChainImpl? ? ? ? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Closed clustering services for node openflow:61913192855536
+>     2018-01-07 00:09:03,699 | INFO? | ult-dispatcher-3 | ContextChainHolderImpl? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Try to remove device Uri [_value=openflow:61913192855536] from operational DS
+>     2018-01-07 00:09:03,700 | INFO? | ult-dispatcher-3 | ContextChainHolderImpl? ? ? ? ? ?| 305 -
+>     org.opendaylight.openflowplugin.impl - 0.5.1 | Removing device from operational DS Uri [_value=openflow:61913192855536]
+>     was successful
+> 
+> 
+> The session is down in this case and the device tries to connect again some seconds later.
+> 
+> Kind regards,
+> Kevin
+> 
+> 
+> _______________________________________________
+> controller-users mailing list
+> controller-users at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/controller-users
+> 
+
+From dk5913 at att.com  Wed Jan 17 00:03:04 2018
+From: dk5913 at att.com (KIM, DONGHO)
+Date: Wed, 17 Jan 2018 00:03:04 +0000
+Subject: [controller-users] using restconf to perform modify or delete a
+ config on mounted netconf device
+Message-ID: <F48090514925A44690392414745E5A15148B81E5@CAFRFD1MSGUSRJH.ITServices.sbc.com>
+
+Hello all,
+
+I'm following instructions about how to use netconf in ODL: http://docs.opendaylight.org/en/stable-carbon/user-guide/netconf-user-guide.html#reconfiguring-netconf-connector-while-the-controller-is-running
+Using testtool and creating test yang model works well.
+But when I tried to delete or change config. I got an error.
+e.g. when I do  'curl -i -X DELETE  --header "Accept: application/xml" --header "Content-Type: application/xml" -k  http://127.0.0.1:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/testtool/yang-ext:mount' , I got 500 Server Error.
+I looked into karaf.log and found an error saying "java.lang.IllegalArgumentException) Data has to be present when creating structure for top level element"
+Does anyone know what I am doing wrong?
+
+Thanks
+Dongho
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-users/attachments/20180117/99b33d27/attachment.html>
+

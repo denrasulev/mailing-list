@@ -1,0 +1,21 @@
+From jluhrsen at gmail.com  Thu Feb 22 01:01:40 2018
+From: jluhrsen at gmail.com (Jamo Luhrsen)
+Date: Wed, 21 Feb 2018 17:01:40 -0800
+Subject: [didm-dev] didm csit failing for carbon sr3
+Message-ID: <b0275928-d122-4c08-f981-30942408366d@gmail.com>
+
+Hi DIDM,
+
+I think your csit jobs are not watched or used. Please correct me
+if I am wrong. the nitrogen version of the csit job hasn't run
+since august and the carbon job has basic/consistent failures. If
+it's of no value to you, we could remove it entirely to save some
+cycles in jenkins.
+
+We had requested you to update the carbon sr3 tracking sheet, but
+as it's not been updated, I took the liberty to mark it as IGNORE.
+
+Regards,
+JamO
+
+

@@ -1,0 +1,11 @@
+From adetalhouet at inocybe.com  Fri Sep 23 13:12:29 2016
+From: adetalhouet at inocybe.com (=?utf-8?Q?Alexis_de_Talhou=C3=ABt?=)
+Date: Fri, 23 Sep 2016 09:12:29 -0400
+Subject: [reservation-dev] Reservation M0 Status
+Message-ID: <77E35340-4663-4FE9-B530-5AB060B8520E@inocybe.com>
+
+Reservation project is formally declining to participate in the Carbon SR.
+
+Thanks,
+Alexis
+

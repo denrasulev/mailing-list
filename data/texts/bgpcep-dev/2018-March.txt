@@ -1,0 +1,68 @@
+From jenkins-dontreply at opendaylight.org  Tue Mar  6 03:37:23 2018
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Tue, 06 Mar 2018 03:37:23 +0000
+Subject: [bgpcep-dev] [release] Autorelease fluorine failed to build
+ pcep-api from bgpcep
+Message-ID: <5a9e0cf3.PLp+/HT3f9uMHsvS%jenkins-dontreply@opendaylight.org>
+
+Attention bgpcep-devs,
+
+Autorelease fluorine failed to build pcep-api from bgpcep in build
+8. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-fluorine/8
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-fluorine/8/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/octet-stream
+Size: 4232 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/bgpcep-dev/attachments/20180306/16d344de/attachment.obj>
+
+From nite at hq.sk  Tue Mar  6 12:47:10 2018
+From: nite at hq.sk (Robert Varga)
+Date: Tue, 6 Mar 2018 13:47:10 +0100
+Subject: [bgpcep-dev] [release] Autorelease fluorine failed to build
+ pcep-api from bgpcep
+In-Reply-To: <5a9e0cf3.PLp+/HT3f9uMHsvS%jenkins-dontreply@opendaylight.org>
+References: <5a9e0cf3.PLp+/HT3f9uMHsvS%jenkins-dontreply@opendaylight.org>
+Message-ID: <27c3b4c8-d2f7-f1d2-5a32-e024eb8de838@hq.sk>
+
+On 06/03/18 04:37, Jenkins wrote:
+> Attention bgpcep-devs,
+> 
+> Autorelease fluorine failed to build pcep-api from bgpcep in build
+> 8. Attached is a snippet of the error message related to the
+> failure that we were able to automatically parse as well as console logs. 
+> 
+> 
+> Console Logs:
+> https://logs.opendaylight.org/releng/vex-yul-odl-jenkins-1/autorelease-release-fluorine/8
+
+A range strange error around YangModuleInfoImpl.equals(), which works
+everywhere else. As it turns out we do not really need it, reverted
+16f4a3460a35c4def10c9c78f5eede48d3eaf025.
+
+Regards,
+Robert
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 850 bytes
+Desc: OpenPGP digital signature
+URL: <http://lists.opendaylight.org/pipermail/bgpcep-dev/attachments/20180306/168cee51/attachment.sig>
+

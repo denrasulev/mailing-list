@@ -1,0 +1,166 @@
+From colin at colindixon.com  Thu Jun 29 16:12:05 2017
+From: colin at colindixon.com (Colin Dixon)
+Date: Thu, 29 Jun 2017 12:12:05 -0400
+Subject: [armoury-dev] Fwd: [OpenDaylight TSC] Archiving inactive projects
+In-Reply-To: <CAEXadNr5Gg1NkvROikMs-2Nr6MmV0HfBfTisU+Bks5MEZd=a7w@mail.gmail.com>
+References: <CAEXadNr5Gg1NkvROikMs-2Nr6MmV0HfBfTisU+Bks5MEZd=a7w@mail.gmail.com>
+Message-ID: <CANPTM8EJYc=9OH3cETRreTLYoGodmMLbjsWBAX8AeMWj7uCLyA@mail.gmail.com>
+
+Dear Discovery, Plugin2OC and Amoury devs,
+
+It appears as though your projects have been inactive for 18 months or
+longer and thus the TSC is likely to archive the projects. I plan to
+generate archive review documents today and start a TSC vote on them in two
+weeks at the July 13th TSC call. The process is described here:
+https://wiki.opendaylight.org/view/TSC:Main#Project_Archiving_and_Termination_Reviews
+
+--Colin
+
+
+---------- Forwarded message ----------
+From: Thanh Ha <thanh.ha at linuxfoundation.org>
+Date: Tue, Jun 13, 2017 at 4:03 PM
+Subject: [OpenDaylight TSC] Archiving inactive projects
+To: "tsc at lists.opendaylight.org" <tsc at lists.opendaylight.org>
+
+
+Hello TSC,
+
+There's a few projects I've identified below as being inactive. Curious if
+we should consider archiving some of these?
+
+
+*armoury*
+No real activity since 2015-11-02
+
+https://git.opendaylight.org/gerrit/#/q/project:armoury
+
+
+*discovery*
+No activity since 2015-04-09
+
+https://git.opendaylight.org/gerrit/#/q/project:discovery
+
+
+*plugin2oc*
+No activity since 2015-02-02
+
+https://git.opendaylight.org/gerrit/#/q/project:plugin2oc
+
+
+*tcpmd5*
+Last release was Beryllium and no activity since.
+
+https://git.opendaylight.org/gerrit/#/q/project:tcpmd5
+
+
+Regards,
+Thanh
+
+
+_______________________________________________
+TSC mailing list
+TSC at lists.opendaylight.org
+https://lists.opendaylight.org/mailman/listinfo/tsc
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/armoury-dev/attachments/20170629/3997e10e/attachment.html>
+
+From colin at colindixon.com  Thu Jun 29 16:39:36 2017
+From: colin at colindixon.com (Colin Dixon)
+Date: Thu, 29 Jun 2017 12:39:36 -0400
+Subject: [armoury-dev] Archiving Armoury
+Message-ID: <CANPTM8EcfWnnA0sBii17PnXmTjsgkquX2MRm7w1OWNC4tRcHXA@mail.gmail.com>
+
+This e-mail serves to start the 2 week counter to archive Discovery per
+this Archive review:
+https://wiki.opendaylight.org/view/Archive_Proposals/Armoury
+
+Cheers,
+--Colin
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/armoury-dev/attachments/20170629/4e961fb4/attachment.html>
+
+From adetalhouet89 at gmail.com  Thu Jun 29 17:00:12 2017
+From: adetalhouet89 at gmail.com (=?UTF-8?Q?Alexis_de_Talhou=C3=ABt?=)
+Date: Thu, 29 Jun 2017 19:00:12 +0200
+Subject: [armoury-dev] [OpenDaylight TSC] Archiving Armoury
+In-Reply-To: <CANPTM8EcfWnnA0sBii17PnXmTjsgkquX2MRm7w1OWNC4tRcHXA@mail.gmail.com>
+References: <CANPTM8EcfWnnA0sBii17PnXmTjsgkquX2MRm7w1OWNC4tRcHXA@mail.gmail.com>
+Message-ID: <CAM941Kb2F9Fern1J56HXpvmE+q86d0BdczzoJgh_jgpUHp=tPg@mail.gmail.com>
+
+I don't know if this mail was seen:
+https://lists.opendaylight.org/pipermail/tsc/2017-June/007494.html
+It's basically saying that as PTL of Armoury, although away from ODL since
+couple of months, it is fine by me to archieve this project.
+Also, the active list of committers is most certainly composed of folks not
+contributing to ODL anymore, and/or that have changed affiliation, hence I
+tend to believe there is no real purpose in conducting a vote within the
+Armoury project to approve this. My 0.02.
+
+Cheers,
+Alexis
+
+
+Le jeudi 29 juin 2017, Colin Dixon <colin at colindixon.com> a ?crit :
+
+> This e-mail serves to start the 2 week counter to archive Discovery per
+> this Archive review:
+> https://wiki.opendaylight.org/view/Archive_Proposals/Armoury
+>
+> Cheers,
+> --Colin
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/armoury-dev/attachments/20170629/ce55c67d/attachment.html>
+
+From colin at colindixon.com  Thu Jun 29 18:20:35 2017
+From: colin at colindixon.com (Colin Dixon)
+Date: Thu, 29 Jun 2017 14:20:35 -0400
+Subject: [armoury-dev] [OpenDaylight TSC] Archiving Armoury
+In-Reply-To: <CAM941Kb2F9Fern1J56HXpvmE+q86d0BdczzoJgh_jgpUHp=tPg@mail.gmail.com>
+References: <CANPTM8EcfWnnA0sBii17PnXmTjsgkquX2MRm7w1OWNC4tRcHXA@mail.gmail.com>
+	<CAM941Kb2F9Fern1J56HXpvmE+q86d0BdczzoJgh_jgpUHp=tPg@mail.gmail.com>
+Message-ID: <CANPTM8EJzC9Y7dgNybPPM3VGWDOxsfrAFi9Y2cfjOvHsGG6-OQ@mail.gmail.com>
+
+So, is there a thread on the project's list asking for comment before
+today? If not, I think we need to wait two weeks because we don't have a
+vote of committers to archive it.
+
+--Colin
+
+
+On Thu, Jun 29, 2017 at 1:00 PM, Alexis de Talhou?t <adetalhouet89 at gmail.com
+> wrote:
+
+> I don't know if this mail was seen:
+> https://lists.opendaylight.org/pipermail/tsc/2017-June/007494.html
+> It's basically saying that as PTL of Armoury, although away from ODL since
+> couple of months, it is fine by me to archieve this project.
+> Also, the active list of committers is most certainly composed of folks
+> not contributing to ODL anymore, and/or that have changed affiliation,
+> hence I tend to believe there is no real purpose in conducting a vote
+> within the Armoury project to approve this. My 0.02.
+>
+> Cheers,
+> Alexis
+>
+>
+>
+> Le jeudi 29 juin 2017, Colin Dixon <colin at colindixon.com> a ?crit :
+>
+>> This e-mail serves to start the 2 week counter to archive Discovery per
+>> this Archive review:
+>> https://wiki.opendaylight.org/view/Archive_Proposals/Armoury
+>>
+>> Cheers,
+>> --Colin
+>>
+>>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/armoury-dev/attachments/20170629/93daa9d5/attachment.html>
+

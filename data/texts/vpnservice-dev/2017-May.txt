@@ -1,0 +1,49 @@
+From jluhrsen at gmail.com  Sat May 13 00:28:56 2017
+From: jluhrsen at gmail.com (Jamo Luhrsen)
+Date: Fri, 12 May 2017 17:28:56 -0700
+Subject: [vpnservice-dev] Fwd: [release] Carbon Blocker Bugs
+In-Reply-To: <EEEA408CE50B48498B9F866085AEF29132AC0B35@dfweml501-mbb>
+References: <EEEA408CE50B48498B9F866085AEF29132AC0B35@dfweml501-mbb>
+Message-ID: <e5321fc1-6d73-6883-16b5-8f37505249ef@gmail.com>
+
+
+
+
+-------- Forwarded Message --------
+Subject: 	[release] Carbon Blocker Bugs
+Date: 	Sat, 13 May 2017 00:21:49 +0000
+From: 	An Ho <An.Ho at huawei.com>
+To: 	release at lists.opendaylight.org <release at lists.opendaylight.org>, Colin Dixon <colin at colindixon.com>,
+ccain at linuxfoundation.org <ccain at linuxfoundation.org>
+
+
+
+Hi Carbon Projects,
+
+
+Please report any blocker bugs in Carbon by updating the Carbon Tracking Spreadsheet [1] or replying to this email.  Note
+that the stable/carbon branch has been locked and only blocker bugs are permitted to merge at this time.
+
+
+We currently have 6 Carbon Blocker Bugs from the following projects: integration/distribution, autorelease, openflowplugin,
+odlparent
+
+
+We kindly ask projects to share the status of your bugs by marking the bug as fixed and resolved (STATUS=RESOLVED), or
+retargeting the bug for Nitrogen (ODL SR TARGET MILESTONE=NITROGEN), or providing an ETA for when it can be fixed in Carbon.
+
+
+Best Regards,
+
+An Ho
+
+
+[1] https://docs.google.com/spreadsheets/d/1VcB12FBiFV4GAEHZSspHBNxKI_9XugJp-6Qbbw20Omk/edit#gid=921315511
+
+
+-------------- next part --------------
+_______________________________________________
+release mailing list
+release at lists.opendaylight.org
+https://lists.opendaylight.org/mailman/listinfo/release
+

@@ -1,0 +1,11 @@
+From matthias.backhausen at ts.fujitsu.com  Tue Aug 22 08:22:43 2017
+From: matthias.backhausen at ts.fujitsu.com (matthias.backhausen at ts.fujitsu.com)
+Date: Tue, 22 Aug 2017 08:22:43 +0000
+Subject: [affinity-dev] unsubscribe
+Message-ID: <cbd5c1131b4246bea55c2a348eb99d48@R01UKEXCASM225.r01.fujitsu.local>
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/affinity-dev/attachments/20170822/6f2f67c8/attachment.html>
+

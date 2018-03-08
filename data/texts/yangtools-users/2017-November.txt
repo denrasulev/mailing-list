@@ -1,0 +1,84 @@
+From VDarsi at advaoptical.com  Wed Nov  8 10:33:40 2017
+From: VDarsi at advaoptical.com (Vikram Darsi)
+Date: Wed, 8 Nov 2017 10:33:40 +0000
+Subject: [yangtools-users] ClassCastException while deserializing
+ YangInstanceIdentifier to InstanceIdentifier
+Message-ID: <13597aaad4734eb88b5ca72dd4f4d9ce@advaoptical.com>
+
+Hi Team
+
+We wanted to serialize an InstanceIdentifier to String and then deserialize the string back to InstanceIdentifier when required.
+
+
+Model definition used:
+
+    container services{
+                list service {
+                                key name;
+                                leaf name {
+                                                type string;
+                                }
+                                list service-port{
+                                                key id;
+                                                leaf id {
+                                                                type uint32;
+                                                }
+                                }
+                }
+    }
+
+Here are the steps followed
+
+serialization:
+
+1. Using BindingNormalizedNodeSerializer, Convert the InstanceIdentifier to yangInstanceIdentifier
+2.  AbstractModuleStringInstanceIdentifierCodec is used to serialize the YangInstanceIdentifier to String
+
+
+I/p: InstanceIdentifier<ServicePort> sport = InstanceIdentifier.create(Services.class).child(Service.class, new ServiceKey("MyService")).child(ServicePort.class, new ServicePortKey(20L));
+O/p: /normalizednodedemo:services/normalizednodedemo:service[normalizednodedemo:name='MyService']/normalizednodedemo:service-port[normalizednodedemo:id='20']
+
+
+Deserialization:
+
+1. AbstractModuleStringInstanceIdentifierCodec is used to deserialize, the String to YangInstanceIdentifier
+2. Using BindingNormalizedNodeSerializer, Convert yangInstanceIdentifier to InstanceIdentifier
+
+I/p: /normalizednodedemo:services/normalizednodedemo:service[normalizednodedemo:name='MyService']/normalizednodedemo:service-port[normalizednodedemo:id='20']
+o/p: Exception raised
+
+Caused by: java.lang.ClassCastException: Cannot cast java.lang.String to java.lang.Long
+                at java.lang.invoke.MethodHandleImpl.newClassCastException(MethodHandleImpl.java:361)[:1.8.0_45]
+                at java.lang.invoke.MethodHandleImpl.castReference(MethodHandleImpl.java:356)[:1.8.0_45]
+                at org.opendaylight.yangtools.binding.data.codec.impl.IdentifiableItemCodec.deserialize(IdentifiableItemCodec.java:106)
+                at org.opendaylight.yangtools.binding.data.codec.impl.IdentifiableItemCodec.deserialize(IdentifiableItemCodec.java:30)
+                at org.opendaylight.yangtools.binding.data.codec.impl.KeyedListNodeCodecContext.getBindingPathArgument(KeyedListNodeCodecContext.java:73)
+                at org.opendaylight.yangtools.binding.data.codec.impl.BindingCodecContext.getCodecContextNode(BindingCodecContext.java:169)
+                at org.opendaylight.yangtools.binding.data.codec.impl.InstanceIdentifierCodec.deserialize(InstanceIdentifierCodec.java:36)
+                at org.opendaylight.yangtools.binding.data.codec.impl.InstanceIdentifierCodec.deserialize(InstanceIdentifierCodec.java:19)
+                at org.opendaylight.yangtools.binding.data.codec.impl.BindingNormalizedNodeCodecRegistry.fromYangInstanceIdentifier(BindingNormalizedNodeCodecRegistry.java:92)
+                at org.opendaylight.controller.md.sal.binding.impl.BindingToNormalizedNodeCodec.fromYangInstanceIdentifier(BindingToNormalizedNodeCodec.java:171)
+                at Proxy2aa48080_bfc8_4694_878a_cc45b80fb8c2.fromYangInstanceIdentifier(Unknown Source)
+                at com.adva.ensemble.controller.impl.NormalizedNodeDemoProvider.stringToIidDemo(NormalizedNodeDemoProvider.java:234)
+                at com.adva.ensemble.controller.impl.NormalizedNodeDemoProvider.<init>(NormalizedNodeDemoProvider.java:189)
+                at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)[:1.8.0_45]
+                at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)[:1.8.0_45]
+                at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)[:1.8.0_45]
+                at java.lang.reflect.Constructor.newInstance(Constructor.java:422)[:1.8.0_45]
+                at org.apache.aries.blueprint.utils.ReflectionUtils.newInstance(ReflectionUtils.java:331)
+                at org.apache.aries.blueprint.container.BeanRecipe.newInstance(BeanRecipe.java:984)
+                at org.apache.aries.blueprint.container.BeanRecipe.getInstanceFromType(BeanRecipe.java:349)
+
+
+NOTE: We are using Boron-SR3
+
+Is this issue fixed in later releases? If not, Can you please suggest us how to fix the issue.
+
+
+
+Thanks
+Vikram
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/yangtools-users/attachments/20171108/2a4da5b8/attachment.html>
+

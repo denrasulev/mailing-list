@@ -1,0 +1,19 @@
+From christopher.price at ericsson.com  Wed May 18 13:57:57 2016
+From: christopher.price at ericsson.com (Christopher Price)
+Date: Wed, 18 May 2016 13:57:57 +0000
+Subject: [stockholmodlug] Welcome to the Stockholm ODLUG mailing list
+Message-ID: <D3624184.89550%christopher.price@ericsson.com>
+
+Hi folks,
+
+This distribution list is our Stockholm ODLUG mailing list.  I have had the e-mail addresses provided last week added to this list for us to use for communication.  The address for sending a message is: stockholmodlug at lists.opendaylight.org
+To add e-mail addresses to this list simply enter them at: https://lists.opendaylight.org/mailman/listinfo/stockholmodlug
+
+Also to add a little cross-group plug, there will be a Stockholm SDN group meet up at the end of the month:  http://www.meetup.com/Stockholm-SDN-Group/events/231053993/
+
+Regards,
+Chris
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/stockholmodlug/attachments/20160518/f20c0bb7/attachment.html>
+

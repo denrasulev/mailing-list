@@ -1,0 +1,43 @@
+From t1su at ryerson.ca  Mon Jan 29 17:30:24 2018
+From: t1su at ryerson.ca (Taixue Su)
+Date: Mon, 29 Jan 2018 12:30:24 -0500
+Subject: [Sdninterfaceapp-dev] Sdninterfaceapp-dev Digest, Vol 37,
+	Issue 1
+In-Reply-To: <mailman.11.1508587201.21630.sdninterfaceapp-dev@lists.opendaylight.org>
+References: <mailman.11.1508587201.21630.sdninterfaceapp-dev@lists.opendaylight.org>
+Message-ID: <CAMMoq=kMhuNA-1ON2qW_FqfYJ65z5+JJR+y9v--AFhLTYL7EEw@mail.gmail.com>
+
+Hello,
+
+I am using SDNi QoS database to do my research, but when I am trying to
+check QoS table, all the QoS fields is 0 like below even though I am still
+pinging.
+sqlite> select * from QOS_DATABASE_192_168_30_136;
+3232243336|openflow:13|openflow:13:0|0|0|0|0|0|0
+3232243336|openflow:13|openflow:13:5|0|0|0|0|0|0
+3232243336|openflow:13|openflow:13:4|0|0|0|0|0|0
+3232243336|openflow:13|openflow:13:3|0|0|0|0|0|0
+3232243336|openflow:13|openflow:13:2|0|0|0|0|0|0
+3232243336|openflow:13|openflow:13:1|0|0|0|0|0|0
+3232243336|openflow:12|openflow:12:0|0|0|0|0|0|0
+3232243336|openflow:12|openflow:12:3|0|0|0|0|0|0
+3232243336|openflow:12|openflow:12:2|0|0|0|0|0|0
+3232243336|openflow:12|openflow:12:1|0|0|0|0|0|0
+3232243336|openflow:11|openflow:11:4|0|0|0|0|0|0
+3232243336|openflow:11|openflow:11:0|0|0|0|0|0|0
+3232243336|openflow:11|openflow:11:3|0|0|0|0|0|0
+3232243336|openflow:11|openflow:11:2|0|0|0|0|0|0
+3232243336|openflow:11|openflow:11:1|0|0|0|0|0|0
+
+
+Can anyone please guide me how to get the available  QoS value?  What do I
+need to configure or some solution to show the available  QoS value
+
+Thanks in advnace.
+
+Sincerely,
+Tony Su
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/sdninterfaceapp-dev/attachments/20180129/248001d9/attachment.html>
+

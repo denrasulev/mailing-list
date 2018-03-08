@@ -1,0 +1,104 @@
+From iosam at intracom-telecom.com  Thu Feb  8 13:55:34 2018
+From: iosam at intracom-telecom.com (Ioakeim Samaras)
+Date: Thu, 8 Feb 2018 15:55:34 +0200
+Subject: [defense4all-dev] Query about defense4all state
+Message-ID: <4257ab10-9987-ee95-2c67-4b1562a280e4@intracom-telecom.com>
+
+Hello,
+
+I would like to ask why the development process of defenese4all has 
+stopped. Is there no need for further functionalities?
+
+Thank you in advance.
+
+-- 
+
+*Dr. Ioakeim Samaras
+*Product Owner / Software Engineer
+
+Software Development Center - Thessaloniki Branch
+______________________________________
+Intracom Telecom
+41 Marinou Antipa str., 57001 Pylea, Greece
+t: ??+30 2310497460
+f: ??+30 2310497330
+m: +30 6948182734
+_iosam at intracom-telecom.com <mailto:email at intracom-telecom.com>
+_www.intracom-telecom.com <http://www.intracom-telecom.com/>
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+*JOIN US*
+
+	
+
+Mobile World Congress
+
+26 Feb-01 Mar
+
+Barcelona, Spain
+
+	
+
+Mobile World Congress Shanghai
+
+27-29 June
+Shanghai, China
+
+	
+
+Mobile World Congress Americas
+
+12-14 September
+Los Angeles, USA
+
+	
+
+Gitex Technology Week
+
+14-18 October
+Dubai, UAE
+
+	
+
+FutureCom
+
+15-18 October
+
+Sao Paolo, Brazil
+
+	
+
+AfricaCom
+
+13-15 November
+
+Cape Town, S. Africa
+
+
+The information in this e-mail message and any attachments are intended 
+only for the individual or entity to whom it is addressed and may be 
+confidential. If you have received this transmission in error, and you 
+are not an intended recipient, be aware that any copying, disclosure, 
+distribution or use of this transmission or its contents is 
+prohibited.?Intracom Telecom and the sender accept no liability for any 
+loss, disruption or damage to your data or computer system that may 
+occur while using data contained in, or transmitted with, this email. 
+Views or opinions expressed in this message may be those of the author 
+and may not necessarily represent those of Intracom Telecom.
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/defense4all-dev/attachments/20180208/04e98609/attachment.html>
+

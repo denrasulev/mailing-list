@@ -1,0 +1,27 @@
+From kk.pradeeban at gmail.com  Fri Sep 23 14:36:13 2016
+From: kk.pradeeban at gmail.com (Pradeeban Kathiravelu)
+Date: Fri, 23 Sep 2016 10:36:13 -0400
+Subject: [messaging4transport-dev] Messaging4Transport Carbon M0 Status
+Message-ID: <CAAarrS=P7tNq7cxRKVG+2BCxiywNK8JXdfSXOp-OY8viYUdE-A@mail.gmail.com>
+
+Messaging4Transport project is formally declining to participate in the
+Carbon Simultaneous Release.
+
+Thank you.
+Regards,
+Pradeeban.
+
+-- 
+Pradeeban Kathiravelu.
+PhD Researcher, Erasmus Mundus Joint Doctorate in Distributed Computing,
+INESC-ID Lisboa / Instituto Superior T?cnico, Universidade de Lisboa,
+Portugal.
+Biomedical Informatics Software Engineer, Emory University School of
+Medicine.
+
+Blog: [Llovizna] http://kkpradeeban.blogspot.com/
+LinkedIn: www.linkedin.com/pub/kathiravelu-pradeeban/12/b6a/b03
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/messaging4transport-dev/attachments/20160923/211232ea/attachment.html>
+

@@ -1,0 +1,49 @@
+From brady.allen.johnson at ericsson.com  Thu Mar  9 10:39:43 2017
+From: brady.allen.johnson at ericsson.com (Brady Allen Johnson)
+Date: Thu, 9 Mar 2017 10:39:43 +0000
+Subject: [odlug] Request for ODL participation in Swiss SDN user group
+Message-ID: <1489055981.26085.19.camel@ericsson.com>
+
+
+Hello,
+
+I received the below email from a colleague in Switzerland (in cc) who is participating in the ODL SFC project with me.
+
+Is there anyone in Switzerland (either living or possibly traveling there soon) that would be available to present ODL at the Swiss SDN meetup?
+
+Thanks,
+
+Brady
+
+
+
+Hi Brady, all,
+
+
+unrelated to the topic, i forgot to mention on Friday if you are interested
+
+or know someone from the ODL community to give a demo/talk to the Swiss SDN
+
+meetup/workshop i am in charge for, please let me know. I know community
+
+people are moving so it might well match to someone's schedule. The info is here:
+
+
+https://www.meetup.com/SDN-Switzerland/events/237925842/
+
+
+I don't want to spam on the group so please feel free to send it over where applicable.
+
+We had ONOS presenter last time, but not yet ODL and it would be really great if so.
+
+
+Thanks,
+
+Irena
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/odlug/attachments/20170309/68a41fb9/attachment.html>
+

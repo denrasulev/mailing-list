@@ -1,0 +1,40 @@
+From irvingchen09 at gmail.com  Tue May  9 07:58:28 2017
+From: irvingchen09 at gmail.com (=?utf-8?B?6ZmI5bqE5rSL?=)
+Date: Tue, 9 May 2017 15:58:28 +0800
+Subject: [natapp-dev] natapp release/boron-sr3 doesn't work
+Message-ID: <4B6E0EFA-F34B-4740-B357-1F290C931B0B@gmail.com>
+
+Hi there,
+
+i checkout release/boron-sr3 version, and run karaf after build.
+
+using mininet for testing, and installed a flow as ?sh ovs-ofctl add-flow s1 dl_type=0x0806,actions=FLOOD"
+
+gave json input of natType as {"natapp:input": { "type:pat":"?}}
+
+gave json input of patNat as {"natapp:patNat": {"globalIP":"172.0.0.1/32?}}
+
+In mininet prompt, open xterm for h1 h5
+	$ xterm h1 h5
+
+In xterm h5, give the following commands 
+	$ ip r add 172.0.0.1/32 dev h5-eth0
+	$ arp -s 172.0.0.1 00:00:00:00:00:01 
+	$ nc -l 5000
+
+In xterm h1, Give the following command 
+	$ echo "TCS" | nc -p 8000 10.0.0.5 5000
+
+Check for the PAT flows
+	$ sh ovs-ofctl dump-flows s1
+
+However It didn?t work. There was only one flow installed.
+
+ so I tailed karaf log. It looks like never receive the notification for invoking the PacketProcessingListener.
+
+Any ideas?
+
+																			Best Regards,
+																			irving
+
+

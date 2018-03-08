@@ -1,0 +1,20 @@
+From jluhrsen at gmail.com  Thu Feb 22 00:58:41 2018
+From: jluhrsen at gmail.com (Jamo Luhrsen)
+Date: Wed, 21 Feb 2018 16:58:41 -0800
+Subject: [lacp-dev] lacp csit failing for carbon sr3
+Message-ID: <3fb1c9d7-ff9f-fb99-589f-4301613b4d02@gmail.com>
+
+Hi LACP,
+
+I think your csit jobs are not watched or used. Please correct me
+if I am wrong. the nitrogen version of the csit job hasn't run
+since august and the carbon job has basic/consistent failures. If
+it's of no value to you, we could remove it entirely to save some
+cycles in jenkins.
+
+We had requested you to update the carbon sr3 tracking sheet, but
+as it's not been updated, I took the liberty to mark it as IGNORE.
+
+Regards,
+JamO
+

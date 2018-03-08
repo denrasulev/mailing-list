@@ -1,0 +1,31 @@
+From tbgumass at gmail.com  Wed Feb 19 16:37:37 2014
+From: tbgumass at gmail.com (Tianbo Gu)
+Date: Wed, 19 Feb 2014 16:37:37 -0000
+Subject: [controller-announce] Can I use Opendaylight to install flow table
+ which includes the application layer header match?
+Message-ID: <5304DDC9.8080706@gmail.com>
+
+Hi guys:
+           Now I am trying to implement something and need your help. I 
+send packets including my application layer header to the Openswitch, 
+the controller will pull this kind of packets and set some actions, such 
+as modify the destination IP address, at the same time install the flow 
+table to the switch and let the following packet can match the 
+application headers and route to the modified destination IP address? 
+Can I implement this by using Opendaylight or other controller.
+          What I have done is that I can pull the packets to controller 
+and strip off  the IP,TCP headers and get the application headers and 
+according to the data of application headers  I modify the packets' 
+destination IP address. But Now I want to install the flow table to let 
+the following packets can following the rule, so I need to match the 
+application header fields, not just the Source IP address, Destination 
+IP address, Source Transport port and Destination transport port and so 
+on. How can I do it ? Can anybody give me any advice?
+
+Thanks very much for your help!
+
+skybo
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/controller-announce/attachments/20140219/da670637/attachment-0001.html>
+

@@ -1,0 +1,25 @@
+From tech.kals at gmail.com  Thu Dec 31 07:17:40 2015
+From: tech.kals at gmail.com (tech_kals Kals)
+Date: Thu, 31 Dec 2015 12:47:40 +0530
+Subject: [projectleads] OFDPA TTP with ODL controller
+Message-ID: <CAHWErLf86wWojL_RSWAJ7M7wb7qdq+_hGzqezNJ9pECCzKJP6g@mail.gmail.com>
+
+Hi experts,
+
+  I am trying to integrate OFDPA2.0 switch (with Indigo agent) with
+OpenDayLight controller.
+
+(1) Could someone explain me / point out how a switch and controller would
+exchange TTP ? Just want to understand Switch and Controller negotiation on
+TTP.
+
+(2) I know, I need to write a new TTP for a specific application. But, how
+to load the written TTP into the switch ? How switch would exchange it to
+controller ?
+
+Thanks,
+__Kals__
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/projectleads/attachments/20151231/3efe4dd5/attachment.html>
+

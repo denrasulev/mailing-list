@@ -1,0 +1,549 @@
+From a.vamsikrishna at ericsson.com  Thu Dec 14 13:51:27 2017
+From: a.vamsikrishna at ericsson.com (A Vamsikrishna)
+Date: Thu, 14 Dec 2017 13:51:27 +0000
+Subject: [openflowjava-dev] [Openflow] TLS cipher suite cannot support
+	exception
+Message-ID: <VI1PR07MB3150EEA88B50B5A91BA5355FE20A0@VI1PR07MB3150.eurprd07.prod.outlook.com>
+
+
+Hi All,
+
+
+I am working on OFJ to allow users to configure cipher-suites to use with
+
+SSLEngine. (https://git.opendaylight.org/gerrit/#/c/34942/).
+
+
+
+I am trying to test it by configuring the cipher suites supported by
+
+SunProvider 1.8, for e.g. TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384. (
+
+http://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html
+
+).
+
+However, I see an IllegalArgumentException exception indicating that the
+
+cipher suite is not supported.
+
+
+
+Can you please help me with this issue ?
+
+
+
+
+
+Here is the stacktrace -->
+
+
+
+
+
+2016-02-23 12:16:34,802 | WARN  | entLoopGroup-9-2 | TcpChannelInitializer
+
+           | 262 - org.opendaylight.openflowjava.openflow-protocol-impl -
+
+0.8.0.SNAPSHOT | Failed to initialize channel
+
+java.lang.IllegalArgumentException: Cannot support
+
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 with currently installed providers
+
+at
+
+sun.security.ssl.CipherSuiteList.<init>(CipherSuiteList.java:92)[:1.8.0_60]
+
+at
+
+sun.security.ssl.SSLEngineImpl.setEnabledCipherSuites(SSLEngineImpl.java:2038)[:1.8.0_60]
+
+at
+
+org.opendaylight.openflowjava.protocol.impl.core.TcpChannelInitializer.initChannel(TcpChannelInitializer.java:91)[262:org.opendaylight.openflowjava.openflow-protocol-impl:0.8.0.SNAPSHOT]
+
+at
+
+org.opendaylight.openflowjava.protocol.impl.core.TcpChannelInitializer.initChannel(TcpChannelInitializer.java:32)[262:org.opendaylight.openflowjava.openflow-protocol-impl:0.8.0.SNAPSHOT]
+
+at
+
+io.netty.channel.ChannelInitializer.channelRegistered(ChannelInitializer.java:68)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannelHandlerContext.invokeChannelRegistered(AbstractChannelHandlerContext.java:143)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannelHandlerContext.fireChannelRegistered(AbstractChannelHandlerContext.java:129)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.DefaultChannelPipeline.fireChannelRegistered(DefaultChannelPipeline.java:733)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:450)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannel$AbstractUnsafe.access$100(AbstractChannel.java:378)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:424)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:329)[124:io.netty.common:4.0.33.Final]
+
+at
+
+io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:350)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)[124:io.netty.common:4.0.33.Final]
+
+at
+
+io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)[124:io.netty.common:4.0.33.Final]
+
+at java.lang.Thread.run(Thread.java:745)[:1.8.0_60]
+
+
+I have tried to update the JCE policy files to include jars that provide unlimited
+
+cryptographic strength:
+
+http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+
+But it did not work out even after my ODL restart (System:shutdown)
+
+Any thoughts ?
+
+
+
+Thanks,
+Vamsi
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/openflowjava-dev/attachments/20171214/f671ab8e/attachment.html>
+
+From m.elserngawy at gmail.com  Thu Dec 14 16:26:26 2017
+From: m.elserngawy at gmail.com (Mohamed El-Serngawy)
+Date: Thu, 14 Dec 2017 11:26:26 -0500
+Subject: [openflowjava-dev] [Openflow] TLS cipher suite cannot support
+	exception
+In-Reply-To: <VI1PR07MB3150EEA88B50B5A91BA5355FE20A0@VI1PR07MB3150.eurprd07.prod.outlook.com>
+References: <VI1PR07MB3150EEA88B50B5A91BA5355FE20A0@VI1PR07MB3150.eurprd07.prod.outlook.com>
+Message-ID: <CAAx+Tv5uhXrHuzX_BGY5-nHGQFUE_KHAQ-PZCWSoVpV1J1rBfA@mail.gmail.com>
+
+Hi Vamsikrishna,
+
+keep in mind it is mutual communication, what openflow switch u use ? is it
+ovs bridge ?
+
+BR
+
+
+On Thu, Dec 14, 2017 at 8:51 AM, A Vamsikrishna <a.vamsikrishna at ericsson.com
+> wrote:
+
+>
+>
+> Hi All,
+>
+>
+>
+> I am working on OFJ to allow users to configure cipher-suites to use with
+>
+> SSLEngine. (https://git.opendaylight.org/gerrit/#/c/34942/).
+>
+>
+>
+> I am trying to test it by configuring the cipher suites supported by
+>
+> SunProvider 1.8, for e.g. TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384. (
+>
+> http://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html
+>
+> ).
+>
+> However, I see an IllegalArgumentException exception indicating that the
+>
+> cipher suite is not supported.
+>
+>
+>
+> Can you please help me with this issue ?
+>
+>
+>
+>
+>
+> Here is the stacktrace -->
+>
+>
+>
+>
+>
+> 2016-02-23 12:16:34,802 | WARN  | entLoopGroup-9-2 | TcpChannelInitializer
+>
+>            | 262 - org.opendaylight.openflowjava.openflow-protocol-impl -
+>
+> 0.8.0.SNAPSHOT | Failed to initialize channel
+>
+> java.lang.IllegalArgumentException: Cannot support
+>
+> TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 with currently installed providers
+>
+> at
+>
+> sun.security.ssl.CipherSuiteList.<init>(CipherSuiteList.java:92)[:1.8.0_60]
+>
+> at
+>
+> sun.security.ssl.SSLEngineImpl.setEnabledCipherSuites(SSLEngineImpl.java:2038)[:1.8.0_60]
+>
+> at
+>
+> org.opendaylight.openflowjava.protocol.impl.core.TcpChannelInitializer.initChannel(TcpChannelInitializer.java:91)[262:org.opendaylight.openflowjava.openflow-protocol-impl:0.8.0.SNAPSHOT]
+>
+> at
+>
+> org.opendaylight.openflowjava.protocol.impl.core.TcpChannelInitializer.initChannel(TcpChannelInitializer.java:32)[262:org.opendaylight.openflowjava.openflow-protocol-impl:0.8.0.SNAPSHOT]
+>
+> at
+>
+> io.netty.channel.ChannelInitializer.channelRegistered(ChannelInitializer.java:68)[125:io.netty.transport:4.0.33.Final]
+>
+> at
+>
+> io.netty.channel.AbstractChannelHandlerContext.invokeChannelRegistered(AbstractChannelHandlerContext.java:143)[125:io.netty.transport:4.0.33.Final]
+>
+> at
+>
+> io.netty.channel.AbstractChannelHandlerContext.fireChannelRegistered(AbstractChannelHandlerContext.java:129)[125:io.netty.transport:4.0.33.Final]
+>
+> at
+>
+> io.netty.channel.DefaultChannelPipeline.fireChannelRegistered(DefaultChannelPipeline.java:733)[125:io.netty.transport:4.0.33.Final]
+>
+> at
+>
+> io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:450)[125:io.netty.transport:4.0.33.Final]
+>
+> at
+>
+> io.netty.channel.AbstractChannel$AbstractUnsafe.access$100(AbstractChannel.java:378)[125:io.netty.transport:4.0.33.Final]
+>
+> at
+>
+> io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:424)[125:io.netty.transport:4.0.33.Final]
+>
+> at
+>
+> io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:329)[124:io.netty.common:4.0.33.Final]
+>
+> at
+>
+> io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:350)[125:io.netty.transport:4.0.33.Final]
+>
+> at
+>
+> io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)[124:io.netty.common:4.0.33.Final]
+>
+> at
+>
+> io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)[124:io.netty.common:4.0.33.Final]
+>
+> at java.lang.Thread.run(Thread.java:745)[:1.8.0_60]
+>
+>
+>
+> I have tried to update the JCE policy files to include jars that provide unlimited
+>
+> cryptographic strength:
+>
+> http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+>
+>
+>
+> But it did not work out even after my ODL restart (System:shutdown)
+>
+>
+>
+> Any thoughts ?
+>
+>
+>
+>
+>
+>
+>
+> Thanks,
+>
+> Vamsi
+>
+>
+>
+> _______________________________________________
+> openflowjava-dev mailing list
+> openflowjava-dev at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/openflowjava-dev
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/openflowjava-dev/attachments/20171214/3bdf2ea1/attachment-0001.html>
+
+From a.vamsikrishna at ericsson.com  Mon Dec 18 10:34:38 2017
+From: a.vamsikrishna at ericsson.com (A Vamsikrishna)
+Date: Mon, 18 Dec 2017 10:34:38 +0000
+Subject: [openflowjava-dev] [Openflow] TLS cipher suite cannot support
+	exception
+Message-ID: <VI1PR07MB3150D2E235CF6DE2BE91A859E20E0@VI1PR07MB3150.eurprd07.prod.outlook.com>
+
+Hi All,
+
+All below scenarios looks fine
+
+
+ with no ciphers
+(or)
+<cipher-suites>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</cipher-suites>
+(or)
+<cipher-suites>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</cipher-suites>
+<cipher-suites>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</cipher-suites
+ (or)
+<cipher-suites>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</cipher-suites>
+<cipher-suites>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</cipher-suites>
+
+ stack at devcontrol:~/devstack$
+stack at devcontrol:~/devstack$ sudo tail -5 /var/log/openvswitch/ovs-vswitchd.log
+2017-11-21T15:17:16.417Z|02158|rconn|WARN|br-int<->ssl:192.168.56.1:6653: connection dropped (Connection refused)
+2017-11-21T15:17:24.437Z|02159|rconn|WARN|br-int<->ssl:192.168.56.1:6653: connection dropped (Connection refused)
+2017-11-21T15:17:32.383Z|02160|rconn|WARN|br-int<->ssl:192.168.56.1:6653: connection dropped (Connection refused)
+2017-11-21T15:17:40.915Z|02161|rconn|INFO|br-int<->ssl:192.168.56.1:6653: connected
+2017-11-21T15:17:54.279Z|02162|connmgr|INFO|br-int<->ssl:192.168.56.1:6653: 38 flow_mods 10 s ago (38 adds)
+stack at devcontrol:~/devstack$
+stack at devcontrol:~/devstack$
+
+stack at devcontrol:~/devstack$ sudo ovs-vsctl show
+9191393d-55e3-49c8-82e0-ea597b611ec0
+    Manager "tcp:192.168.56.1:6640"
+        is_connected: true
+    Bridge br-int
+        Controller "ssl:192.168.56.1:6653"
+            is_connected: true
+        fail_mode: secure
+        Port br-int
+            Interface br-int
+                type: internal
+    Bridge br-ext
+        Port br-ext
+            Interface br-ext
+                type: internal
+    ovs_version: "2.6.1"
+stack at devcontrol:~/devstack$
+
+
+ only with below cipher suite alone it's not working
+
+ <cipher-suites>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</cipher-suites>
+
+
+ stack at devcontrol:~/devstack$ sudo tail -5 /var/log/openvswitch/ovs-vswitchd.log
+2017-11-21T15:10:28.370Z|02089|rconn|WARN|br-int<->ssl:192.168.56.1:6653: connection dropped (Protocol error)
+2017-11-21T15:10:36.343Z|02090|stream_ssl|WARN|SSL_connect: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
+2017-11-21T15:10:36.344Z|02091|rconn|WARN|br-int<->ssl:192.168.56.1:6653: connection dropped (Protocol error)
+2017-11-21T15:10:44.343Z|02092|stream_ssl|WARN|SSL_connect: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
+2017-11-21T15:10:44.343Z|02093|rconn|WARN|br-int<->ssl:192.168.56.1:6653: connection dropped (Protocol error)
+stack at devcontrol:~/devstack$
+stack at devcontrol:~/devstack$
+stack at devcontrol:~/devstack$ sudo ovs-vsctl show
+9191393d-55e3-49c8-82e0-ea597b611ec0
+    Manager "tcp:192.168.56.1:6640"
+        is_connected: true
+    Bridge br-int
+        Controller "ssl:192.168.56.1:6653"
+        fail_mode: secure
+        Port br-int
+            Interface br-int
+                type: internal
+    Bridge br-ext
+        Port br-ext
+
+
+                                Caused by: javax.net.ssl.SSLHandshakeException: no cipher suites in common
+        at sun.security.ssl.Handshaker.checkThrown(Handshaker.java:1478)[:1.8.0_131]
+        at sun.security.ssl.SSLEngineImpl.checkTaskThrown(SSLEngineImpl.java:535)[:1.8.0_131]
+        at sun.security.ssl.SSLEngineImpl.readNetRecord(SSLEngineImpl.java:813)[:1.8.0_131]
+        at sun.security.ssl.SSLEngineImpl.unwrap(SSLEngineImpl.java:781)[:1.8.0_131]
+        at javax.net.ssl.SSLEngine.unwrap(SSLEngine.java:624)[:1.8.0_131]
+        at io.netty.handler.ssl.SslHandler$SslEngineType$2.unwrap(SslHandler.java:223)[97:io.netty.handler:4.1.8.Final]
+        at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1117)[97:io.netty.handler:4.1.8.Final]
+        at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1039)[97:io.netty.handler:4.1.8.Final]
+        at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:411)[94:io.netty.codec:4.1.8.Final]
+        ... 25 more
+Caused by: javax.net.ssl.SSLHandshakeException: no cipher suites in common
+        at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)[:1.8.0_131]
+        at sun.security.ssl.SSLEngineImpl.fatal(SSLEngineImpl.java:1666)[:1.8.0_131]
+        at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:304)[:1.8.0_131]
+        at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:292)[:1.8.0_131]
+        at sun.security.ssl.ServerHandshaker.chooseCipherSuite(ServerHandshaker.java:1045)[:1.8.0_131]
+        at sun.security.ssl.ServerHandshaker.clientHello(ServerHandshaker.java:741)[:1.8.0_131]
+        at sun.security.ssl.ServerHandshaker.processMessage(ServerHandshaker.java:224)[:1.8.0_131]
+        at sun.security.ssl.Handshaker.processLoop(Handshaker.java:1026)[:1.8.0_131]
+        at sun.security.ssl.Handshaker$1.run(Handshaker.java:966)[:1.8.0_131]
+        at sun.security.ssl.Handshaker$1.run(Handshaker.java:963)[:1.8.0_131]
+        at java.security.AccessController.doPrivileged(Native Method)[:1.8.0_131]
+        at sun.security.ssl.Handshaker$DelegatedTask.run(Handshaker.java:1416)[:1.8.0_131]
+        at io.netty.handler.ssl.SslHandler.runDelegatedTasks(SslHandler.java:1256)[97:io.netty.handler:4.1.8.Final]
+        at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1169)[97:io.netty.handler:4.1.8.Final]
+        ... 27 more
+
+
+Any thoughts on this ?
+
+Thanks,
+Vamsi
+
+
+From: A Vamsikrishna
+Sent: Thursday, December 14, 2017 7:21 PM
+To: 'openflowjava-dev at lists.opendaylight.org' <openflowjava-dev at lists.opendaylight.org>
+Subject: [Openflow] TLS cipher suite cannot support exception
+
+
+Hi All,
+
+
+I am working on OFJ to allow users to configure cipher-suites to use with
+
+SSLEngine. (https://git.opendaylight.org/gerrit/#/c/34942/).
+
+
+
+I am trying to test it by configuring the cipher suites supported by
+
+SunProvider 1.8, for e.g. TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384. (
+
+http://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html
+
+).
+
+However, I see an IllegalArgumentException exception indicating that the
+
+cipher suite is not supported.
+
+
+
+Can you please help me with this issue ?
+
+
+
+
+
+Here is the stacktrace -->
+
+
+
+
+
+2016-02-23 12:16:34,802 | WARN  | entLoopGroup-9-2 | TcpChannelInitializer
+
+           | 262 - org.opendaylight.openflowjava.openflow-protocol-impl -
+
+0.8.0.SNAPSHOT | Failed to initialize channel
+
+java.lang.IllegalArgumentException: Cannot support
+
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 with currently installed providers
+
+at
+
+sun.security.ssl.CipherSuiteList.<init>(CipherSuiteList.java:92)[:1.8.0_60]
+
+at
+
+sun.security.ssl.SSLEngineImpl.setEnabledCipherSuites(SSLEngineImpl.java:2038)[:1.8.0_60]
+
+at
+
+org.opendaylight.openflowjava.protocol.impl.core.TcpChannelInitializer.initChannel(TcpChannelInitializer.java:91)[262:org.opendaylight.openflowjava.openflow-protocol-impl:0.8.0.SNAPSHOT]
+
+at
+
+org.opendaylight.openflowjava.protocol.impl.core.TcpChannelInitializer.initChannel(TcpChannelInitializer.java:32)[262:org.opendaylight.openflowjava.openflow-protocol-impl:0.8.0.SNAPSHOT]
+
+at
+
+io.netty.channel.ChannelInitializer.channelRegistered(ChannelInitializer.java:68)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannelHandlerContext.invokeChannelRegistered(AbstractChannelHandlerContext.java:143)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannelHandlerContext.fireChannelRegistered(AbstractChannelHandlerContext.java:129)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.DefaultChannelPipeline.fireChannelRegistered(DefaultChannelPipeline.java:733)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:450)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannel$AbstractUnsafe.access$100(AbstractChannel.java:378)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:424)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:329)[124:io.netty.common:4.0.33.Final]
+
+at
+
+io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:350)[125:io.netty.transport:4.0.33.Final]
+
+at
+
+io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)[124:io.netty.common:4.0.33.Final]
+
+at
+
+io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)[124:io.netty.common:4.0.33.Final]
+
+at java.lang.Thread.run(Thread.java:745)[:1.8.0_60]
+
+
+I have tried to update the JCE policy files to include jars that provide unlimited
+
+cryptographic strength:
+
+http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
+
+But it did not work out even after my ODL restart (System:shutdown)
+
+Any thoughts ?
+
+
+
+Thanks,
+Vamsi
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/openflowjava-dev/attachments/20171218/9521bd2b/attachment-0001.html>
+

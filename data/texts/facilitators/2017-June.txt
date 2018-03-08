@@ -1,0 +1,71 @@
+From An.Ho at huawei.com  Fri Jun 23 18:43:48 2017
+From: An.Ho at huawei.com (An Ho)
+Date: Fri, 23 Jun 2017 18:43:48 +0000
+Subject: [facilitators] Congratulations P4PLUGIN
+Message-ID: <EEEA408CE50B48498B9F866085AEF29132BD58FE@dfweml501-mbb>
+
+Hi Ding Rui and P4PLUGIN Team,
+
+
+
+Congratulations on your project being accepted as an incubation project [0].  As release manager of OpenDaylight, I would like to welcome you and your team to the OpenDaylight community.  If there is anything I can do to help you and your team, please do not hesitate to ask.  At this time, please consider the following:
+
+
+
+* Finalize your list of committers.
+
+* Create a project main wiki page [1].
+
+* Open a ticket with helpdesk to create necessary project infrastructure [2].
+
+* Decide if your project intends to participate in the Nitrogen Simultaneous Release [3].
+
+* Send M0 Status Email to join the Nitrogen Simultaneous Release [4]
+
+* Complete IPR Review for any incoming code [5].
+
+* Accept/Decline Onboarding Interview.
+
+* Complete the New Project Checklist Requirements [7]
+
+
+
+We conduct an Onboarding Interview to introduce new projects to the OpenDaylight Release and Development Process.  The Onboarding Interview provides your team with an opportunity to ask questions and connect with community resources in OpenDaylight. Please let us know if you are interested and what times works best for your schedule [5] in Pacific Time Zone (San Francisco).
+
+
+
+We are delighted to have you join the OpenDaylight community and look forward to working with your team.
+
+
+
+Best Regards,
+
+An Ho
+
+
+
+[0] https://wiki.opendaylight.org/view/Project_Proposals:Main#Nitrogen_Accepted_Creation_Review
+
+[1] https://wiki.opendaylight.org/view/Template:Project_Facts
+
+[2] Please send email to helpdesk at opendaylight.org
+
+[3] https://wiki.opendaylight.org/view/Simultaneous_Release:Nitrogen_Release_Plan#Requirements_for_Participation
+
+[4] https://lists.opendaylight.org/pipermail/release/2017-June/011123.html
+
+[5] Please send email to Phil Robb < probb at linuxfoundation.org>
+
+[6] https://docs.google.com/spreadsheets/d/1zImtd764e-hOgJAxoJKl85fxHCPu2agLfqsBtf13zQY/edit#gid=1206857514
+
+[7] https://wiki.opendaylight.org/view/GettingStarted:Project_Main#New_Project_Checklist
+
+
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/facilitators/attachments/20170623/5bcbf9c1/attachment.html>
+

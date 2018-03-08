@@ -1,0 +1,38 @@
+From myu at linuxfoundation.org  Fri Mar  2 23:35:44 2018
+From: myu at linuxfoundation.org (Min Yu)
+Date: Fri, 2 Mar 2018 17:35:44 -0600
+Subject: [advisory-group] End User Advisory Group Meeting at ONS
+Message-ID: <CAGZqrsp87R6buSAtFexUKo9q=xb3=yuy7xgUSReZEtFYi+pYUQ@mail.gmail.com>
+
+Hello ODL EUAG Members:
+
+We wanted to let you know that we are hosting an open meeting of User
+Advisory Groups at ONS. It will be a F2F meeting only (no telephone bridge)
+and we are extending the invitation to the ODL EUAG, OPNFV EUAG, LFN member
+representatives, and other service provider companies.
+
+Now that we have established LF Networking, we'd like to talk to the
+operator community about how to evolve the OPNFV EUAG and ODL EUAG going
+forward, how to engage with more of the projects within LFN, and to ensure
+that we have a strong end user voice in the work of LFN.
+
+This meeting will take place Wednesday, March 28, 2:30 - 3:50 PM in the
+KTown Room (across from the business center on the 5th floor on the ONS
+venue). If you're going to be present at ONS, we hope that you will attend
+this session to give us your views. If you will not be present, but you
+will have colleagues in attendance at ONS, please forward this invitation
+on them. If you have any questions, please don't hesitate to reach out.
+
+Thanks!
+
+--
+Min Yu
+Senior Operations Analyst
+The Linux Foundation
++1(530) 902-6464 (m)
+myu at linuxfoundation.org
+Skype: minyudecorah
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/advisory-group/attachments/20180302/843da110/attachment.html>
+

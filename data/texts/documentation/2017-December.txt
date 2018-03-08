@@ -1,0 +1,223 @@
+From thanh.ha at linuxfoundation.org  Tue Dec  5 20:51:04 2017
+From: thanh.ha at linuxfoundation.org (Thanh Ha)
+Date: Tue, 5 Dec 2017 15:51:04 -0500
+Subject: [documentation] Next documentation meeting January 9th 2018
+Message-ID: <CAEXadNo_6nyOv+6eBc3F0wr09W4oyiZ6WXERSxnmgO01p5tJ9Q@mail.gmail.com>
+
+Hi Everyone,
+
+Due to the holiday season we've decided to cancel docs meetings for the
+rest of the year. The next meeting will be on January 9th 2018.
+
+Cheers,
+Thanh
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/documentation/attachments/20171205/509047df/attachment.html>
+
+From ecelgp at gmail.com  Fri Dec 15 18:51:27 2017
+From: ecelgp at gmail.com (Luis Gomez)
+Date: Fri, 15 Dec 2017 10:51:27 -0800
+Subject: [documentation] [release] [eman-dev] [Reminder #4] Oxygen M2
+	Project Status Due
+In-Reply-To: <CAKxjJnRwjKst2Di7AB0+R4qL9LKgPgF_VFtY12QTO=dmW4Yx4g@mail.gmail.com>
+References: <CAKxjJnQ6dS8w5_9gWq1=7L33n5PBS_u4sz1mtvgGyk_+YKYZFg@mail.gmail.com>
+	<FDFC731E-3160-40FE-8611-C2A2D565E334@gmail.com>
+	<CAKxjJnRwjKst2Di7AB0+R4qL9LKgPgF_VFtY12QTO=dmW4Yx4g@mail.gmail.com>
+Message-ID: <316DDC98-AB39-472E-A447-C446E9A40731@gmail.com>
+
+cc-ing docs, I think the outline is for new projects or new features to have some initial doc pushed in: https://wiki.opendaylight.org/view/Simultaneous_Release:Oxygen_Release_Plan#Timeline_for_Deliverables_from_Projects <https://wiki.opendaylight.org/view/Simultaneous_Release:Oxygen_Release_Plan#Timeline_for_Deliverables_from_Projects> 
+
+> On Dec 15, 2017, at 6:48 AM, Kit Lou <klou.external at gmail.com> wrote:
+> 
+> Hi Frank,
+> 
+> On your documentation section question, I have to defer to team members who have a longer history with ODL to respond.  It seems a bit redundant to me as the first part of the documentation section covers the information.  Perhaps Thanh and/or An can comment?
+> 
+> On your project facts question,  please look at your project wiki page: https://wiki.opendaylight.org/view/EMAN:Main <https://wiki.opendaylight.org/view/EMAN:Main>
+> 
+> The Facts box on the right needs to be updated.  I can see the Type field is not updated: it should be "Application" for your project.  It seems important that you try to bring in more committers for the EMAN project.  Thank you!
+> 
+> Best Regards,
+> Kit Lou
+> 
+> On Thu, Dec 14, 2017 at 11:56 AM, Frank Sandoval <francisrsandoval at gmail.com <mailto:francisrsandoval at gmail.com>> wrote:
+> I have submitted eman M2 readout to gerrit
+> 
+> I have some questions about the m2 template
+> 
+> Documentation section:
+> * what is ' reStructuredText outline? - is this a new requirement? Is there a template for the outline? if not, what is the outline supposed to contain?
+> 
+> Project specific section
+> * what are ?project facts?? - is this a new requirement? Is there a template, what are its contents, where does it live? 
+> 
+> 
+> Frank Sandoval
+> Principal - Pajarito Technologies LLC
+> email: francisrsandoval at gmail.com <mailto:francisrsandoval at gmail.com>
+> mobile: 720 338-1988 <tel:(720)%20338-1988>
+> 
+> 
+> 
+> 
+>> On Dec 11, 2017, at 3:13 PM, Kit Lou <klou.external at gmail.com <mailto:klou.external at gmail.com>> wrote:
+>> 
+>> Hello Oxygen Projects,
+>> 
+>> For the projects (details below) that have submitted M2 project status  - thank you!
+>> 
+>> We are still waiting for Oxygen M2 Project Status from the 12 following projects: dlux, dluxapps, eman, faas, jsonrpc, mdsal, netconf, of-config, p4plugin, snmp4sdn, unimgr, yangtools
+>> 
+>> We request that these 12 projects submit their M2 status as soon as possible!
+>> 
+>> Instructions: Please make a copy of the m2 status template file [1], update, and submit your milestone readout into this folder of the docs project:  "docs/release-process/milestone-readouts/m2".
+>> 
+>> There is a useful online reStructuredText tool [2] you can use to validate your rst file contents - copy the rst file contents into the left pane and you will see the rendered HTML on the right pane.  If your rst file checkin fails verification, it will likely be failing the tox coala check.  Please look for the tox-coala.log.gz file in the build log for details.
+>> 
+>> Note that once you submitted your gerrit patch and it is successfully merged, you will be able to see it here [3].
+>> 
+>> 
+>> Best Regards,
+>> Kit Lou
+>> Release Manager
+>> [1] https://git.opendaylight.org/gerrit/gitweb?p=docs.git;a=blob;f=docs/release-process/milestone-readouts/m2_template.rst <https://git.opendaylight.org/gerrit/gitweb?p=docs.git;a=blob;f=docs/release-process/milestone-readouts/m2_template.rst>
+>> [2] http://rst.ninjs.org/ <http://rst.ninjs.org/>
+>> [3] http://docs.opendaylight.org/en/latest/release-process/milestone-readouts.html <http://docs.opendaylight.org/en/latest/release-process/milestone-readouts.html>_______________________________________________
+>> eman-dev mailing list
+>> eman-dev at lists.opendaylight.org <mailto:eman-dev at lists.opendaylight.org>
+>> https://lists.opendaylight.org/mailman/listinfo/eman-dev <https://lists.opendaylight.org/mailman/listinfo/eman-dev>
+> 
+> 
+> _______________________________________________
+> release mailing list
+> release at lists.opendaylight.org
+> https://lists.opendaylight.org/mailman/listinfo/release
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/documentation/attachments/20171215/981f2f34/attachment.html>
+
+From An.Ho at huawei.com  Fri Dec 15 18:54:00 2017
+From: An.Ho at huawei.com (An Ho)
+Date: Fri, 15 Dec 2017 18:54:00 +0000
+Subject: [documentation] [release] [eman-dev] [Reminder #4] Oxygen M2
+	Project Status Due
+In-Reply-To: <316DDC98-AB39-472E-A447-C446E9A40731@gmail.com>
+References: <CAKxjJnQ6dS8w5_9gWq1=7L33n5PBS_u4sz1mtvgGyk_+YKYZFg@mail.gmail.com>
+	<FDFC731E-3160-40FE-8611-C2A2D565E334@gmail.com>
+	<CAKxjJnRwjKst2Di7AB0+R4qL9LKgPgF_VFtY12QTO=dmW4Yx4g@mail.gmail.com>
+	<316DDC98-AB39-472E-A447-C446E9A40731@gmail.com>
+Message-ID: <EEEA408CE50B48498B9F866085AEF29149E44202@sjceml521-mbx.china.huawei.com>
+
+Correct, M2 is outline.  By M3, some content.  At M4, the docs should be completed.
+
+Best Regards,
+An Ho
+
+From: release-bounces at lists.opendaylight.org [mailto:release-bounces at lists.opendaylight.org] On Behalf Of Luis Gomez
+Sent: Friday, December 15, 2017 10:51 AM
+To: Kit Lou <klou.external at gmail.com>; ODL Docs <documentation at lists.opendaylight.org>
+Cc: Frank Sandoval <francisrsandoval at gmail.com>; Release <release at lists.opendaylight.org>
+Subject: Re: [release] [eman-dev] [Reminder #4] Oxygen M2 Project Status Due
+
+cc-ing docs, I think the outline is for new projects or new features to have some initial doc pushed in: https://wiki.opendaylight.org/view/Simultaneous_Release:Oxygen_Release_Plan#Timeline_for_Deliverables_from_Projects
+
+On Dec 15, 2017, at 6:48 AM, Kit Lou <klou.external at gmail.com<mailto:klou.external at gmail.com>> wrote:
+
+Hi Frank,
+
+On your documentation section question, I have to defer to team members who have a longer history with ODL to respond.  It seems a bit redundant to me as the first part of the documentation section covers the information.  Perhaps Thanh and/or An can comment?
+
+On your project facts question,  please look at your project wiki page: https://wiki.opendaylight.org/view/EMAN:Main
+
+The Facts box on the right needs to be updated.  I can see the Type field is not updated: it should be "Application" for your project.  It seems important that you try to bring in more committers for the EMAN project.  Thank you!
+
+Best Regards,
+Kit Lou
+
+On Thu, Dec 14, 2017 at 11:56 AM, Frank Sandoval <francisrsandoval at gmail.com<mailto:francisrsandoval at gmail.com>> wrote:
+I have submitted eman M2 readout to gerrit
+
+I have some questions about the m2 template
+
+Documentation section:
+* what is ' reStructuredText outline? - is this a new requirement? Is there a template for the outline? if not, what is the outline supposed to contain?
+
+Project specific section
+* what are ?project facts?? - is this a new requirement? Is there a template, what are its contents, where does it live?
+
+
+Frank Sandoval
+Principal - Pajarito Technologies LLC
+email: francisrsandoval at gmail.com<mailto:francisrsandoval at gmail.com>
+mobile: 720 338-1988<tel:(720)%20338-1988>
+
+
+
+On Dec 11, 2017, at 3:13 PM, Kit Lou <klou.external at gmail.com<mailto:klou.external at gmail.com>> wrote:
+
+Hello Oxygen Projects,
+
+For the projects (details below) that have submitted M2 project status  - thank you!
+
+We are still waiting for Oxygen M2 Project Status from the 12 following projects: dlux, dluxapps, eman, faas, jsonrpc, mdsal, netconf, of-config, p4plugin, snmp4sdn, unimgr, yangtools
+
+We request that these 12 projects submit their M2 status as soon as possible!
+
+Instructions: Please make a copy of the m2 status template file [1], update, and submit your milestone readout into this folder of the docs project:  "docs/release-process/milestone-readouts/m2".
+
+There is a useful online reStructuredText tool [2] you can use to validate your rst file contents - copy the rst file contents into the left pane and you will see the rendered HTML on the right pane.  If your rst file checkin fails verification, it will likely be failing the tox coala check.  Please look for the tox-coala.log.gz file in the build log for details.
+
+Note that once you submitted your gerrit patch and it is successfully merged, you will be able to see it here [3].
+
+
+Best Regards,
+Kit Lou
+Release Manager
+
+[1] https://git.opendaylight.org/gerrit/gitweb?p=docs.git;a=blob;f=docs/release-process/milestone-readouts/m2_template.rst
+
+[2] http://rst.ninjs.org/
+
+[3] http://docs.opendaylight.org/en/latest/release-process/milestone-readouts.html
+_______________________________________________
+eman-dev mailing list
+eman-dev at lists.opendaylight.org<mailto:eman-dev at lists.opendaylight.org>
+https://lists.opendaylight.org/mailman/listinfo/eman-dev
+
+
+_______________________________________________
+release mailing list
+release at lists.opendaylight.org<mailto:release at lists.opendaylight.org>
+https://lists.opendaylight.org/mailman/listinfo/release
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/documentation/attachments/20171215/643bc6ef/attachment-0001.html>
+
+From ylhsieh at itri.org.tw  Fri Dec 22 06:00:57 2017
+From: ylhsieh at itri.org.tw (ylhsieh at itri.org.tw)
+Date: Fri, 22 Dec 2017 06:00:57 +0000
+Subject: [documentation] Fail to add snmp4sdn M2 report
+Message-ID: <09b2af8ab16e4193926aad1d9df588d6@EXMB03.ITRI.DS>
+
+Hi!
+
+SNMP4SDN M2 status gerrit was submitted, but build fail.
+https://git.opendaylight.org/gerrit/#/c/66717/
+It seems not the report content error?
+If there?s anything needs me to do, please let me know.
+
+Thank you
+Christine
+
+
+
+
+--
+???????????????????????????????????????????? This email may contain confidential information. Please do not use or disclose it in any way and delete it if you are not the intended recipient.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/documentation/attachments/20171222/71f57d9c/attachment.html>
+

@@ -1,0 +1,58 @@
+From alexander.j.leckey at intel.com  Thu Jun 22 15:04:19 2017
+From: alexander.j.leckey at intel.com (Leckey, Alexander J)
+Date: Thu, 22 Jun 2017 15:04:19 +0000
+Subject: [netide-dev] NetIDE not joining Nitrogen release
+In-Reply-To: <EEEA408CE50B48498B9F866085AEF29132ADA281@dfweml501-mbb>
+References: <5F00FB6185245648A7D6DA5754010D6B702CDCF5@IRSMSX106.ger.corp.intel.com>
+	<EEEA408CE50B48498B9F866085AEF29132ADA281@dfweml501-mbb>
+Message-ID: <5F00FB6185245648A7D6DA5754010D6B702D037F@IRSMSX106.ger.corp.intel.com>
+
+Hi NetIDE team,
+
+As discussed, I have contacted the Release Manager for ODL to let him know that the NetIDE project is finished. As such, we won't be contributing to the new Nitrogen release of OpenDaylight.
+
+Rgds,
+Alec.
+
+
+
+From: An Ho [mailto:An.Ho at huawei.com]
+Sent: Saturday, June 17, 2017 12:33 AM
+To: Leckey, Alexander J <alexander.j.leckey at intel.com>
+Subject: RE: NetIDE not joining Nitrogen release
+
+Thank you for letting us know, please take a moment to send a public email to netide-dev mailing list stating your decision to drop from the Simultaneous Release.
+
+Best Regards,
+An Ho
+
+From: Leckey, Alexander J [mailto:alexander.j.leckey at intel.com]
+Sent: Wednesday, June 14, 2017 6:41 AM
+To: An Ho
+Subject: NetIDE not joining Nitrogen release
+
+An,
+
+NetIDE will not be participating in the ODL Simultaneous Release Plan for Nitrogen. The project is being wound down internally.
+The team is still available to support the existing releases (Carbon, Boron, etc).
+
+If there is a process I should follow to formally exit, let me know.
+
+Rgds,
+Alec.
+
+--------------------------------------------------------------
+Intel Research and Development Ireland Limited
+Registered in Ireland
+Registered Office: Collinstown Industrial Park, Leixlip, County Kildare
+Registered Number: 308263
+
+
+This e-mail and any attachments may contain confidential material for the sole
+use of the intended recipient(s). Any review or distribution by others is
+strictly prohibited. If you are not the intended recipient, please contact the
+sender and delete all copies.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/netide-dev/attachments/20170622/1ce89a1f/attachment.html>
+

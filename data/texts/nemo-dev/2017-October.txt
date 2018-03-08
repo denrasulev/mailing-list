@@ -1,0 +1,75 @@
+From thanh.ha at linuxfoundation.org  Thu Oct 12 22:49:25 2017
+From: thanh.ha at linuxfoundation.org (Thanh Ha)
+Date: Thu, 12 Oct 2017 18:49:25 -0400
+Subject: [nemo-dev] [release] Autorelease nitrogen failed to build
+ odl-nemo-engine-rest from nemo
+In-Reply-To: <59dfd3d8.1uyYUV6DzTpVgxVy%jenkins-dontreply@opendaylight.org>
+References: <59dfd3d8.1uyYUV6DzTpVgxVy%jenkins-dontreply@opendaylight.org>
+Message-ID: <CAEXadNrJSo778NjZa0zg=qirdif96adamsGjn=E08rZhR-cVyg@mail.gmail.com>
+
+On Thu, Oct 12, 2017 at 4:43 PM, Jenkins <jenkins-dontreply at opendaylight.org
+> wrote:
+
+> Attention nemo-devs,
+>
+> Autorelease nitrogen failed to build odl-nemo-engine-rest from nemo in
+> build
+> 235. Attached is a snippet of the error message related to the
+> failure that we were able to automatically parse as well as console logs.
+>
+>
+> Console Logs:
+> https://logs.opendaylight.org/releng/jenkins092/autorelease-
+> release-nitrogen/235
+>
+> Jenkins Build:
+> https://jenkins.opendaylight.org/releng/job/autorelease-
+> release-nitrogen/235/
+>
+> Please review and provide an ETA on when a fix will be available.
+>
+> Thanks,
+> ODL releng/autorelease team
+>
+
+Looks like a unit test error. Can someone take a look?
+
+Thanks,
+Thanh
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/nemo-dev/attachments/20171012/6a08ae92/attachment.html>
+
+From jenkins-dontreply at opendaylight.org  Thu Oct 12 20:43:04 2017
+From: jenkins-dontreply at opendaylight.org (Jenkins)
+Date: Thu, 12 Oct 2017 20:43:04 +0000
+Subject: [nemo-dev] [release] Autorelease nitrogen failed to build
+ odl-nemo-engine-rest from nemo
+Message-ID: <59dfd3d8.1uyYUV6DzTpVgxVy%jenkins-dontreply@opendaylight.org>
+
+Attention nemo-devs,
+
+Autorelease nitrogen failed to build odl-nemo-engine-rest from nemo in build
+235. Attached is a snippet of the error message related to the
+failure that we were able to automatically parse as well as console logs. 
+
+
+Console Logs:
+https://logs.opendaylight.org/releng/jenkins092/autorelease-release-nitrogen/235
+
+Jenkins Build:
+https://jenkins.opendaylight.org/releng/job/autorelease-release-nitrogen/235/
+
+Please review and provide an ETA on when a fix will be available.
+
+Thanks,
+ODL releng/autorelease team
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: error.log.gz
+Type: application/gzip
+Size: 2368 bytes
+Desc: not available
+URL: <http://lists.opendaylight.org/pipermail/nemo-dev/attachments/20171012/53ce7431/attachment.bin>
+

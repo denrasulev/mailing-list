@@ -1,0 +1,73 @@
+From priyanka71188 at gmail.com  Thu Jan  4 06:38:07 2018
+From: priyanka71188 at gmail.com (priyanka chopra)
+Date: Thu, 4 Jan 2018 12:08:07 +0530
+Subject: [Transportpce-dev] Transport PCE - Current status and user guide
+Message-ID: <CAFJMJikT9TxjHL1U_bpra4=RkzkqeD9=Uc=ew_pWephBoa3K-Q@mail.gmail.com>
+
+Hi Folks,
+
+I came across this application that serves as an external PCE, but not sure
+if it has become a dormant project.
+Can someone point me to any user guide / documentation that captures some
+pointers on how can we run and use the application?
+
+Thanks much
+Priyanka
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/transportpce-dev/attachments/20180104/49a92efc/attachment.html>
+
+From guillaume.lambert at orange.com  Fri Jan 12 14:32:40 2018
+From: guillaume.lambert at orange.com (guillaume.lambert at orange.com)
+Date: Fri, 12 Jan 2018 14:32:40 +0000
+Subject: [Transportpce-dev] Transport PCE - Current status and user guide
+In-Reply-To: <CAFJMJikT9TxjHL1U_bpra4=RkzkqeD9=Uc=ew_pWephBoa3K-Q@mail.gmail.com>
+References: <CAFJMJikT9TxjHL1U_bpra4=RkzkqeD9=Uc=ew_pWephBoa3K-Q@mail.gmail.com>
+Message-ID: <18705_1515767561_5A58C709_18705_10_1_46686B0129806F428FFEAA5160BB0B2534052950@OPEXCLILM42.corporate.adroot.infra.ftgroup>
+
+Hello
+
+Transport PCE is not a dormant project even if there is very few messages on this mailing-list.
+Most contributors exchanges are done directly between them.
+
+We do not participate the release process yet, so there is no official documentation.
+You can refer to the wiki or the gerrit repository, preferably the nitrogen branch at this moment.
+The master branch currently compiles but there is a runtime problem due to some dependencies with other projects.
+
+Just to be clear, transport PCE is not a generic PCE but a controller for OpenROADM devices that operates at the transport layer.
+
+Hope this helps
+
+Best regards
+Guillaume
+
+From: transportpce-dev-bounces at lists.opendaylight.org [mailto:transportpce-dev-bounces at lists.opendaylight.org] On Behalf Of priyanka chopra
+Sent: jeudi 4 janvier 2018 07:38
+To: transportpce-dev at lists.opendaylight.org
+Subject: [Transportpce-dev] Transport PCE - Current status and user guide
+
+Hi Folks,
+
+I came across this application that serves as an external PCE, but not sure if it has become a dormant project.
+Can someone point me to any user guide / documentation that captures some pointers on how can we run and use the application?
+
+Thanks much
+Priyanka
+
+_________________________________________________________________________________________________________________________
+
+Ce message et ses pieces jointes peuvent contenir des informations confidentielles ou privilegiees et ne doivent donc
+pas etre diffuses, exploites ou copies sans autorisation. Si vous avez recu ce message par erreur, veuillez le signaler
+a l'expediteur et le detruire ainsi que les pieces jointes. Les messages electroniques etant susceptibles d'alteration,
+Orange decline toute responsabilite si ce message a ete altere, deforme ou falsifie. Merci.
+
+This message and its attachments may contain confidential or privileged information that may be protected by law;
+they should not be distributed, used or copied without authorisation.
+If you have received this email in error, please notify the sender and delete this message and its attachments.
+As emails may be altered, Orange is not liable for messages that have been modified, changed or falsified.
+Thank you.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://lists.opendaylight.org/pipermail/transportpce-dev/attachments/20180112/c793f78a/attachment.html>
+
