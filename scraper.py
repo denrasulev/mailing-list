@@ -27,14 +27,14 @@ def is_good_response(resp):
     Returns true if the response seems to be HTML, false otherwise
     """
     content_type = resp.headers['Content-Type'].lower()
-    return (resp.status_code == 200 
-            and content_type is not None 
-            and content_type.find('html') > -1)
+    return (resp.status_code == 200 and
+            content_type is not None and
+            content_type.find('html') > -1)
 
 
 def log_error(e):
     """
-    It is always a good idea to log errors. 
+    It is always a good idea to log errors.
     This function just prints them, but you can
     make it do anything.
     """
@@ -62,14 +62,13 @@ def get_names():
     raise Exception('Error retrieving contents at {}'.format(url))
 
 
-
 url = 'https://www.indeed.com/q-SDN-jobs.html'
 raw_html = simple_get(url)
 
 html = BeautifulSoup(raw_html, 'html.parser')
 for each in html.select('a.turnstileLink'):
-	if 'sdn' in each.text.lower():
-		print(each.text)
+    if 'sdn' in each.text.lower():
+        print(each.text)
 
 
 if __name__ == '__main__':

@@ -1,6 +1,5 @@
 import re
 import time
-import random
 import os.path
 import requests
 import datetime
@@ -19,7 +18,7 @@ def get_lists_names(url):
     # init list for names of mailing lists
     mailing_lists = []
 
-    # mailing list names are in links with following format:
+    # mailing list names are in links with the following format:
     # <a href="listinfo/aaa-dev"><strong>aaa-dev</strong></a>
     # so we will get all links containing key word 'listinfo'
     for row in soup.find_all('a', href=re.compile("listinfo")):
@@ -35,44 +34,78 @@ def get_lists_names(url):
     return mailing_lists
 
 
-def days_last_modified(file):
-    """Get number of days when file was last modified"""
-    today    = datetime.datetime.today()
-    mod_date = datetime.datetime.fromtimestamp(os.path.getmtime(file))
-    duration = today - mod_date
-    return duration.days
+def get_files_names(url, ml_name):
+    """Parse archived file names from specific mailing list"""
 
+    # get requested url
+    ml_page = requests.get((url + ml_name))
 
-lists_index_page = 'https://lists.opendaylight.org/mailman/listinfo'
-
-# if lists index file does not exist then create it
-if not os.path.exists('data/lists_index.txt'):
-    lists_index = get_lists_names(lists_index_page)
-
-# if lists index file is older than one month then update it
-if days_last_modified('data/lists_index.txt') > 30:
-    lists_index = get_lists_names(lists_index_page)
-
-# save lists index file to disk
-with open('data/lists_index.txt', 'w') as f:
-    f.write('\n'.join(lists_index))
-
-
-# get texts for every list
-base = 'https://lists.opendaylight.org/pipermail/'
-
-for i in range(0, len(lists_index)):
-    ml_index_page = base + lists_index[i]
-    ml_page = requests.get(ml_index_page)
+    # parse html content
     ml_soup = BeautifulSoup(ml_page.content, 'html.parser')
 
+    # init list for files in mailing list
     ml_files = []
+
+    # mailing list files are in links with the following format:
+    # <a href="2018-March.txt.gz">[ Gzip'd Text 3 KB ]</a>
+    # so we will get all links containing key word '.txt'
     for row in ml_soup.find_all('a', href=re.compile(".txt")):
         ml_files.append(row.get('href'))
 
-    # save them to disk
-    name = 'data/indexes/files_in_' + lists_index[i] + '.txt'
-    with open(name, 'w') as f:
-        f.write('\n'.join(ml_files))
+    # return list of files in mailing list
+    return ml_files
 
-    time.sleep(random.randrange(5, 15))
+
+def days_last_modified(file):
+    """Return number of days since file was last modified"""
+
+    # get today
+    today    = datetime.datetime.today()
+
+    # get time when file was last modified
+    mod_date = datetime.datetime.fromtimestamp(os.path.getmtime(file))
+
+    # find difference
+    duration = today - mod_date
+
+    # return number of days
+    return duration.days
+
+
+# start
+start_time = time.time()
+
+lists_index_page_url = 'https://lists.opendaylight.org/mailman/listinfo'
+files_pages_base_url = 'https://lists.opendaylight.org/pipermail/'
+update_interval      = 30  # in days
+
+# if lists index file does not exist then create it
+if not os.path.exists('data/lists_index.txt'):
+    lists_index = get_lists_names(lists_index_page_url)
+
+# if lists index file is older than one month then update it
+if days_last_modified('data/lists_index.txt') > 30:
+    lists_index = get_lists_names(lists_index_page_url)
+
+# and save lists index file to disk
+with open('data/lists_index.txt', 'w') as f:
+    f.write('\n'.join(lists_index))
+
+# get list of archived text files for every mailing list
+for i in range(len(lists_index)):
+
+    # construct name for individual list of files for every mailing list
+    name = 'data/indexes/files_in_' + lists_index[i] + '.txt'
+
+    # if this list of files does not exist or it is older than required:
+    if not os.path.exists(name) or days_last_modified(name) > update_interval:
+
+        # get or update it
+        ml_files = get_files_names(files_pages_base_url, lists_index[i])
+
+        # and save it to disk
+        with open(name, 'w') as f:
+            f.write('\n'.join(ml_files))
+
+# inform user on how log did it take
+print(f"Done in {(time.time() - start_time)} seconds.")
