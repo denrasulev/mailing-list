@@ -1,37 +1,68 @@
 import re
 import time
 import random
+import os.path
 import requests
+import datetime
 from bs4 import BeautifulSoup
 
-# TODO: if no lists.txt or size is 0, get all mailing lists names
-# TODO: if lists.txt is older than one month - refresh list names
 
-# get list of all mailing lists in opendaylight project
+def get_lists_names(url):
+    """Parse mailing lists names from URL"""
+
+    # get requested url
+    page = requests.get(url)
+
+    # parse html content
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    # init list for names of mailing lists
+    mailing_lists = []
+
+    # mailing list names are in links with following format:
+    # <a href="listinfo/aaa-dev"><strong>aaa-dev</strong></a>
+    # so we will get all links containing key word 'listinfo'
+    for row in soup.find_all('a', href=re.compile("listinfo")):
+
+        # split acquired string by symbol '/' and return only last part
+        text = row.get('href').partition('/')[2]
+
+        # check that it's not empty and then add it to our list of lists
+        if len(text) > 0:
+            mailing_lists.append(text)
+
+    # return list of mailing lists names
+    return mailing_lists
+
+
+def days_last_modified(file):
+    """Get number of days when file was last modified"""
+    today    = datetime.datetime.today()
+    mod_date = datetime.datetime.fromtimestamp(os.path.getmtime(file))
+    duration = today - mod_date
+    return duration.days
+
+
 lists_index_page = 'https://lists.opendaylight.org/mailman/listinfo'
 
-# get list of all mailing lists available
-page = requests.get(lists_index_page)
+# if lists index file does not exist then create it
+if not os.path.exists('data/lists_index.txt'):
+    lists_index = get_lists_names(lists_index_page)
 
-# parse page content
-soup = BeautifulSoup(page.content, 'html.parser')
+# if lists index file is older than one month then update it
+if days_last_modified('data/lists_index.txt') > 30:
+    lists_index = get_lists_names(lists_index_page)
 
-# get only names of mailing lists
-all_lists = []
-for row in soup.find_all('a'):
-    text = row.get('href').partition('/')[2]
-    if len(text) > 0:
-        all_lists.append(text)
+# save lists index file to disk
+with open('data/lists_index.txt', 'w') as f:
+    f.write('\n'.join(lists_index))
 
-# save them to disk
-with open('lists.txt', 'w') as f:
-    f.write('\n'.join(all_lists))
 
 # get texts for every list
 base = 'https://lists.opendaylight.org/pipermail/'
 
-for i in range(0, len(all_lists)):
-    ml_index_page = base + all_lists[i]
+for i in range(0, len(lists_index)):
+    ml_index_page = base + lists_index[i]
     ml_page = requests.get(ml_index_page)
     ml_soup = BeautifulSoup(ml_page.content, 'html.parser')
 
@@ -40,12 +71,8 @@ for i in range(0, len(all_lists)):
         ml_files.append(row.get('href'))
 
     # save them to disk
-    name = 'files_for_' + all_lists[i] + '.txt'
+    name = 'data/indexes/files_in_' + lists_index[i] + '.txt'
     with open(name, 'w') as f:
         f.write('\n'.join(ml_files))
 
-    time.sleep(random.randrange(2, 5))
-
-# scrape list page and get month-year for latest archive on page
-# check if we have all files in some cache directory
-# download all missing files
+    time.sleep(random.randrange(5, 15))
