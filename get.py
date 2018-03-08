@@ -151,4 +151,4 @@ f.close()
 diff = time.time() - start_time
 m, s = divmod(diff, 60)
 h, m = divmod(m, 60)
-print("Done in %02d:%02d:%02d." % (h, m, s))
+print(f'Done in {int(h):02d}h {int(m):02d}m {s:05.2f}s.')
