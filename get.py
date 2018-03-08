@@ -3,22 +3,26 @@ import time
 import os.path
 import requests
 import datetime
+import urllib.request
 from bs4 import BeautifulSoup
 
 
 def get_lists_names(url):
-    """Parse mailing lists names from URL"""
+    """Parse mailing lists names from provided URL."""
 
     # get requested url
-    page = requests.get(url)
+    try:
+        r = requests.get(url, timeout=3)
+    except requests.exceptions.RequestException as e:
+        print(e)
 
     # parse html content
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = BeautifulSoup(r.content, 'html.parser')
 
-    # init list for names of mailing lists
+    # init list for the names of mailing lists
     mailing_lists = []
 
-    # mailing list names are in links with the following format:
+    # mailing list names have the following format in links:
     # <a href="listinfo/aaa-dev"><strong>aaa-dev</strong></a>
     # so we will get all links containing key word 'listinfo'
     for row in soup.find_all('a', href=re.compile("listinfo")):
@@ -26,7 +30,7 @@ def get_lists_names(url):
         # split acquired string by symbol '/' and return only last part
         text = row.get('href').partition('/')[2]
 
-        # check that it's not empty and then add it to our list of lists
+        # check it's not empty and append it to the list of lists
         if len(text) > 0:
             mailing_lists.append(text)
 
@@ -34,30 +38,33 @@ def get_lists_names(url):
     return mailing_lists
 
 
-def get_files_names(url, ml_name):
-    """Parse archived file names from specific mailing list"""
+def get_files_names(url, list_name):
+    """Parse archived file names from a specific mailing list."""
 
     # get requested url
-    ml_page = requests.get((url + ml_name))
+    try:
+        r = requests.get((url + list_name))
+    except requests.exceptions.RequestException as e:
+        print(e)
 
     # parse html content
-    ml_soup = BeautifulSoup(ml_page.content, 'html.parser')
+    soup = BeautifulSoup(r.content, 'html.parser')
 
-    # init list for files in mailing list
-    ml_files = []
+    # init list for files in a mailing list
+    mlist_files = []
 
-    # mailing list files are in links with the following format:
+    # mailing list file names have the following format in links:
     # <a href="2018-March.txt.gz">[ Gzip'd Text 3 KB ]</a>
     # so we will get all links containing key word '.txt'
-    for row in ml_soup.find_all('a', href=re.compile(".txt")):
-        ml_files.append(row.get('href'))
+    for row in soup.find_all('a', href=re.compile(".txt")):
+        mlist_files.append(row.get('href'))
 
     # return list of files in mailing list
-    return ml_files
+    return mlist_files
 
 
 def days_last_modified(file):
-    """Return number of days since file was last modified"""
+    """Return number of days since file was last modified."""
 
     # get today
     today    = datetime.datetime.today()
@@ -76,9 +83,10 @@ def days_last_modified(file):
 start_time = time.time()
 
 # set base parameters
-lists_index_page_url = 'https://lists.opendaylight.org/mailman/listinfo'
-files_pages_base_url = 'https://lists.opendaylight.org/pipermail/'
+lists_index_url = 'https://lists.opendaylight.org/mailman/listinfo'
+lists_files_url = 'https://lists.opendaylight.org/pipermail/'
 lindex = 'data/lists_index.txt'
+ftexts = 'data/texts/'
 period = 30  # in days
 
 # if lists index file doesn't exist or size is 0 or is older than period
@@ -86,35 +94,61 @@ if not os.path.exists(lindex) or os.path.getsize(lindex) == 0 or \
    days_last_modified(lindex) > period:
 
     # then create it or update it
-    lists_index = get_lists_names(lists_index_page_url)
+    lists_index = get_lists_names(lists_index_url)
 
     # and save it to disk
     with open(lindex, 'w') as f:
         f.write('\n'.join(lists_index))
 
-# read mailing lists index file
+# if lists index file is ok (exists, size > 0, fresh) then read it
 f = open(lindex, 'r')
 lists_index = f.readlines()
 lists_index = [s.rstrip() for s in lists_index]
 
-# for every mailing list get list of archived text files in it
+# for every mailing list name get list of archived text files in it
 for i in range(len(lists_index)):
 
     # construct name for individual list of files for every mailing list
     name = 'data/indexes/files_in_' + lists_index[i] + '.txt'
 
-    # if this list of files does not exist or it is older than required:
+    # if this list of files does not exist or it is older than period:
     if not os.path.exists(name) or days_last_modified(name) > period:
 
         # get or update it
-        ml_files = get_files_names(files_pages_base_url, lists_index[i])
+        mlist_files = get_files_names(lists_files_url, lists_index[i])
 
         # and save it to disk
         with open(name, 'w') as f:
-            f.write('\n'.join(ml_files))
+            f.write('\n'.join(mlist_files))
+
+    # if list of files in a mailing list is ok then read it
+    f = open(name, 'r')
+    mlist_files = f.readlines()
+    mlist_files = [s.rstrip() for s in mlist_files]
+
+    # construct directory name for a certain mailing list
+    mlist_directory = ftexts + lists_index[i] + '/'
+
+    # if directory does not exist, then create it
+    if not os.path.exists(os.path.dirname(mlist_directory)):
+        os.makedirs(os.path.dirname(mlist_directory))
+
+    # for every file name in this list
+    for j in range(len(mlist_files)):
+
+        # construct file path
+        file_name = mlist_directory + mlist_files[j]
+
+        # if this file does not exist already, then download and save it
+        if not os.path.exists(file_name):
+            url = lists_files_url + lists_index[i] + '/' + mlist_files[j]
+            urllib.request.urlretrieve(url, file_name)
 
 # close index file
 f.close()
 
-# inform user on how long did it take
-print(f"Done in {(time.time() - start_time):1.2f} second(s).")
+# show how long did it take
+diff = time.time() - start_time
+m, s = divmod(diff, 60)
+h, m = divmod(m, 60)
+print("Done in %02d:%02d:%02d." % (h, m, s))
