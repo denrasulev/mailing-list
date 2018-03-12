@@ -4,7 +4,6 @@
 # Bratislava, Slovakia
 
 import re
-# import pdb
 import gzip
 import time
 import os.path
@@ -87,7 +86,22 @@ def days_last_modified(file_name):
     return duration.days
 
 
-def parse_txt(file_name):
+def clean(text):
+    """Clean text from anything but words"""
+    rx_clean = re.compile('\W+')
+
+    cleaned = []
+    for each in text:
+        each = rx_clean.sub(' ', each).strip()
+        if len(t) > 0:
+            cleaned.append(each)
+        else:
+            continue
+
+    return cleaned
+
+
+def parse(file_name):
 
     data = []
 
@@ -95,8 +109,6 @@ def parse_txt(file_name):
     date = ''
     subj = ''
     repl = ''
-    m_id = ''
-    text = ''
 
     rx_mark = re.compile(r'From ')
     rx_from = re.compile(r'From: (.*)')
@@ -105,7 +117,10 @@ def parse_txt(file_name):
     rx_repl = re.compile(r'In-Reply-To: (.*)')
     rx_m_id = re.compile(r'Message-ID: (.*)')
 
-    with open(file_name, 'r', encoding='utf-8') as f:
+    ext = os.path.splitext(file_name)[1]
+
+    with (gzip.open if ext == ".gz" else open)(file_name, 'rt',
+                                               encoding='utf-8') as f:
 
         line = next(f)
 
@@ -133,69 +148,8 @@ def parse_txt(file_name):
                         break
                     text.append(line)
 
-                message = {
-                    'From': sndr,
-                    'Date': date,
-                    'Subj': subj,
-                    'Rply': repl,
-                    'M_id': m_id,
-                    'Text': text
-                }
-
-                data.append(message)
-
-            line = next(f, None)
-
-        data = pd.DataFrame(data)
-
-    return data
-
-
-def parse_gz(file_name):
-
-    data = []
-
-    sndr = ''
-    date = ''
-    subj = ''
-    repl = ''
-    m_id = ''
-    text = ''
-
-    rx_mark = re.compile(r'From ')
-    rx_from = re.compile(r'From: (.*)')
-    rx_date = re.compile(r'Date: (.*)')
-    rx_subj = re.compile(r'Subject: (.*)')
-    rx_repl = re.compile(r'In-Reply-To: (.*)')
-    rx_m_id = re.compile(r'Message-ID: (.*)')
-
-    with gzip.open(file_name, 'rt', encoding='utf-8') as f:
-
-        line = next(f)
-
-        while line:
-
-            if rx_from.match(line):
-                sndr = rx_from.match(line).group(1)
-
-            if rx_date.match(line):
-                date = rx_date.match(line).group(1)
-
-            if rx_subj.match(line):
-                subj = rx_subj.match(line).group(1)
-
-            if rx_repl.match(line):
-                repl = rx_repl.match(line).group(1)
-
-            if rx_m_id.match(line):
-                m_id = rx_m_id.match(line).group(1)
-
-                text = []
-                while not rx_mark.match(line):
-                    line = next(f, None)
-                    if line is None:
-                        break
-                    text.append(line)
+                # basic text cleaning
+                text = clean(text)
 
                 message = {
                     'From': sndr,
@@ -209,6 +163,8 @@ def parse_gz(file_name):
                 data.append(message)
 
             line = next(f, None)
+
+        f.close()
 
         data = pd.DataFrame(data)
 
@@ -296,21 +252,17 @@ all_mails = pd.DataFrame(columns=['Date', 'From', 'M_id',
 # parse every file in the directories
 for root, dirs, files in os.walk('data/texts'):
     for file in files:
-        print('Processing file: ', file)
-        # pdb.set_trace()
+        print('Processing file:', os.path.join(root, file))
         ext = os.path.splitext(file)[1]
-        if ext == '.gz':
-            t = parse_gz(os.path.join(root, file))
-            all_mails = all_mails.append(t)
-        elif ext == '.txt':
-            t = parse_txt(os.path.join(root, file))
+        if ext == '.gz' or ext == '.txt':
+            t = parse(os.path.join(root, file))
             all_mails = all_mails.append(t)
         else:
             continue
 
-print('Done... Saving to file.')
+print('All files processed. Saving result to file...')
 
-# save to file
+# save to file(s)
 all_mails.to_csv('mails.tsv', sep='\t', encoding='utf-8')
 
 
@@ -318,4 +270,4 @@ all_mails.to_csv('mails.tsv', sep='\t', encoding='utf-8')
 diff = time.time() - start_time
 m, s = divmod(diff, 60)
 h, m = divmod(m, 60)
-print(f'Done in {int(h):02d}h {int(m):02d}m {s:05.2f}s.')
+print(f'All tasks completed in {int(h):02d}h {int(m):02d}m {s:05.2f}s.')
