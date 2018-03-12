@@ -1,5 +1,6 @@
-# Script to scrape, parse and save all information from e-mails in the
-# OpenDaylight mailing lists: https://lists.opendaylight.org
+# OpenDaylight mailing lists processor.
+# Scrapes, parses and analyzes info.
+# https://lists.opendaylight.org
 # (c) 2018 Denis Rasulev
 # Bratislava, Slovakia
 
@@ -16,8 +17,6 @@ from bs4 import BeautifulSoup
 
 def get_lists_names(url):
     """Parse mailing lists names from provided URL."""
-
-    # get requested url
     try:
         r = requests.get(url, timeout=3)
     except requests.exceptions.RequestException as e:
@@ -26,18 +25,18 @@ def get_lists_names(url):
     # parse html content
     soup = BeautifulSoup(r.content, 'html.parser')
 
-    # init list for the names of mailing lists
+    # list for the names of mailing lists
     mailing_lists = []
 
-    # mailing list names have the following format in links:
+    # mailing list names have the following format in html:
     # <a href="listinfo/aaa-dev"><strong>aaa-dev</strong></a>
     # so we will get all links containing key word 'listinfo'
     for row in soup.find_all('a', href=re.compile("listinfo")):
 
-        # split acquired string by symbol '/' and return only last part
+        # split acquired string by symbol '/' and get last part (name)
         text = row.get('href').partition('/')[2]
 
-        # check it's not empty and append it to the list of lists
+        # check that it's not empty and append it to the list of lists
         if len(text) > 0:
             mailing_lists.append(text)
 
@@ -47,8 +46,6 @@ def get_lists_names(url):
 
 def get_files_names(url, list_name):
     """Parse archived file names from a specific mailing list."""
-
-    # get requested url
     try:
         r = requests.get((url + list_name))
     except requests.exceptions.RequestException as e:
@@ -57,10 +54,10 @@ def get_files_names(url, list_name):
     # parse html content
     soup = BeautifulSoup(r.content, 'html.parser')
 
-    # init list for files in a mailing list
+    # list for files in a mailing list
     mlist_files = []
 
-    # mailing list file names have the following format in links:
+    # mailing list file names have the following format:
     # <a href="2018-March.txt.gz">[ Gzip'd Text 3 KB ]</a>
     # so we will get all links containing key word '.txt'
     for row in soup.find_all('a', href=re.compile(".txt")):
@@ -72,9 +69,7 @@ def get_files_names(url, list_name):
 
 def days_last_modified(file_name):
     """Return number of days since file was last modified."""
-
-    # get today
-    today    = datetime.datetime.today()
+    today = datetime.datetime.today()
 
     # get time when file was last modified
     mod_date = datetime.datetime.fromtimestamp(os.path.getmtime(file_name))
@@ -88,21 +83,30 @@ def days_last_modified(file_name):
 
 def clean(text):
     """Clean text from anything but words"""
-    rx_clean = re.compile('\W+')
+
+    # regex for any non-word character
+    rx_clean = re.compile('\W+_*')
 
     cleaned = []
+
+    # for every element in text
     for each in text:
+
+        # replace non-word char with space and strip \n\r from the end
         each = rx_clean.sub(' ', each).strip()
-        if len(t) > 0:
+
+        # if result is not empty, i.e. '' then append it to list
+        if len(each) > 0:
             cleaned.append(each)
         else:
             continue
 
+    # return list of words only
     return cleaned
 
 
-def parse(file_name):
-
+def parse(file_name, list_name):
+    """Parse unstructured text information"""
     data = []
 
     sndr = ''
@@ -110,6 +114,7 @@ def parse(file_name):
     subj = ''
     repl = ''
 
+    # regexes to search for required elements
     rx_mark = re.compile(r'From ')
     rx_from = re.compile(r'From: (.*)')
     rx_date = re.compile(r'Date: (.*)')
@@ -117,8 +122,10 @@ def parse(file_name):
     rx_repl = re.compile(r'In-Reply-To: (.*)')
     rx_m_id = re.compile(r'Message-ID: (.*)')
 
+    # get file extension
     ext = os.path.splitext(file_name)[1]
 
+    # use appropriate method, gzip.open for .gz files, open for .txt
     with (gzip.open if ext == ".gz" else open)(file_name, 'rt',
                                                encoding='utf-8') as f:
 
@@ -148,10 +155,11 @@ def parse(file_name):
                         break
                     text.append(line)
 
-                # basic text cleaning
+                # text cleaning
                 text = clean(text)
 
                 message = {
+                    'List': list_name,
                     'From': sndr,
                     'Date': date,
                     'Subj': subj,
@@ -168,6 +176,7 @@ def parse(file_name):
 
         data = pd.DataFrame(data)
 
+    # return pandas data frame with sctructured information
     return data
 
 
@@ -201,6 +210,7 @@ lists_names = f.readlines()
 lists_names = [s.rstrip() for s in lists_names]
 
 # for every mailing list name get list of archived text files in it
+# TODO: refactor function - for list_name in lists_names:
 for i in range(len(lists_names)):
 
     # construct name for individual list of files in every mailing list
@@ -229,6 +239,7 @@ for i in range(len(lists_names)):
         os.makedirs(os.path.dirname(mlist_directory))
 
     # for every file name in this list
+    # TODO: refactor function - for mlist_file in mlist_files:
     for j in range(len(mlist_files)):
 
         # construct file path
@@ -246,17 +257,23 @@ f.close()
 print('Start processing all files...')
 
 # init dataframe for all mails
-all_mails = pd.DataFrame(columns=['Date', 'From', 'M_id',
+all_mails = pd.DataFrame(columns=['List', 'Date', 'From', 'M_id',
                                   'Rply', 'Subj', 'Text'])
 
 # parse every file in the directories
 for root, dirs, files in os.walk('data/texts'):
     for file in files:
         print('Processing file:', os.path.join(root, file))
+
+        # get file extension to process only required files
         ext = os.path.splitext(file)[1]
+
+        # get list name to pass and add to structured list
+        list_name = root.split('/')[2]
+
         if ext == '.gz' or ext == '.txt':
-            t = parse(os.path.join(root, file))
-            all_mails = all_mails.append(t)
+            message = parse(os.path.join(root, file), list_name)
+            all_mails = all_mails.append(message)
         else:
             continue
 
