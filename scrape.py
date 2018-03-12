@@ -9,8 +9,6 @@ from bs4 import BeautifulSoup
 
 def get_lists_names(url):
     """Parse mailing lists names from provided URL."""
-
-    # get requested url
     try:
         r = requests.get(url, timeout=3)
     except requests.exceptions.RequestException as e:
@@ -19,18 +17,18 @@ def get_lists_names(url):
     # parse html content
     soup = BeautifulSoup(r.content, 'html.parser')
 
-    # init list for the names of mailing lists
+    # list for the names of mailing lists
     mailing_lists = []
 
-    # mailing list names have the following format in links:
+    # mailing list names have the following format in html:
     # <a href="listinfo/aaa-dev"><strong>aaa-dev</strong></a>
     # so we will get all links containing key word 'listinfo'
     for row in soup.find_all('a', href=re.compile("listinfo")):
 
-        # split acquired string by symbol '/' and return only last part
+        # split acquired string by symbol '/' and get last part (name)
         text = row.get('href').partition('/')[2]
 
-        # check it's not empty and append it to the list of lists
+        # check that it's not empty and append it to the list of lists
         if len(text) > 0:
             mailing_lists.append(text)
 
@@ -40,8 +38,6 @@ def get_lists_names(url):
 
 def get_files_names(url, list_name):
     """Parse archived file names from a specific mailing list."""
-
-    # get requested url
     try:
         r = requests.get((url + list_name))
     except requests.exceptions.RequestException as e:
@@ -50,10 +46,10 @@ def get_files_names(url, list_name):
     # parse html content
     soup = BeautifulSoup(r.content, 'html.parser')
 
-    # init list for files in a mailing list
+    # list for files in a mailing list
     mlist_files = []
 
-    # mailing list file names have the following format in links:
+    # mailing list file names have the following format:
     # <a href="2018-March.txt.gz">[ Gzip'd Text 3 KB ]</a>
     # so we will get all links containing key word '.txt'
     for row in soup.find_all('a', href=re.compile(".txt")):
@@ -63,14 +59,12 @@ def get_files_names(url, list_name):
     return mlist_files
 
 
-def days_last_modified(file):
+def days_last_modified(file_name):
     """Return number of days since file was last modified."""
-
-    # get today
-    today    = datetime.datetime.today()
+    today = datetime.datetime.today()
 
     # get time when file was last modified
-    mod_date = datetime.datetime.fromtimestamp(os.path.getmtime(file))
+    mod_date = datetime.datetime.fromtimestamp(os.path.getmtime(file_name))
 
     # find difference
     duration = today - mod_date
@@ -82,12 +76,14 @@ def days_last_modified(file):
 # start
 start_time = time.time()
 
+
 # set base parameters
 lists_names_url = 'https://lists.opendaylight.org/mailman/listinfo'
 lists_files_url = 'https://lists.opendaylight.org/pipermail/'
 lindex = 'data/lists_names.txt'
 f_path = 'data/texts/'
 period = 30  # in days
+
 
 # if lists index file doesn't exist or size is 0 or is older than period
 if not os.path.exists(lindex) or os.path.getsize(lindex) == 0 or \
@@ -100,12 +96,14 @@ if not os.path.exists(lindex) or os.path.getsize(lindex) == 0 or \
     with open(lindex, 'w') as f:
         f.write('\n'.join(lists_names))
 
+
 # if lists index file is ok (exists, size > 0, fresh) then read it
 f = open(lindex, 'r')
 lists_names = f.readlines()
 lists_names = [s.rstrip() for s in lists_names]
 
 # for every mailing list name get list of archived text files in it
+# TODO: refactor function - for list_name in lists_names:
 for i in range(len(lists_names)):
 
     # construct name for individual list of files in every mailing list
@@ -134,6 +132,7 @@ for i in range(len(lists_names)):
         os.makedirs(os.path.dirname(mlist_directory))
 
     # for every file name in this list
+    # TODO: refactor function - for mlist_file in mlist_files:
     for j in range(len(mlist_files)):
 
         # construct file path
@@ -147,8 +146,9 @@ for i in range(len(lists_names)):
 # close index file
 f.close()
 
+
 # show how long did it take
 diff = time.time() - start_time
 m, s = divmod(diff, 60)
 h, m = divmod(m, 60)
-print(f'Done in {int(h):02d}h {int(m):02d}m {s:05.2f}s.')
+print(f'Scraped in {int(h):02d}h {int(m):02d}m {s:05.2f}s.')
