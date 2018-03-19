@@ -114,10 +114,11 @@ all_mails = pd.DataFrame(columns=['List', 'Date', 'From', 'M_id',
                                   'Rply', 'Subj', 'Text'])
 
 
-# parse every file in the directories
+# parse every file in data directories
 for root, dirs, files in os.walk('data/texts'):
     for file in files:
         print('Processing file:', os.path.join(root, file))
+        # TODO: add logging
 
         # get file extension to process only required files
         ext = os.path.splitext(file)[1]

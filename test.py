@@ -256,7 +256,7 @@ f.close()
 
 print('Start processing all files...')
 
-# init dataframe for all mails
+# init data frame for all mails
 all_mails = pd.DataFrame(columns=['List', 'Date', 'From', 'M_id',
                                   'Rply', 'Subj', 'Text'])
 
@@ -268,12 +268,13 @@ for root, dirs, files in os.walk('data/texts'):
         # get file extension to process only required files
         ext = os.path.splitext(file)[1]
 
-        # get list name to pass and add to structured list
-        list_name = root.split('/')[2]
-
         if ext == '.gz' or ext == '.txt':
+            # get list name to pass and add to structured list
+            list_name = root.split('/')[2]
+
             message = parse(os.path.join(root, file), list_name)
             all_mails = all_mails.append(message)
+
         else:
             continue
 
