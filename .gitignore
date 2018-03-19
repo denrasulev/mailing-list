@@ -107,3 +107,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+.idea/lists.iml
+.idea/dictionaries
+*.idea
