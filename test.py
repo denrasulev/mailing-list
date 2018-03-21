@@ -86,7 +86,7 @@ def clean(text):
     """Clean text from anything but words"""
 
     # regex for any non-word character
-    rx_clean = re.compile('\W+_*')
+    rx_clean = re.compile(r'\W+_*')
 
     cleaned = []
 
@@ -104,6 +104,7 @@ def clean(text):
 
     # return list of words only
     return cleaned
+
 
 # TODO - parse must only do parsing!
 # TODO - no walking by directories
@@ -218,17 +219,16 @@ lists_names = f.readlines()
 lists_names = [s.rstrip() for s in lists_names]
 
 # for every mailing list name get list of archived text files in it
-# TODO: refactor function - for list_name in lists_names:
-for i in range(len(lists_names)):
+for list_name in lists_names:
 
     # construct name for individual list of files in every mailing list
-    name = 'data/indexes/' + lists_names[i] + '.txt'
+    name = 'data/indexes/' + list_name + '.txt'
 
     # if this list of files does not exist or is older than period:
     if not os.path.exists(name) or days_last_modified(name) > period:
 
         # then get it or update it
-        mlist_files = get_files_from_list(lists_files_url, lists_names[i])
+        mlist_files = get_files_from_list(lists_files_url, list_name)
 
         # and save it to disk
         with open(name, 'w') as f:
@@ -240,25 +240,19 @@ for i in range(len(lists_names)):
     mlist_files = [s.rstrip() for s in mlist_files]
 
     # construct directory name for a certain mailing list
-    mlist_directory = f_path + lists_names[i] + '/'
+    mlist_dir = f_path + list_name + '/'
 
     # if directory does not exist, then create it
-    if not os.path.exists(os.path.dirname(mlist_directory)):
-        os.makedirs(os.path.dirname(mlist_directory))
+    if not os.path.exists(os.path.dirname(mlist_dir)):
+        os.makedirs(os.path.dirname(mlist_dir))
 
     # for every file name in this list
-    # TODO: refactor function - for mlist_file in mlist_files:
-    # for j in range(len(mlist_files)):
-    for file_name in mlist_files:
-
-        # construct file path
-        # file_name = mlist_directory + mlist_files[j]
+    for mlist_file in mlist_files:
 
         # if this file does not exist already, then download and save it
-        if not os.path.exists(mlist_directory + file_name):
-            # url = lists_files_url + lists_names[i] + '/' + mlist_files[j]
-            url = lists_files_url + lists_names[i] + '/' + file_name
-            urllib.request.urlretrieve(url, file_name)
+        if not os.path.exists(mlist_dir + mlist_file):
+            url = lists_files_url + list_name + '/' + mlist_file
+            urllib.request.urlretrieve(url, (mlist_dir + mlist_file))
 
 # close index file
 f.close()
