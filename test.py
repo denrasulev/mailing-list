@@ -13,9 +13,10 @@ import datetime
 import pandas as pd
 import urllib.request
 from bs4 import BeautifulSoup
+from elasticsearch import Elasticsearch
 
 
-def get_lists_names(url):
+def get_lists_from_url(url):
     """Parse mailing lists names from provided URL."""
     try:
         r = requests.get(url, timeout=3)
@@ -44,7 +45,7 @@ def get_lists_names(url):
     return mailing_lists
 
 
-def get_files_names(url, list_name):
+def get_files_from_list(url, list_name):
     """Parse archived file names from a specific mailing list."""
     try:
         r = requests.get((url + list_name))
@@ -104,9 +105,12 @@ def clean(text):
     # return list of words only
     return cleaned
 
-
+# TODO - parse must only do parsing!
+# TODO - no walking by directories
+# TODO - no saving to elasticsearch
 def parse(file_name, list_name):
     """Parse unstructured text information"""
+    es = Elasticsearch()
     data = []
 
     sndr = ''
@@ -150,10 +154,10 @@ def parse(file_name, list_name):
 
                 text = []
                 while not rx_mark.match(line):
-                    line = next(f, None)
                     if line is None:
                         break
                     text.append(line)
+                    line = next(f, None)
 
                 # text cleaning
                 text = clean(text)
@@ -167,6 +171,10 @@ def parse(file_name, list_name):
                     'M_id': m_id,
                     'Text': text
                 }
+
+                # TODO - check how to index fields with processing?
+                es.index(index="mails", doc_type='message',
+                         id=m_id, body=message)
 
                 data.append(message)
 
@@ -197,7 +205,7 @@ if not os.path.exists(lindex) or os.path.getsize(lindex) == 0 or \
    days_last_modified(lindex) > period:
 
     # then create it or update it
-    lists_names = get_lists_names(lists_names_url)
+    lists_names = get_lists_from_url(lists_names_url)
 
     # and save it to disk
     with open(lindex, 'w') as f:
@@ -220,7 +228,7 @@ for i in range(len(lists_names)):
     if not os.path.exists(name) or days_last_modified(name) > period:
 
         # then get it or update it
-        mlist_files = get_files_names(lists_files_url, lists_names[i])
+        mlist_files = get_files_from_list(lists_files_url, lists_names[i])
 
         # and save it to disk
         with open(name, 'w') as f:
@@ -240,14 +248,16 @@ for i in range(len(lists_names)):
 
     # for every file name in this list
     # TODO: refactor function - for mlist_file in mlist_files:
-    for j in range(len(mlist_files)):
+    # for j in range(len(mlist_files)):
+    for file_name in mlist_files:
 
         # construct file path
-        file_name = mlist_directory + mlist_files[j]
+        # file_name = mlist_directory + mlist_files[j]
 
         # if this file does not exist already, then download and save it
-        if not os.path.exists(file_name):
-            url = lists_files_url + lists_names[i] + '/' + mlist_files[j]
+        if not os.path.exists(mlist_directory + file_name):
+            # url = lists_files_url + lists_names[i] + '/' + mlist_files[j]
+            url = lists_files_url + lists_names[i] + '/' + file_name
             urllib.request.urlretrieve(url, file_name)
 
 # close index file
@@ -255,6 +265,7 @@ f.close()
 
 
 print('Start processing all files...')
+
 
 # init data frame for all mails
 all_mails = pd.DataFrame(columns=['List', 'Date', 'From', 'M_id',
