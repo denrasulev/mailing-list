@@ -13,7 +13,6 @@ import datetime
 import pandas as pd
 import urllib.request
 from bs4 import BeautifulSoup
-from elasticsearch import Elasticsearch
 
 
 def get_lists_from_url(url):
@@ -45,35 +44,35 @@ def get_lists_from_url(url):
     return mailing_lists
 
 
-def get_files_from_list(url, list_name):
-    """Parse archived file names from a specific mailing list."""
+def get_files_from_list(list_name_with_url):
+    """Parse file names from a specific mailing list."""
     try:
-        r = requests.get((url + list_name))
+        r = requests.get(list_name_with_url)
     except requests.exceptions.RequestException as e:
         print(e)
 
     # parse html content
     soup = BeautifulSoup(r.content, 'html.parser')
 
-    # list for files in a mailing list
-    mlist_files = []
+    # init list for files in mailing list
+    list_files = []
 
-    # mailing list file names have the following format:
+    # mailing list file names are in the following format:
     # <a href="2018-March.txt.gz">[ Gzip'd Text 3 KB ]</a>
     # so we will get all links containing key word '.txt'
     for row in soup.find_all('a', href=re.compile(".txt")):
-        mlist_files.append(row.get('href'))
+        list_files.append(row.get('href'))
 
     # return list of files in mailing list
-    return mlist_files
+    return list_files
 
 
-def days_last_modified(file_name):
+def days_last_modified(f_name):
     """Return number of days since file was last modified."""
     today = datetime.datetime.today()
 
     # get time when file was last modified
-    mod_date = datetime.datetime.fromtimestamp(os.path.getmtime(file_name))
+    mod_date = datetime.datetime.fromtimestamp(os.path.getmtime(f_name))
 
     # find difference
     duration = today - mod_date
@@ -106,12 +105,9 @@ def clean(text):
     return cleaned
 
 
-# TODO - parse must only do parsing!
-# TODO - no walking by directories
-# TODO - no saving to elasticsearch
-def parse(file_name, list_name):
+def parse(fnme, lnme):
     """Parse unstructured text information"""
-    es = Elasticsearch()
+
     data = []
 
     sndr = ''
@@ -119,7 +115,7 @@ def parse(file_name, list_name):
     subj = ''
     repl = ''
 
-    # regexes to search for required elements
+    # regexes to search for required elements in texts
     rx_mark = re.compile(r'From ')
     rx_from = re.compile(r'From: (.*)')
     rx_date = re.compile(r'Date: (.*)')
@@ -128,11 +124,11 @@ def parse(file_name, list_name):
     rx_m_id = re.compile(r'Message-ID: (.*)')
 
     # get file extension
-    ext = os.path.splitext(file_name)[1]
+    fext = os.path.splitext(fnme)[1]
 
     # use appropriate method, gzip.open for .gz files, open for .txt
-    with (gzip.open if ext == ".gz" else open)(file_name, 'rt',
-                                               encoding='utf-8') as f:
+    with (gzip.open if fext == ".gz" else open)(fnme, 'rt',
+                                                encoding='utf-8') as f:
 
         line = next(f)
 
@@ -154,7 +150,7 @@ def parse(file_name, list_name):
                 m_id = rx_m_id.match(line).group(1)
 
                 text = []
-                while not rx_mark.match(line):
+                while not rx_mark.match(str(line)):
                     if line is None:
                         break
                     text.append(line)
@@ -164,7 +160,7 @@ def parse(file_name, list_name):
                 text = clean(text)
 
                 message = {
-                    'List': list_name,
+                    'List': lnme,
                     'From': sndr,
                     'Date': date,
                     'Subj': subj,
@@ -173,19 +169,15 @@ def parse(file_name, list_name):
                     'Text': text
                 }
 
-                # TODO - check how to index fields with processing?
-                es.index(index="mails", doc_type='message',
-                         id=m_id, body=message)
-
                 data.append(message)
 
             line = next(f, None)
 
         f.close()
 
-        data = pd.DataFrame(data)
+        # data = pd.DataFrame(data)
 
-    # return pandas data frame with sctructured information
+    # return pandas data frame with structured information
     return data
 
 
@@ -228,7 +220,7 @@ for list_name in lists_names:
     if not os.path.exists(name) or days_last_modified(name) > period:
 
         # then get it or update it
-        mlist_files = get_files_from_list(lists_files_url, list_name)
+        mlist_files = get_files_from_list(lists_files_url + list_name)
 
         # and save it to disk
         with open(name, 'w') as f:
@@ -251,8 +243,8 @@ for list_name in lists_names:
 
         # if this file does not exist already, then download and save it
         if not os.path.exists(mlist_dir + mlist_file):
-            url = lists_files_url + list_name + '/' + mlist_file
-            urllib.request.urlretrieve(url, (mlist_dir + mlist_file))
+            file_url = lists_files_url + list_name + '/' + mlist_file
+            urllib.request.urlretrieve(file_url, (mlist_dir + mlist_file))
 
 # close index file
 f.close()
@@ -265,12 +257,13 @@ print('Start processing all files...')
 all_mails = pd.DataFrame(columns=['List', 'Date', 'From', 'M_id',
                                   'Rply', 'Subj', 'Text'])
 
+# TODO: save log of processed files. If file is there, do not reprocess!
 # parse every file in the directories
 for root, dirs, files in os.walk('data/texts'):
     for file in files:
         print('Processing file:', os.path.join(root, file))
 
-        # get file extension to process only required files
+        # get file extension to process only appropriate files
         ext = os.path.splitext(file)[1]
 
         if ext == '.gz' or ext == '.txt':
@@ -288,9 +281,16 @@ print('All files processed. Saving result to file...')
 # save to file(s)
 all_mails.to_csv('mails.tsv', sep='\t', encoding='utf-8')
 
+# save to elasticsearch index
+df_as_json = all_mails.to_json(orient='records', lines=True)
+
 
 # show how long did it take
 diff = time.time() - start_time
 m, s = divmod(diff, 60)
 h, m = divmod(m, 60)
 print(f'All tasks completed in {int(h):02d}h {int(m):02d}m {s:05.2f}s.')
+
+# from elasticsearch import Elasticsearch
+# es = Elasticsearch()
+# es.index(index="mails", doc_type='message', id=m_id, body=message)
