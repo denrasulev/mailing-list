@@ -5,22 +5,25 @@
 # Bratislava, Slovakia
 
 import re
+import os
 import gzip
 import time
-import os.path
 import requests
 import datetime
 import pandas as pd
 import urllib.request
 from bs4 import BeautifulSoup
+from requests import Response
 
 
 def get_lists_from_url(url):
     """Parse mailing lists names from provided URL."""
-    try:
-        r = requests.get(url, timeout=3)
-    except requests.exceptions.RequestException as e:
-        print(e)
+    # try:
+    #     r: Response = requests.get(url, timeout=3)
+    # except requests.exceptions.RequestException as e:
+    #     print(e)
+
+    r: Response = requests.get(url, timeout=3)
 
     # parse html content
     soup = BeautifulSoup(r.content, 'html.parser')
@@ -45,11 +48,14 @@ def get_lists_from_url(url):
 
 
 def get_files_from_list(list_name_with_url):
-    """Parse file names from a specific mailing list."""
-    try:
-        r = requests.get(list_name_with_url)
-    except requests.exceptions.RequestException as e:
-        print(e)
+    # """Parse file names from a specific mailing list."""
+
+    # try:
+    #     r: Response = requests.get(list_name_with_url, timeout=3)
+    # except requests.exceptions.RequestException as e:
+    #     print(e)
+
+    r: Response = requests.get(list_name_with_url, timeout=3)
 
     # parse html content
     soup = BeautifulSoup(r.content, 'html.parser')
@@ -201,13 +207,13 @@ if not os.path.exists(lindex) or os.path.getsize(lindex) == 0 or \
     lists_names = get_lists_from_url(lists_names_url)
 
     # and save it to disk
-    with open(lindex, 'w') as f:
-        f.write('\n'.join(lists_names))
+    with open(lindex, 'w') as f_lindex_out:
+        f_lindex_out.write('\n'.join(lists_names))
 
 
 # if lists index file is ok (exists, size > 0, fresh) then read it
-f = open(lindex, 'r')
-lists_names = f.readlines()
+f_lindex_in = open(lindex, 'r')
+lists_names = f_lindex_in.readlines()
 lists_names = [s.rstrip() for s in lists_names]
 
 # for every mailing list name get list of archived text files in it
@@ -223,12 +229,12 @@ for list_name in lists_names:
         mlist_files = get_files_from_list(lists_files_url + list_name)
 
         # and save it to disk
-        with open(name, 'w') as f:
-            f.write('\n'.join(mlist_files))
+        with open(name, 'w') as f_out:
+            f_out.write('\n'.join(mlist_files))
 
     # if list of files in a mailing list is ok then read it
-    f = open(name, 'r')
-    mlist_files = f.readlines()
+    f_in = open(name, 'r')
+    mlist_files = f_in.readlines()
     mlist_files = [s.rstrip() for s in mlist_files]
 
     # construct directory name for a certain mailing list
@@ -246,8 +252,10 @@ for list_name in lists_names:
             file_url = lists_files_url + list_name + '/' + mlist_file
             urllib.request.urlretrieve(file_url, (mlist_dir + mlist_file))
 
+    f_in.close()
+
 # close index file
-f.close()
+f_lindex_in.close()
 
 
 print('Start processing all files...')
@@ -270,8 +278,8 @@ for root, dirs, files in os.walk('data/texts'):
             # get list name to pass and add to structured list
             list_name = root.split('/')[2]
 
-            message = parse(os.path.join(root, file), list_name)
-            all_mails = all_mails.append(message)
+            parsed_message = parse(os.path.join(root, file), list_name)
+            all_mails = all_mails.append(parsed_message)
 
         else:
             continue
